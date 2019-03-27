@@ -1,7 +1,7 @@
 {
   "name": "@ticmakers-react-native/onboarding",
   "version": "1.0.1",
-  "description": "TIC Makers - Components base for React Native",
+  "description": "TIC Makers - React Native Onboarding",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
