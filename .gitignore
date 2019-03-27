@@ -1,0 +1,5 @@
+.sonarlint
+node_modules
+package-lock.json
+.vscode
+.expo
