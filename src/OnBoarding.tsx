@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 import { Image } from 'react-native'
 import Onboarding from 'react-native-onboarding-swiper'
 
 // Interfaces
-import { IOnBoardingProps, IOnBoardingState } from './../index'
+import { IOnBoardingProps, IOnBoardingState, PagesType } from './index.d'
 
 // Themes
 // import { styles, theme } from './styles'
@@ -22,7 +22,7 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
 
   /**
    * Method that renders the component
-   * @returns JSX.Element
+   * @returns {Element}
    * @memberof OnBoarding
    */
   public render() {
@@ -41,7 +41,7 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
         onDone={() => onDone && this.onDoneAction()}
         onSkip={() => onSkip && this.onSkipAction()}
         pages={ !defaultPages ? pages : this.defaultPages() }
-        pageIndexCallback={ (pageIndex?: number) => pageIndexCallback && this.pageIndexAction(pageIndex) }
+        pageIndexCallback={ (pageIndex: number) => pageIndexCallback && this.pageIndexAction(pageIndex) }
         showDone={ showDone }
         showNext={ showNext }
         showSkip={ showSkip }
@@ -56,10 +56,10 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
 
   /**
    * Method that define 3 pages by default
-   * @returns Array<{backgroundColor: string, image: JSX.Element|string, title: string, subtitle: string}>
+   * @returns {PagesTypes}
    * @memberof OnBoarding
    */
-  public defaultPages() {
+  public defaultPages(): PagesType {
     return [{
       backgroundColor: '#fff',
       image: <Image source={require('./../../assets/images/circle.png')} />,
@@ -81,7 +81,7 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
   /**
    * Method that fire when the button Done is pressed
    * @private
-   * @returns Function|Void
+   * @returns {void}
    * @memberof OnBoarding
    */
   private onDoneAction() {
@@ -95,7 +95,7 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
   /**
    * Method that fire when the button Skip is pressed
    * @private
-   * @returns Function|Void
+   * @returns {void}
    * @memberof OnBoarding
    */
   private onSkipAction() {
@@ -106,7 +106,14 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
     }
   }
 
-  private pageIndexAction(pageIndex?: number) {
+  /**
+   * Method that fire when a pages change, this returns the current index page
+   * @private
+   * @param {number} [pageIndex]   The current index page
+   * @returns {void}
+   * @memberof OnBoarding
+   */
+  private pageIndexAction(pageIndex: number) {
     const { pageIndexCallback } = this.processProps()
 
     if (typeof pageIndexCallback === 'function') {
@@ -114,6 +121,12 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
     }
   }
 
+  /**
+   * Method that process the props of the component
+   * @private
+   * @returns {IOnBoardingState}
+   * @memberof OnBoarding
+   */
   private processProps(): IOnBoardingState {
     const params: IOnBoardingState = {
       allowFontScaling: (this.props.options && this.props.options.allowFontScaling) || (this.props.allowFontScaling || true),
