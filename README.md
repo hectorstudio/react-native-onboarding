@@ -52,7 +52,10 @@ export default class App extends React.Component {
     ]
 
     return (
-      <OnBoarding pages={ pages } />
+      <OnBoarding
+        pages={ pages }
+        onDone={ () => this.props.navigation.navigate('RouteName') }
+      />
     )
   }
 }
