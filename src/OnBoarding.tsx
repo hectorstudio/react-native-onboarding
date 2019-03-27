@@ -3,7 +3,7 @@ import { Image } from 'react-native'
 import Onboarding from 'react-native-onboarding-swiper'
 
 // Interfaces
-import { IOnBoardingProps, IOnBoardingState, PagesType } from './index.d'
+import { IOnBoardingProps, IOnBoardingState, PagesType } from './../index'
 
 // Themes
 // import { styles, theme } from './styles'
@@ -62,17 +62,17 @@ export default class OnBoarding extends React.Component<IOnBoardingProps, IOnBoa
   public defaultPages(): PagesType {
     return [{
       backgroundColor: '#fff',
-      image: <Image source={require('./../../assets/images/circle.png')} />,
+      image: <Image source={require('./assets/circle.png')} />,
       subtitle: 'Done with React Native Onboarding Swiper',
       title: 'Onboarding',
     }, {
       backgroundColor: '#fe6e58',
-      image: <Image source={require('./../../assets/images/square.png')} />,
+      image: <Image source={require('./assets/square.png')} />,
       subtitle: 'This is the subtitle that sumplements the title.',
       title: 'The Title',
     }, {
       backgroundColor: '#999',
-      image: <Image source={require('./../../assets/images/triangle.png')} />,
+      image: <Image source={require('./assets/triangle.png')} />,
       subtitle: 'Beautiful, isn\'t it?',
       title: 'Triangle',
     }]
