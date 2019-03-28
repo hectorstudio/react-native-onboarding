@@ -15,17 +15,17 @@ class OnBoarding extends react_1.default.Component {
     defaultPages() {
         return [{
                 backgroundColor: '#fff',
-                image: react_1.default.createElement(react_native_1.Image, { source: require('./assets/circle.png') }),
+                image: react_1.default.createElement(react_native_1.Image, { source: require('./../assets/circle.png') }),
                 subtitle: 'Done with React Native Onboarding Swiper',
                 title: 'Onboarding',
             }, {
                 backgroundColor: '#fe6e58',
-                image: react_1.default.createElement(react_native_1.Image, { source: require('./assets/square.png') }),
+                image: react_1.default.createElement(react_native_1.Image, { source: require('./../assets/square.png') }),
                 subtitle: 'This is the subtitle that sumplements the title.',
                 title: 'The Title',
             }, {
                 backgroundColor: '#999',
-                image: react_1.default.createElement(react_native_1.Image, { source: require('./assets/triangle.png') }),
+                image: react_1.default.createElement(react_native_1.Image, { source: require('./../assets/triangle.png') }),
                 subtitle: 'Beautiful, isn\'t it?',
                 title: 'Triangle',
             }];
