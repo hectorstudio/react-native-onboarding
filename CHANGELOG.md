@@ -7,12 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.0.3] - 2019-03-27
+
+### Fixed
+
+- Move assets to path to use in dist OnBoarding
+
+## [1.0.2] - 2019-03-27
+
+### Added
+
+- Image assets for default pages
+
 ## [1.0.1] - 2019-03-27
 
 ### Added
 
 - New folder for typing declarations
-- was added typedoc for generate api documentation
+- Was added typedoc for generate api documentation
 - New file for write the changes log
 
 ### Changed
@@ -20,17 +32,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Moved file index.d.ts to the folder ./src
 - Update repository description
 
-### Fixed
-
--
-
 ### Removed
 
 -
 
 ## [1.0.0] - 2019-03-26
+
 ### Release
 
 
-[1.0.1]: #
+[1.0.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.3/
+[1.0.2]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.2/
+[1.0.1]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.1/
 [1.0.0]: #
