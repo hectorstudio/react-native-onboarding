@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 /**
  * Interface to define the properties of a page
