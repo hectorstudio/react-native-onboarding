@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.0.4] - 2019-03-27
+
+### Fixed
+
+- Fix react import undefined in dist
+
 ## [1.0.3] - 2019-03-27
 
 ### Fixed
@@ -41,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Release
 
 
+[1.0.4]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.4/
 [1.0.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.3/
 [1.0.2]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.2/
 [1.0.1]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.1/
