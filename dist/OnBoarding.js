@@ -1,31 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = require("react");
+const React = require("react");
 const react_native_1 = require("react-native");
 const react_native_onboarding_swiper_1 = require("react-native-onboarding-swiper");
-class OnBoarding extends react_1.default.Component {
+class OnBoarding extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.processProps();
     }
     render() {
         const { allowFontScaling, bottomBarHeight, bottomBarHighlight, containerStyles, controlStatusBar, defaultPages, flatlistProps, imageContainerStyles, nextLabel, onDone, onSkip, pages, pageIndexCallback, showDone, showNext, showSkip, skipLabel, skipToPage, subTitleStyles, titleStyles, transitionAnimationDuration } = this.processProps();
-        return (react_1.default.createElement(react_native_onboarding_swiper_1.default, { allowFontScaling: allowFontScaling, bottomBarHeight: bottomBarHeight, bottomBarHighlight: bottomBarHighlight, containerStyles: containerStyles, controlStatusBar: controlStatusBar, flatlistProps: flatlistProps, imageContainerStyles: imageContainerStyles, nextLabel: nextLabel, onDone: () => onDone && this.onDoneAction(), onSkip: () => onSkip && this.onSkipAction(), pages: !defaultPages ? pages : this.defaultPages(), pageIndexCallback: (pageIndex) => pageIndexCallback && this.pageIndexAction(pageIndex), showDone: showDone, showNext: showNext, showSkip: showSkip, skipLabel: skipLabel, skipToPage: skipToPage, subTitleStyles: subTitleStyles, titleStyles: titleStyles, transitionAnimationDuration: transitionAnimationDuration }));
+        return (React.createElement(react_native_onboarding_swiper_1.default, { allowFontScaling: allowFontScaling, bottomBarHeight: bottomBarHeight, bottomBarHighlight: bottomBarHighlight, containerStyles: containerStyles, controlStatusBar: controlStatusBar, flatlistProps: flatlistProps, imageContainerStyles: imageContainerStyles, nextLabel: nextLabel, onDone: () => onDone && this.onDoneAction(), onSkip: () => onSkip && this.onSkipAction(), pages: !defaultPages ? pages : this.defaultPages(), pageIndexCallback: (pageIndex) => pageIndexCallback && this.pageIndexAction(pageIndex), showDone: showDone, showNext: showNext, showSkip: showSkip, skipLabel: skipLabel, skipToPage: skipToPage, subTitleStyles: subTitleStyles, titleStyles: titleStyles, transitionAnimationDuration: transitionAnimationDuration }));
     }
     defaultPages() {
         return [{
                 backgroundColor: '#fff',
-                image: react_1.default.createElement(react_native_1.Image, { source: require('./../assets/circle.png') }),
+                image: React.createElement(react_native_1.Image, { source: require('./../assets/circle.png') }),
                 subtitle: 'Done with React Native Onboarding Swiper',
                 title: 'Onboarding',
             }, {
                 backgroundColor: '#fe6e58',
-                image: react_1.default.createElement(react_native_1.Image, { source: require('./../assets/square.png') }),
+                image: React.createElement(react_native_1.Image, { source: require('./../assets/square.png') }),
                 subtitle: 'This is the subtitle that sumplements the title.',
                 title: 'The Title',
             }, {
                 backgroundColor: '#999',
-                image: react_1.default.createElement(react_native_1.Image, { source: require('./../assets/triangle.png') }),
+                image: React.createElement(react_native_1.Image, { source: require('./../assets/triangle.png') }),
                 subtitle: 'Beautiful, isn\'t it?',
                 title: 'Triangle',
             }];
