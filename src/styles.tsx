@@ -1,9 +1,6 @@
-// import { StyleSheet } from 'react-native'
-// import { Helpers } from './../../core/Helpers'
+import { StyleSheet } from 'react-native'
 
-// export const theme = Helpers.getTheme()
-
-export const styles = {
-}
+export const styles = StyleSheet.create({
+})
 
 export default styles
