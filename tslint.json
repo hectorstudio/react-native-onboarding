@@ -4,11 +4,12 @@
     "tslint-config-airbnb"
   ],
   "rules": {
+    "align": false,
     "function-name": false,
     "import-name": false,
     "interface-over-type-literal": false,
     "max-line-length": false,
-    "no-any": true,
+    "no-any": false,
     "no-console": false,
     "no-string-literal": false,
     "no-unused-expression": false,
