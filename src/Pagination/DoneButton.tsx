@@ -57,7 +57,7 @@ export default class DoneButton extends Button {
         }
         { !children && !this.props.title &&
           <Button clear { ...this.props }>
-            <Icon name="checkbox-marked-circle-outline" type="material-community" size={ 16 } />
+            <Icon name="checkbox-marked-circle-outline" type="material-community" size={ 30 } />
           </Button>
         }
       </Animated.View>
