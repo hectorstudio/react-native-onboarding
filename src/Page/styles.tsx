@@ -12,6 +12,18 @@ export const styles = StyleSheet.create({
     paddingTop: potrait ? 0 : 10,
   },
 
+  headerContainer: {
+    alignItems: 'center',
+    flex: 0,
+    justifyContent: 'center',
+    marginTop: 80,
+    paddingBottom: 60,
+    width: '100%',
+
+    borderColor: 'red',
+    borderWidth: 1,
+  },
+
   imageContainer: {
     alignItems: 'center',
     flex: 0,

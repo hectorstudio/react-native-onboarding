@@ -11,6 +11,8 @@ import { TypeComponent, TypeStyle } from './../../index'
 export interface IPageState extends ViewProps {
   allowFontScaling?: boolean
   containerStyle?: TypeStyle
+  header?: TypeComponent
+  headerContainerStyle?: TypeStyle
   height?: number
   image: TypeComponent
   imageContainerStyle?: TypeStyle
