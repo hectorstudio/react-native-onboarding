@@ -26,16 +26,19 @@ export interface IPaginationState extends ViewProps {
   currentPage: number
   doneLabel?: string
   donePosition?: TypePaginationPosition
+  doneStyle?: TypeStyle
   dotsPosition?: TypePaginationPosition
   dotsSize?: number
   dotsStyle?: TypeStyle
   hideDone?: boolean
+  hideDots?: boolean
   hideNext?: boolean
   hideSkip?: boolean
   isLight?: boolean
   leftContainerStyle?: TypeStyle
   nextLabel?: string
   nextPosition?: TypePaginationPosition
+  nextStyle?: TypeStyle
   numPages: number
   onDone: () => void
   onNext?: () => void
@@ -43,6 +46,7 @@ export interface IPaginationState extends ViewProps {
   rightContainerStyle?: TypeStyle
   skipLabel?: string
   skipPosition?: TypePaginationPosition
+  skipStyle?: TypeStyle
 }
 
 /**
