@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { ViewProps } from 'react-native'
+import { ViewProps, Animated } from 'react-native'
 
 import { TypeComponent, TypeStyle } from './../../index'
+import Button from '@ticmakers-react-native/button'
 
 /**
  *
@@ -26,6 +27,7 @@ export interface IPaginationState extends ViewProps {
   doneLabel?: string
   donePosition?: TypePaginationPosition
   dotsPosition?: TypePaginationPosition
+  dotsSize?: number
   dotsStyle?: TypeStyle
   hideDone?: boolean
   hideNext?: boolean
@@ -65,6 +67,41 @@ declare class Pagination extends React.Component<IPaginationProps, IPaginationSt
 }
 
 /**
+ * Class to define the component DoneButton used in Onboarding
+ * @class DoneButton
+ * @extends {Button}
+ */
+declare class DoneButton extends Button {
+  /**
+   * Initial value to the animation
+   * @memberof DoneButton
+   */
+  public fadeAnimation?: Animated.Value
+
+  /**
+   * Duration of the animation
+   * @memberof DoneButton
+   */
+  public fadeDuration?: number
+
+  /**
+   * Method that fire when the component is mounted
+   * @returns {void}
+   * @memberof DoneButton
+   */
+  public componentDidMount(): void
+
+  /**
+   * Method that renders the component
+   * @returns {TypeComponent}
+   * @memberof DoneButton
+   */
+  public render(): TypeComponent
+}
+
+/**
  * Export default
  */
 export default Pagination
+
+export { DoneButton }
