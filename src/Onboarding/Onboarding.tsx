@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { Image, Animated, Dimensions, StyleSheet } from 'react-native'
+import { Image, Animated, Dimensions, StyleSheet, StatusBar, FlatList, SafeAreaView, FlatListProps } from 'react-native'
 import tinycolor from 'tinycolor2'
 
 import Page from './../Page/Page'
-import { IOnboardingProps, IOnboardingState, IOnboardingPage, TypeComponent, IPageProps } from './../../index'
+import Pagination from './../Pagination/Pagination'
+import { IOnboardingProps, IOnboardingState, IOnboardingPage, TypeComponent, IPageProps, IPaginationProps } from './../../index'
 import styles from './styles'
 
 /**
@@ -12,6 +13,7 @@ import styles from './styles'
  * @extends {React.Component<IOnboardingProps, IOnboardingState>}
  */
 export default class Onboarding extends React.Component<IOnboardingProps, IOnboardingState> {
+  public flatList?: any
   public itemVisibleHotfix?: any
 
   constructor(props: IOnboardingProps) {
@@ -26,7 +28,7 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     const { transitionAnimationDuration } = this.props
     const { backgroundColorAnim } = this.state
 
-    if (backgroundColorAnim) {
+    if (typeof backgroundColorAnim !== 'undefined') {
       Animated.timing(backgroundColorAnim, {
         duration: transitionAnimationDuration,
         toValue: 1,
@@ -40,31 +42,49 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @memberof Onboarding
    */
   public render(): TypeComponent {
-    const { allowFontScaling, bottomBarHeight, bottomBarHighlight, containerStyles, controlStatusBar, defaultPages, flatlistProps, imageContainerStyles, nextLabel, onDone, onSkip, pages, pageIndexCallback, showDone, showNext, showSkip, skipLabel, skipToPage, subTitleStyles, titleStyles, transitionAnimationDuration } = this._processProps()
+    const { backgroundColorAnim, bottomBarHighlight, containerStyle, controlStatusBar, statusBarStyle } = this._processProps()
+    const previousPage = this.getPreviousPage()
+    const currentPage = this.getCurrentPage()
+    const currentBackgroundColor = currentPage && currentPage.backgroundColor
+    const isLight = tinycolor(currentBackgroundColor).getBrightness() > 180
+    const barStyle = statusBarStyle || isLight ? 'dark-content' : 'light-content'
+    let backgroundColor = currentBackgroundColor
+
+    if (previousPage) {
+      const previousBackgroundColor = previousPage.backgroundColor
+      backgroundColor = (backgroundColorAnim as any).interpolate({
+        inputRange: [0, 1],
+        outputRange: [previousBackgroundColor, currentBackgroundColor],
+      })
+    }
+
+    const containerProps = {
+      onLayout: this._onLayout.bind(this),
+      style: StyleSheet.flatten([{ backgroundColor, flex: 1, justifyContent: 'center' }, containerStyle]),
+    }
+
+    const containerPaginationProps = {
+      style: StyleSheet.flatten([bottomBarHighlight && styles.overlay]),
+    }
+
+    const paginationProps = {
+      ...this._paginationProps(),
+      isLight,
+    }
 
     return (
-      <Onboarding
-        allowFontScaling={ allowFontScaling }
-        bottomBarHeight={ bottomBarHeight }
-        bottomBarHighlight={ bottomBarHighlight }
-        containerStyles={ containerStyles }
-        controlStatusBar={ controlStatusBar }
-        flatlistProps={ flatlistProps }
-        imageContainerStyles={ imageContainerStyles }
-        nextLabel={ nextLabel }
-        onDone={() => onDone && this._onDone()}
-        onSkip={() => onSkip && this._onSkip()}
-        pages={ !defaultPages ? pages : this.defaultPages() }
-        pageIndexCallback={ (pageIndex: number) => pageIndexCallback && this._onChangePage(pageIndex) }
-        showDone={ showDone }
-        showNext={ showNext }
-        showSkip={ showSkip }
-        skipLabel={ skipLabel }
-        skipToPage={ skipToPage }
-        subTitleStyles={ subTitleStyles }
-        titleStyles={ titleStyles }
-        transitionAnimationDuration={ transitionAnimationDuration }
-      />
+      <Animated.View { ...containerProps }>
+        { controlStatusBar && <StatusBar barStyle={ barStyle } /> }
+
+        <FlatList
+          ref={ list => this.flatList = list }
+          { ...this._flatlistProps() }
+        />
+
+        <SafeAreaView { ...containerPaginationProps }>
+          <Pagination { ...paginationProps } />
+        </SafeAreaView>
+      </Animated.View>
     )
   }
 
@@ -76,17 +96,17 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   public defaultPages(): IOnboardingPage[] {
     return [{
       backgroundColor: '#fff',
-      image: <Image source={require('./../assets/circle.png')} />,
+      image: <Image source={require('./../../assets/circle.png')} />,
       subtitle: 'Done with React Native Onboarding Swiper',
       title: 'Onboarding',
     }, {
       backgroundColor: '#fe6e58',
-      image: <Image source={require('./../assets/square.png')} />,
+      image: <Image source={require('./../../assets/square.png')} />,
       subtitle: 'This is the subtitle that sumplements the title.',
       title: 'The Title',
     }, {
       backgroundColor: '#999',
-      image: <Image source={require('./../assets/triangle.png')} />,
+      image: <Image source={require('./../../assets/triangle.png')} />,
       subtitle: 'Beautiful, isn\'t it?',
       title: 'Triangle',
     }]
@@ -120,6 +140,28 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     return <Page { ...props } />
   }
 
+  public getCurrentPage(): IOnboardingPage | undefined {
+    const { pages } = this._processProps()
+    const { currentPage } = this.state
+
+    return pages[currentPage || 0] || undefined
+  }
+
+  public getPreviousPage(): IOnboardingPage | undefined {
+    const { pages } = this._processProps()
+    const { previousPage } = this.state
+
+    return previousPage && pages[previousPage] || undefined
+  }
+
+  public goNext(): void {
+    const { currentPage } = this.state
+    this.flatList.scrollToIndex({
+      animated: true,
+      index: (currentPage || 0) + 1,
+    })
+  }
+
   /**
    * Method that fire when the button Done is pressed
    * @private
@@ -146,6 +188,8 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     if (onSkip) {
       return onSkip()
     }
+
+    return this._skipToLastPage()
   }
 
   /**
@@ -163,12 +207,14 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     }
   }
 
-  private _onSwipePageChange = (data: any) => {
+  private _onSwipePageChange(data: any): void {
     const { viewableItems } = data
+    const { currentPage } = this.state
 
-    if (viewableItems[0] && this.state.currentPage !== viewableItems[0].index) {
+    if (viewableItems[0] && currentPage !== viewableItems[0].index) {
       this.setState((state) => {
         this._onChangePage(viewableItems[0].index)
+        console.info('_onSwipePageChange', viewableItems[0].index, currentPage, state.currentPage)
 
         return {
           backgroundColorAnim: new Animated.Value(0),
@@ -179,7 +225,7 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     }
   }
 
-  private _onLayout() {
+  private _onLayout(): void {
     const { height, width } = this.state
     const window = Dimensions.get('window')
     let _h = height
@@ -189,6 +235,14 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     if (!_w) { _w = window.width }
 
     this.setState({ height: _h, width: _w })
+  }
+
+  private _skipToLastPage(): void {
+    const { pages, skipToPage } = this._processProps()
+    let index = skipToPage
+
+    if (!index) { index = pages.length - 1 }
+    this.flatList.scrollToIndex({ index, animated: true })
   }
 
   /**
@@ -249,5 +303,61 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     }
 
     return params
+  }
+
+  private _flatlistProps(): FlatListProps<{}> {
+    const { defaultPages, flatlistProps, pages } = this._processProps()
+    const { width } = this.state
+
+    return {
+      data: defaultPages && this.defaultPages() || pages,
+      extraData: width, // ensure that the list re-renders on orientation change
+      horizontal: true,
+      initialNumToRender: 1,
+      keyExtractor: (item: any, index: number) => index.toString(),
+      onViewableItemsChanged: this._onSwipePageChange,
+      pagingEnabled: true,
+      renderItem: this.renderPage,
+      showsHorizontalScrollIndicator: false,
+      viewabilityConfig: this.itemVisibleHotfix,
+      ...flatlistProps,
+    }
+  }
+
+  private _paginationProps(): IPaginationProps {
+    const { DoneComponent, DotComponent, NextComponent, SkipComponent, allowFontScalingButtons, bottomBarHeight, defaultPages, doneLabel, donePosition, doneStyle, dotsPosition, dotsSize, dotsStyle, hideDone, hideDots, hideNext, hideSkip, nextLabel, nextPosition, nextStyle, pages, paginationProps, skipLabel, skipPosition, skipStyle } = this._processProps()
+    const { currentPage } = this.state
+
+    return {
+      DoneComponent,
+      DotComponent,
+      NextComponent,
+      SkipComponent,
+      bottomBarHeight,
+      doneLabel,
+      donePosition,
+      doneStyle,
+      dotsPosition,
+      dotsSize,
+      dotsStyle,
+      hideDone,
+      hideDots,
+      hideNext,
+      hideSkip,
+      nextLabel,
+      nextPosition,
+      nextStyle,
+      skipLabel,
+      skipPosition,
+      skipStyle,
+      // tslint:disable-next-line: object-literal-sort-keys
+      allowFontScaling: allowFontScalingButtons,
+      currentPage: currentPage || 0,
+      numPages: defaultPages && this.defaultPages().length || pages.length,
+      onDone: this._onDone.bind(this),
+      onSkip: this._onSkip.bind(this),
+      onNext: this.goNext.bind(this),
+      ...paginationProps,
+    }
   }
 }

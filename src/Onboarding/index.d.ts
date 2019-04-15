@@ -160,7 +160,7 @@ export interface IOnboardingState {
    * A string OR a React-Native component for the Next label
    * @default Next
    */
-  nextLabel?: string | Element
+  nextLabel?: string
   nextPosition?: TypePaginationPosition
   nextStyle?: TypeStyle
 
@@ -190,7 +190,7 @@ export interface IOnboardingState {
    * A string OR a React-Native component for the Skip label
    * @default Skip
    */
-  skipLabel?: string | Element
+  skipLabel?: string
   skipPosition?: TypePaginationPosition
   skipStyle?: TypeStyle
 
