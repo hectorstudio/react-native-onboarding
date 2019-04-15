@@ -42,7 +42,8 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @memberof Onboarding
    */
   public render(): TypeComponent {
-    const { backgroundColorAnim, bottomBarHighlight, containerStyle, controlStatusBar, statusBarStyle } = this._processProps()
+    const { bottomBarHighlight, containerStyle, controlStatusBar, statusBarStyle } = this._processProps()
+    const { backgroundColorAnim } = this.state
     const previousPage = this.getPreviousPage()
     const currentPage = this.getCurrentPage()
     const currentBackgroundColor = currentPage && currentPage.backgroundColor
@@ -149,9 +150,9 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
 
   public getPreviousPage(): IOnboardingPage | undefined {
     const { pages } = this._processProps()
-    const { previousPage } = this.state
+    const { currentPage, previousPage } = this.state
 
-    return previousPage && pages[previousPage] || undefined
+    return currentPage !== previousPage && pages[previousPage || 0] || undefined
   }
 
   public goNext(): void {
@@ -210,16 +211,16 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   private _onSwipePageChange(data: any): void {
     const { viewableItems } = data
     const { currentPage } = this.state
+    const index = viewableItems[0] && viewableItems[0].index
 
-    if (viewableItems[0] && currentPage !== viewableItems[0].index) {
+    if (typeof index !== 'undefined' && currentPage !== index) {
       this.setState((state) => {
-        this._onChangePage(viewableItems[0].index)
-        console.info('_onSwipePageChange', viewableItems[0].index, currentPage, state.currentPage)
+        this._onChangePage(index)
 
         return {
           backgroundColorAnim: new Animated.Value(0),
-          currentPage: viewableItems[0].index,
-          previousPage: state.currentPage,
+          currentPage: index,
+          previousPage: currentPage,
         }
       })
     }

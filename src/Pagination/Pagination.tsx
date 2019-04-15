@@ -69,10 +69,10 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     const props = {
       currentPage,
       isLight,
-      key: 'dots',
       numPages,
       // tslint:disable-next-line: object-literal-sort-keys
       Dot: DotComponent,
+      key: 'dots',
       size: dotsSize,
       style: StyleSheet.flatten([styles.dots, dotsStyle]),
     }

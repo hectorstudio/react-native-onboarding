@@ -16,12 +16,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 0,
     justifyContent: 'center',
-    marginTop: 80,
-    paddingBottom: 60,
+    marginBottom: 60,
     width: '100%',
-
-    borderColor: 'red',
-    borderWidth: 1,
   },
 
   imageContainer: {
