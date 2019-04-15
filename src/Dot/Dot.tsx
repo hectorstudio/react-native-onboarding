@@ -37,7 +37,6 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
       _style.backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)'
     }
 
-    console.info(StyleSheet.flatten([_style, style]))
     return StyleSheet.flatten([styles.dot, _style, style])
   }
 }
