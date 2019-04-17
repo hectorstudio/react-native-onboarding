@@ -28,7 +28,7 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
   }
 
   private _processStyle(): TypeStyle {
-    const { isLight, selected , style } = this._processProps()
+    const { color, isLight, selected, size, style } = this._processProps()
     const _style: TypeStyle = {}
 
     if (isLight) {
@@ -37,7 +37,15 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
       _style.backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)'
     }
 
-    console.info(StyleSheet.flatten([_style, style]))
+    if (color && selected) {
+      _style.backgroundColor = color
+    }
+
+    if (size) {
+      _style.width = _style.height = size
+      _style.borderRadius = size / 2
+    }
+
     return StyleSheet.flatten([styles.dot, _style, style])
   }
 }
