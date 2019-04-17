@@ -9,9 +9,9 @@ import { TypeComponent, TypeStyle } from './../../index'
  * @interface IDotsState
  */
 export interface IDotsState extends ViewProps {
+  Dot?: TypeComponent
   color?: string
   currentPage?: number
-  Dot?: TypeComponent
   isLight?: boolean
   numPages?: number
   size?: number

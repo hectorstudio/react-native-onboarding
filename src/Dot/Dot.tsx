@@ -37,6 +37,7 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
       _style.backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)'
     }
 
+<<<<<<< HEAD
     if (color && selected) {
       _style.backgroundColor = color
     }
@@ -46,6 +47,8 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
       _style.borderRadius = size / 2
     }
 
+=======
+>>>>>>> 44ec8962d2718ef51035dbdf4ca28d07c8204e94
     return StyleSheet.flatten([styles.dot, _style, style])
   }
 }

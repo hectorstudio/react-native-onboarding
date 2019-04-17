@@ -2,7 +2,7 @@
   "name": "@ticmakers-react-native/onboarding",
   "version": "1.0.4",
   "description": "TIC Makers - React Native Onboarding",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "lint": "tslint -c tslint.json --project tsconfig.json",
@@ -32,8 +32,7 @@
   "homepage": "https://bitbucket.org/ticmakers/rn-onboarding#readme",
   "dependencies": {
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-native-onboarding-swiper": "git+https://github.com/HackettYam/react-native-onboarding-swiper.git#dev"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
   },
   "devDependencies": {
     "@types/expo": "^32.0.8",

@@ -214,7 +214,7 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     const index = viewableItems[0] && viewableItems[0].index
 
     if (typeof index !== 'undefined' && currentPage !== index) {
-      this.setState((state) => {
+      this.setState((state: any) => {
         this._onChangePage(index)
 
         return {

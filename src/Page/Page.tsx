@@ -4,10 +4,16 @@ import { View, StyleSheet, Text } from 'react-native'
 import { IPageProps, IPageState, TypeComponent, TypeStyle } from './../../index'
 import styles from './styles'
 
+/**
+ * Class to define the component Page used in Onboarding
+ * @class Page
+ * @extends {React.Component<IPageProps, IPageState>}
+ */
 export default class Page extends React.Component<IPageProps, IPageState> {
   public render(): TypeComponent {
     return(
       <View style={ this._processStyle() }>
+        { this.Header() }
         { this.Image() }
         { this.Title() }
         { this.Subtitle() }
@@ -15,7 +21,18 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     )
   }
 
-  public Image() {
+  public Header(): TypeComponent {
+    const { header, headerContainerStyle } = this._processProps()
+    const props = {
+      style: StyleSheet.flatten([styles.headerContainer, headerContainerStyle])
+    }
+
+    return (
+      <View { ...props }>{ header }</View>
+    )
+  }
+
+  public Image(): TypeComponent {
     const { image, imageContainerStyle } = this._processProps()
     const props = {
       style: StyleSheet.flatten([styles.imageContainer, imageContainerStyle])
@@ -58,19 +75,20 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     }
 
     return (
-      <View style={styles.padding}>
+      <View style={ styles.padding }>
         <Text { ...props }>{ subtitle }</Text>
       </View>
     )
   }
 
   private _processProps(): IPageState {
-    // tslint:disable-next-line: no-shadowed-variable
-    const { allowFontScaling, containerStyle, height, image, imageContainerStyle, isLight, options, style, subtitle, subtitleStyle, title, titleStyle, width } = this.props
+    const { allowFontScaling, containerStyle, header, headerContainerStyle, height, image, imageContainerStyle, isLight, options, style, subtitle, subtitleStyle, title, titleStyle, width } = this.props
 
     const props: IPageState = {
       allowFontScaling: (options && options.allowFontScaling) || (allowFontScaling || true),
       containerStyle: (options && options.containerStyle) || (containerStyle || undefined),
+      header: (options && options.header) || (header || undefined),
+      headerContainerStyle: (options && options.headerContainerStyle) || (headerContainerStyle || undefined),
       height: (options && options.height) || (height || undefined),
       image: (options && options.image) || (image || undefined),
       imageContainerStyle: (options && options.imageContainerStyle) || (imageContainerStyle || undefined),

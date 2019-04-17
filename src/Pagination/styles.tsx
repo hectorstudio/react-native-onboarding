@@ -4,24 +4,37 @@ export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 0,
+    justifyContent: 'center',
+    paddingHorizontal: 6,
   },
 
-  buttonLeft: {
+  leftContainer: {
     alignItems: 'flex-start',
-    flexShrink: 1,
-    width: 200,
+    flexGrow: 1,
+    width: 100,
   },
 
-  buttonRight: {
+  centerContainer: {
+    alignItems: 'center',
+    flexGrow: 1,
+  },
+
+  rightContainer: {
     alignItems: 'flex-end',
-    flexShrink: 1,
-    width: 200,
+    flexGrow: 1,
+    width: 100,
   },
 
   dots: {
     flexShrink: 0,
+  },
+
+  colorLight: {
+    color: 'white',
+  },
+
+  colorDark: {
+    color: 'black',
   },
 })
 

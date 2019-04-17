@@ -32,7 +32,7 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
     const props: IDotsState = {
       Dot: (options && options.Dot) || (Dot || undefined),
       color: (options && options.color) || (color || undefined),
-      currentPage: (options && options.currentPage) || (currentPage || undefined),
+      currentPage: (options && options.currentPage) || (currentPage || 0),
       isLight: (options && options.isLight) || (isLight || false),
       numPages: (options && options.numPages) || (numPages || undefined),
       size: (options && options.size) || (size || undefined),
