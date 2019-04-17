@@ -16,7 +16,7 @@ module.exports = {
     "**/.vscode/**/*",
   ],
   excludeExternals: true,
-  // excludeNotExported: true,
+  // excludeNotExported: "true",
   // excludePrivate: true,
   ignoreCompilerErrors: true,
   includeDeclarations: true,
@@ -24,7 +24,10 @@ module.exports = {
   mode: "modules",
   module: "commonjs",
   moduleResolution: "node",
-  out: "docs/api",
+  out: "docs/md",
+  plugin: [
+    "typedoc-plugin-markdown",
+  ],
   preserveConstEnums: true,
   readme: "README.md",
   src: [
@@ -35,6 +38,7 @@ module.exports = {
   // suppressExcessPropertyErrors: "true",
   // suppressImplicitAnyIndexErrors: "true",
   target: "ES6",
-  theme: "default",
+  theme: "markdown",
   tsconfig: "tsconfig.json",
+
 };
