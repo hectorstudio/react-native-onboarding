@@ -2,7 +2,7 @@
   "name": "@ticmakers-react-native/onboarding",
   "version": "1.1.0",
   "description": "TIC Makers - React Native Onboarding",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "lint": "tslint -c tslint.json --project tsconfig.json",
