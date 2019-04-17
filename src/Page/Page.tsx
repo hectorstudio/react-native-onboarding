@@ -10,6 +10,11 @@ import styles from './styles'
  * @extends {React.Component<IPageProps, IPageState>}
  */
 export default class Page extends React.Component<IPageProps, IPageState> {
+  /**
+   * Method that renders the component
+   * @returns {TypeComponent}
+   * @memberof Page
+   */
   public render(): TypeComponent {
     return(
       <View style={ this._processStyle() }>
@@ -21,6 +26,11 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     )
   }
 
+  /**
+   * Method that renders the Header component
+   * @returns {TypeComponent}
+   * @memberof Page
+   */
   public Header(): TypeComponent {
     const { header, headerContainerStyle } = this._processProps()
     const props = {
@@ -32,6 +42,11 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     )
   }
 
+  /**
+   * Method that renders the Image component
+   * @returns {TypeComponent}
+   * @memberof Page
+   */
   public Image(): TypeComponent {
     const { image, imageContainerStyle } = this._processProps()
     const props = {
@@ -43,6 +58,11 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     )
   }
 
+  /**
+   * Method that renders the Title component
+   * @returns {TypeComponent}
+   * @memberof Page
+   */
   public Title(): TypeComponent {
     const { allowFontScaling, isLight, title, titleStyle } = this._processProps()
 
@@ -62,6 +82,11 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     )
   }
 
+  /**
+   * Method that renders the Subtitle component
+   * @returns {TypeComponent}
+   * @memberof Page
+   */
   public Subtitle(): TypeComponent {
     const { allowFontScaling, isLight, subtitle, subtitleStyle } = this._processProps()
 
@@ -81,6 +106,12 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     )
   }
 
+  /**
+   * Method that process the props of the component
+   * @private
+   * @returns {IPageState}
+   * @memberof Page
+   */
   private _processProps(): IPageState {
     const { allowFontScaling, containerStyle, header, headerContainerStyle, height, image, imageContainerStyle, isLight, options, style, subtitle, subtitleStyle, title, titleStyle, width } = this.props
 
@@ -104,6 +135,12 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     return props
   }
 
+  /**
+   * Method to process the prop style of the component
+   * @private
+   * @returns {TypeStyle}
+   * @memberof Page
+   */
   private _processStyle(): TypeStyle {
     const { containerStyle, height, width } = this._processProps()
     const _style: TypeStyle = {}

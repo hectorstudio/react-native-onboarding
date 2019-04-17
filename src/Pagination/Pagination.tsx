@@ -7,7 +7,17 @@ import Button from '@ticmakers-react-native/button'
 import { IPaginationProps, IPaginationState, TypeComponent, TypePaginationPosition } from './../../index'
 import styles from './styles'
 
+/**
+ * Class to define the Pagination component used in Onboarding
+ * @class Pagination
+ * @extends {React.Component<IPaginationProps, IPaginationState>}
+ */
 export default class Pagination extends React.Component<IPaginationProps, IPaginationState> {
+  /**
+   * Method that renders the component
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public render(): TypeComponent {
     const { bottomBarHeight, containerStyle } = this._processProps()
     const _style = StyleSheet.flatten([{ height: bottomBarHeight, ...styles.container }, containerStyle])
@@ -21,6 +31,11 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     )
   }
 
+  /**
+   * Method that renders the left container component
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public LeftContent(): TypeComponent {
     const { leftContainerStyle } = this._processProps()
     const _style = StyleSheet.flatten([styles.leftContainer, leftContainerStyle])
@@ -28,6 +43,11 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     return <View style={ _style }>{ this._getContent('left') }</View>
   }
 
+  /**
+   * Method that renders the center container component
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public CenterContent(): TypeComponent {
     const { centerContainerStyle } = this._processProps()
     const _style = StyleSheet.flatten([styles.centerContainer, centerContainerStyle])
@@ -35,6 +55,11 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     return <View style={ _style }>{ this._getContent('center') }</View>
   }
 
+  /**
+   * Method that renders the right container component
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public RightContent(): TypeComponent {
     const { rightContainerStyle } = this._processProps()
     const _style = StyleSheet.flatten([styles.rightContainer, rightContainerStyle])
@@ -42,6 +67,12 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     return <View style={ _style }>{ this._getContent('right') }</View>
   }
 
+
+  /**
+   * Method that renders the Done button
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public Done(): TypeComponent {
     const { DoneComponent, allowFontScaling, doneLabel, doneStyle, hideDone, isLight, onDone } = this._processProps()
     const props = {
@@ -64,14 +95,19 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
   }
 
+  /**
+   * Method that renders the pagination Dots
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public Dots(): TypeComponent {
     const { DotComponent, currentPage, dotsSize, dotsStyle, hideDots, isLight, numPages } = this._processProps()
     const props = {
+      DotComponent,
       currentPage,
       isLight,
       numPages,
       // tslint:disable-next-line: object-literal-sort-keys
-      Dot: DotComponent,
       key: 'dots',
       size: dotsSize,
       style: StyleSheet.flatten([styles.dots, dotsStyle]),
@@ -82,6 +118,11 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
   }
 
+  /**
+   * Method that renders the Next button
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public Next(): TypeComponent {
     const { NextComponent, allowFontScaling, hideNext, isLight, nextLabel, nextStyle, onNext } = this._processProps()
     const props = {
@@ -101,6 +142,11 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
   }
 
+  /**
+   * Methods that renders the Skip button
+   * @returns {TypeComponent}
+   * @memberof Pagination
+   */
   public Skip(): TypeComponent {
     const { SkipComponent, allowFontScaling, onSkip, skipLabel, skipStyle, hideSkip, isLight } = this._processProps()
     const props = {
@@ -120,11 +166,23 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
   }
 
+  /**
+   * Method to check if the current page is the last page
+   * @returns {boolean}
+   * @memberof Pagination
+   */
   public isLastPage(): boolean {
     const { currentPage, numPages } = this._processProps()
     return (currentPage || 0) + 1 === numPages
   }
 
+  /**
+   * Method that renders the content of each container (left, center and right)
+   * @private
+   * @param {TypePaginationPosition} position     Position of the container
+   * @returns {TypeComponent[]}
+   * @memberof Pagination
+   */
   private _getContent(position: TypePaginationPosition): TypeComponent[] {
     const { donePosition, dotsPosition, nextPosition, skipPosition } = this._processProps()
     const pos = position
@@ -146,8 +204,13 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     return children
   }
 
+  /**
+   * Method that process the props of the component
+   * @private
+   * @returns {IPaginationState}
+   * @memberof Pagination
+   */
   private _processProps(): IPaginationState {
-    // tslint:disable-next-line: no-shadowed-variable
     const { DoneComponent, DotComponent, NextComponent, SkipComponent, allowFontScaling, bottomBarHeight, centerContainerStyle, containerStyle, currentPage, doneLabel, donePosition, doneStyle, dotsPosition, dotsSize, dotsStyle, numPages, hideDone, hideDots, hideNext, hideSkip, isLight, leftContainerStyle, nextLabel, nextPosition, nextStyle, onDone, onNext, onSkip, rightContainerStyle, options, skipLabel, skipPosition, skipStyle } = this.props
 
     const props: IPaginationState = {
@@ -191,7 +254,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method to valid if a object is a component
    * @private
-   * @param {*} kind Object to validate
+   * @param {*} kind    Object to validate
    * @returns {boolean}
    * @memberof Pagination
    */

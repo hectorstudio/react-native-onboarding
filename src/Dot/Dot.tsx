@@ -4,7 +4,17 @@ import { View, StyleSheet } from 'react-native'
 import { IDotProps, IDotState, TypeComponent, TypeStyle } from './../../index'
 import styles from './styles'
 
+/**
+ * Class to define the Dot component used in Onboarding
+ * @class Dot
+ * @extends {React.Component<IDotProps, IDotState>}
+ */
 export default class Dot extends React.Component<IDotProps, IDotState> {
+  /**
+   * Method to renders the component
+   * @returns {TypeComponent}
+   * @memberof Dot
+   */
   public render(): TypeComponent {
     return(
       <View
@@ -14,6 +24,12 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
     )
   }
 
+  /**
+   * Method to process the props
+   * @private
+   * @returns {IDotState}
+   * @memberof Dot
+   */
   private _processProps(): IDotState {
     const { Component, color, isLight, options, selected, size, style } = this.props
     const props: IDotState = {
@@ -27,6 +43,12 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
     return props
   }
 
+  /**
+   * Method to process the prop style for the container
+   * @private
+   * @returns {TypeStyle}
+   * @memberof Dot
+   */
   private _processStyle(): TypeStyle {
     const { color, isLight, selected, size, style } = this._processProps()
     const _style: TypeStyle = {}

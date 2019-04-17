@@ -13,9 +13,27 @@ import styles from './styles'
  * @extends {React.Component<IOnboardingProps, IOnboardingState>}
  */
 export default class Onboarding extends React.Component<IOnboardingProps, IOnboardingState> {
+  /**
+   * The reference to the FlatList component
+   * @type {FlatList}
+   * @memberof Onboarding
+   */
   public flatList?: any
-  public itemVisibleHotfix?: any
 
+  /**
+   * Hotfix to swipe the pages
+   * @type {{ itemVisiblePercentThreshold: number }}
+   * @memberof Onboarding
+   */
+  public itemVisibleHotfix?: {
+    itemVisiblePercentThreshold: number,
+  }
+
+  /**
+   * Creates an instance of Onboarding.
+   * @param {IOnboardingProps} props    props of the component
+   * @memberof Onboarding
+   */
   constructor(props: IOnboardingProps) {
     super(props)
     this.state = this._processProps()
@@ -24,6 +42,11 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     this.itemVisibleHotfix = { itemVisiblePercentThreshold: 100 }
   }
 
+  /**
+   * Method that fire when the component is updated
+   * @returns {void}
+   * @memberof Onboarding
+   */
   public componentDidUpdate(): void {
     const { transitionAnimationDuration } = this.props
     const { backgroundColorAnim } = this.state
@@ -91,7 +114,7 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
 
   /**
    * Method that define 3 pages by default
-   * @returns {PagesTypes}
+   * @returns {IOnboardingPage[]}
    * @memberof Onboarding
    */
   public defaultPages(): IOnboardingPage[] {
@@ -113,7 +136,12 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     }]
   }
 
-  public renderPage = (data?: any) => {
+  /**
+   * Method that renders the page in the component
+   * @returns {TypeComponent}
+   * @memberof Onboarding
+   */
+  public renderPage(data?: any): TypeComponent {
     const { allowFontScalingText, containerStyle, headerContainerStyle, imageContainerStyle, titleStyle, subtitleStyle } = this._processProps()
     const { height, width } = this.state
 
@@ -141,6 +169,11 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     return <Page { ...props } />
   }
 
+  /**
+   * Method to get the current page
+   * @returns {(IOnboardingPage | undefined)}
+   * @memberof Onboarding
+   */
   public getCurrentPage(): IOnboardingPage | undefined {
     const { pages } = this._processProps()
     const { currentPage } = this.state
@@ -148,6 +181,11 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     return pages[currentPage || 0] || undefined
   }
 
+  /**
+   * Method to get the previous page
+   * @returns {(IOnboardingPage | undefined)}
+   * @memberof Onboarding
+   */
   public getPreviousPage(): IOnboardingPage | undefined {
     const { pages } = this._processProps()
     const { currentPage, previousPage } = this.state
@@ -155,6 +193,11 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     return currentPage !== previousPage && pages[previousPage || 0] || undefined
   }
 
+  /**
+   * Method to advance to the next page
+   * @returns {void}
+   * @memberof Onboarding
+   */
   public goNext(): void {
     const { currentPage } = this.state
     this.flatList.scrollToIndex({
@@ -208,6 +251,13 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     }
   }
 
+  /**
+   * Method thar fire when a page is swiped
+   * @private
+   * @param {object} data     Event of the flatlist change
+   * @returns {void}
+   * @memberof Onboarding
+   */
   private _onSwipePageChange(data: any): void {
     const { viewableItems } = data
     const { currentPage } = this.state
@@ -226,6 +276,12 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     }
   }
 
+  /**
+   * Method that fire when the layout is changed
+   * @private
+   * @returns {void}
+   * @memberof Onboarding
+   */
   private _onLayout(): void {
     const { height, width } = this.state
     const window = Dimensions.get('window')
@@ -238,6 +294,12 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     this.setState({ height: _h, width: _w })
   }
 
+  /**
+   * Method that changes to the last page
+   * @private
+   * @returns {void}
+   * @memberof Onboarding
+   */
   private _skipToLastPage(): void {
     const { pages, skipToPage } = this._processProps()
     let index = skipToPage
@@ -306,6 +368,12 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
     return params
   }
 
+  /**
+   * Method that process the props for the FlatList
+   * @private
+   * @returns {FlatListProps<{}>}
+   * @memberof Onboarding
+   */
   private _flatlistProps(): FlatListProps<{}> {
     const { defaultPages, flatlistProps, pages } = this._processProps()
     const { width } = this.state
@@ -318,13 +386,19 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
       keyExtractor: (item: any, index: number) => index.toString(),
       onViewableItemsChanged: this._onSwipePageChange,
       pagingEnabled: true,
-      renderItem: this.renderPage,
+      renderItem: this.renderPage.bind(this) as any,
       showsHorizontalScrollIndicator: false,
       viewabilityConfig: this.itemVisibleHotfix,
       ...flatlistProps,
     }
   }
 
+  /**
+   * Method that process the props for the pagination
+   * @private
+   * @returns {IPaginationProps}
+   * @memberof Onboarding
+   */
   private _paginationProps(): IPaginationProps {
     const { DoneComponent, DotComponent, NextComponent, SkipComponent, allowFontScalingButtons, bottomBarHeight, defaultPages, doneLabel, donePosition, doneStyle, dotsPosition, dotsSize, dotsStyle, hideDone, hideDots, hideNext, hideSkip, nextLabel, nextPosition, nextStyle, pages, paginationProps, skipLabel, skipPosition, skipStyle } = this._processProps()
     const { currentPage } = this.state
