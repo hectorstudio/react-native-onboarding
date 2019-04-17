@@ -76,9 +76,6 @@ export default class App extends React.Component {
 | onSkip `(optional)` | function | - | A callback that is fired if the OnBoarding is skipped
 | pages | array of object { pagesProperties } | - | A array of pages to show in the component. `Show below pagesProperties`
 | pageIndexCallback `(optional)` | function(indexPage: number) | - | A function that receives the page index as a parameter on page change
-| showDone `(optional)` | boolean | true | A bool flag indicating whether the Done checkmark button is visible
-| showNext `(optional)` | boolean | true | A bool flag indicating whether the Next button is visible
-| showSkip `(optional)` | boolean | true | A bool flag indicating whether the Skip button is visible
 | skipLabel `(optional)` | string / Element | Skip | A string OR a React-Native component for the Skip label
 | skipToPage `(optional)` | number | - | When pressing skip, go to that page (ex. skipToPage={2}). `If this prop is provided, ignores onSkip`
 | subtitleStyles `(optional)` | object { ...styles } | - | Override the default subtitle styles
@@ -101,3 +98,4 @@ export default class App extends React.Component {
 - Improve and add new features
 - Add more styles
 - Create tests
+- Add new props and components in readme
