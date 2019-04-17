@@ -67,7 +67,6 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     return <View style={ _style }>{ this._getContent('right') }</View>
   }
 
-
   /**
    * Method that renders the Done button
    * @returns {TypeComponent}

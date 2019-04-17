@@ -34,7 +34,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
   public Header(): TypeComponent {
     const { header, headerContainerStyle } = this._processProps()
     const props = {
-      style: StyleSheet.flatten([styles.headerContainer, headerContainerStyle])
+      style: StyleSheet.flatten([styles.headerContainer, headerContainerStyle]),
     }
 
     return (
@@ -50,7 +50,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
   public Image(): TypeComponent {
     const { image, imageContainerStyle } = this._processProps()
     const props = {
-      style: StyleSheet.flatten([styles.imageContainer, imageContainerStyle])
+      style: StyleSheet.flatten([styles.imageContainer, imageContainerStyle]),
     }
 
     return (
