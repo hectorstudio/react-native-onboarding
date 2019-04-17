@@ -1,6 +1,6 @@
 {
   "name": "@ticmakers-react-native/onboarding",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "TIC Makers - React Native Onboarding",
   "main": "src/index.ts",
   "scripts": {
@@ -31,12 +31,15 @@
   "license": "BSD-3-Clause",
   "homepage": "https://bitbucket.org/ticmakers/rn-onboarding#readme",
   "dependencies": {
+    "@ticmakers-react-native/button": "1.0.0",
+    "@ticmakers-react-native/icon": "1.0.0-beta.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
   },
   "devDependencies": {
     "@types/expo": "^32.0.8",
     "@types/react": "^16.5.0",
+    "@types/tinycolor2": "^1.4.1",
     "tslint": "^5.14.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-react": "^4.0.0",

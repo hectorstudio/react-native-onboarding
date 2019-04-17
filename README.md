@@ -25,7 +25,7 @@ $ yarn add @ticmakers-react-native/onboarding
 
 ```javascript
 import React from 'react'
-import OnBoarding from '@ticmakers-react-native/onboarding'
+import Onboarding from '@ticmakers-react-native/onboarding'
 
 export default class App extends React.Component {
 
@@ -52,7 +52,7 @@ export default class App extends React.Component {
     ]
 
     return (
-      <OnBoarding
+      <Onboarding
         pages={ pages }
         onDone={ () => this.props.navigation.navigate('RouteName') }
       />
