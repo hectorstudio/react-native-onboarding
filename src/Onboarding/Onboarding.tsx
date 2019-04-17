@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Image, Animated, Dimensions, StyleSheet, StatusBar, FlatList, SafeAreaView, FlatListProps } from 'react-native'
-import tinycolor from 'tinycolor2'
+import * as tinycolor from 'tinycolor2'
 
 import Page from './../Page/Page'
 import Pagination from './../Pagination/Pagination'

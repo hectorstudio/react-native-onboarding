@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import DotBase from './../Dot/Dot'
+import Dot from './../Dot/Dot'
 import { IDotsProps, IDotsState, TypeComponent, TypeStyle } from './../../index'
 import styles from './styles'
 
@@ -23,7 +23,7 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
       <View { ...this.props } style={ this._processStyle() }>
         {[...Array(numPages)].map((_n: any, index: number) => (
           DotComponent ||
-          <DotBase
+          <Dot
             color={ color }
             isLight={ isLight }
             key={ index }
