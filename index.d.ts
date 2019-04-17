@@ -10,6 +10,7 @@ import { IDotProps, IDotState } from './src/Dot/index'
 import { IDotsProps, IDotsState } from './src/Dots/index'
 import { IPageProps, IPageState } from './src/Page/index'
 import { IPaginationProps, IPaginationState, TypePaginationPosition } from './src/Pagination/index'
+import { IOnboardingProps, IOnboardingState, IOnboardingPage, TypeOnboardingStatusBarStyle } from './src/Onboarding/index'
 
 /**
  * Type of component to typing components in the Input component
@@ -218,31 +219,26 @@ export interface IOnBoardingProps extends IOnBoardingState {
 }
 
 /**
- * Declaration for OnBoarding component
- * @class OnBoarding
- * @extends {React.Component<IOnBoardingProps, IOnBoardingState>}
- */
-declare class OnBoarding extends React.Component<IOnBoardingProps, IOnBoardingState> {
-}
-
-/**
  * Declaration for OnBoarding module
  */
 declare module '@ticmakers-react-native/onboarding'
 
-/**
- * Export default
- */
-export default OnBoarding
-
 export {
   IDotProps,
   IDotState,
+
   IDotsProps,
   IDotsState,
+
   IPageProps,
   IPageState,
+
   IPaginationProps,
   IPaginationState,
   TypePaginationPosition,
+
+  IOnboardingProps,
+  IOnboardingState,
+  IOnboardingPage,
+  TypeOnboardingStatusBarStyle,
 }
