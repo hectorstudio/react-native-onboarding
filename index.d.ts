@@ -6,11 +6,11 @@ import {
   ViewStyle,
 } from 'react-native'
 
-import { IDotProps, IDotState } from './src/Dot/index'
-import { IDotsProps, IDotsState } from './src/Dots/index'
-import { IPageProps, IPageState } from './src/Page/index'
-import { IPaginationProps, IPaginationState, TypePaginationPosition } from './src/Pagination/index'
-import { IOnboardingProps, IOnboardingState, IOnboardingPage, TypeOnboardingStatusBarStyle } from './src/Onboarding/index'
+import Dot, { IDotProps, IDotState } from './src/Dot/index'
+import Dots, { IDotsProps, IDotsState } from './src/Dots/index'
+import Page, { IPageProps, IPageState } from './src/Page/index'
+import Pagination, { DoneButton, IPaginationProps, IPaginationState, TypePaginationPosition } from './src/Pagination/index'
+import Onboarding, { IOnboardingProps, IOnboardingState, IOnboardingPage, TypeOnboardingStatusBarStyle } from './src/Onboarding/index'
 
 /**
  * Type of component to typing components in the Input component
@@ -40,15 +40,20 @@ export type TypeStyle =
 declare module '@ticmakers-react-native/onboarding'
 
 export {
+  Dot,
   IDotProps,
   IDotState,
 
+  Dots,
   IDotsProps,
   IDotsState,
 
+  Page,
   IPageProps,
   IPageState,
 
+  Pagination,
+  DoneButton,
   IPaginationProps,
   IPaginationState,
   TypePaginationPosition,
@@ -58,3 +63,5 @@ export {
   IOnboardingPage,
   TypeOnboardingStatusBarStyle,
 }
+
+export default Onboarding
