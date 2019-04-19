@@ -34,9 +34,27 @@ var Dots = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Dots.prototype.render = function () {
+        return (React.createElement(react_native_1.View, __assign({}, this.props, { style: this._processStyle() }), this.Dot()));
+    };
+    Dots.prototype.Dot = function () {
         var _a = this._processProps(), DotComponent = _a.DotComponent, color = _a.color, currentPage = _a.currentPage, isLight = _a.isLight, numPages = _a.numPages, size = _a.size;
-        return (React.createElement(react_native_1.View, __assign({}, this.props, { style: this._processStyle() }), Array(numPages).slice().map(function (_n, index) { return (DotComponent ||
-            React.createElement(Dot_1.default, { color: color, isLight: isLight, key: index, selected: index === currentPage, size: size })); })));
+        var dots = [];
+        for (var i = 0; i < numPages; i++) {
+            var props = {
+                color: color,
+                isLight: isLight,
+                size: size,
+                key: i,
+                selected: i === currentPage,
+            };
+            if (this._isComponent(DotComponent)) {
+                dots.push(React.cloneElement(DotComponent, props));
+            }
+            else {
+                dots.push(React.createElement(Dot_1.default, __assign({}, props)));
+            }
+        }
+        return dots;
     };
     Dots.prototype._processProps = function () {
         var _a = this.props, DotComponent = _a.DotComponent, color = _a.color, currentPage = _a.currentPage, isLight = _a.isLight, numPages = _a.numPages, options = _a.options, size = _a.size, style = _a.style;
@@ -55,6 +73,9 @@ var Dots = (function (_super) {
         var style = this._processProps().style;
         var _style = {};
         return react_native_1.StyleSheet.flatten([styles_1.default.container, _style, style]);
+    };
+    Dots.prototype._isComponent = function (kind) {
+        return (kind && kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol');
     };
     return Dots;
 }(React.Component));
