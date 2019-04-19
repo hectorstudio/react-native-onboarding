@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.1.1] - 2019-04-19
+
+### Fixed
+
+- Fix export declaration
+
 ## [1.1.0] - 2019-04-19
 
 ### Added
@@ -59,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Release
 
 
+[1.1.1]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.1/
 [1.1.0]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.0/
 [1.0.4]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.4/
 [1.0.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.3/

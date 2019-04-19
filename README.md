@@ -99,3 +99,7 @@ export default class App extends React.Component {
 - Add more styles
 - Create tests
 - Add new props and components in readme
+
+## Version 1.1.1 ([Changelog])
+
+[Changelog]: https://bitbucket.org/ticmakers/rn-onboarding/src/master/CHANGELOG.md
