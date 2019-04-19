@@ -168,30 +168,6 @@ function(indexPage: number)
 
 A function that receives the page index as a parameter on page change
 
-showDone `(optional)`
-
-boolean
-
-true
-
-A bool flag indicating whether the Done checkmark button is visible
-
-showNext `(optional)`
-
-boolean
-
-true
-
-A bool flag indicating whether the Next button is visible
-
-showSkip `(optional)`
-
-boolean
-
-true
-
-A bool flag indicating whether the Skip button is visible
-
 skipLabel `(optional)`
 
 string / Element
@@ -298,6 +274,7 @@ Todo
 *   Improve and add new features
 *   Add more styles
 *   Create tests
+*   Add new props and components in readme
 
 ## Index
 
