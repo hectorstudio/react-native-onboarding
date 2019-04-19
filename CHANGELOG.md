@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.1.0] - 2019-04-19
+
+### Added
+
+- Added new props to define a custom layout
+- Added TSDoc
+- Added new docs
+
+### Changed
+
+- Rebuild the structure component
+
 ## [1.0.4] - 2019-03-27
 
 ### Fixed
@@ -47,6 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Release
 
 
+[1.1.0]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.0/
 [1.0.4]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.4/
 [1.0.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.3/
 [1.0.2]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.0.2/

@@ -1,37 +1,39 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
     "allowSyntheticDefaultImports": true,
-    "outDir": "./dist",
-    "target": "es2015",
-    "module": "commonjs",
-    "lib": [
-      "es2015"
-    ],
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "removeComments": true,
     "declaration": false,
-    "strict": true,
-    "sourceMap": true,
+    "baseUrl": ".",
     "jsx": "react",
+    "lib": [
+      "es5",
+      "es6",
+      "es7"
+    ],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "strictNullChecks": true,
+    "target": "es5",
+    "sourceMap": true,
+    "strict": true,
+    "types": [
+      "react",
+      "react-native",
+      "expo",
+      "tinycolor2"
+    ],
     "typeRoots": [
       "index.d.ts",
       "node_modules/@types"
     ],
-    "types": [
-      "react",
-      "react-native",
-      "expo"
-    ]
   },
   "include": [
     "./src/**/*.tsx",
     "./src/**/*.ts"
   ],
   "exclude": [
-    "build",
+    "dist",
     "node_modules"
   ]
 }
