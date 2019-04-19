@@ -17,22 +17,41 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
    * @memberof Dots
    */
   public render(): TypeComponent {
-    const { DotComponent, color, currentPage, isLight, numPages, size } = this._processProps()
-
     return(
       <View { ...this.props } style={ this._processStyle() }>
-        {[...Array(numPages)].map((_n: any, index: number) => (
-          DotComponent ||
-          <Dot
-            color={ color }
-            isLight={ isLight }
-            key={ index }
-            selected={ index === currentPage }
-            size={ size }
-          />
-        ))}
+        { this.Dot() }
       </View>
     )
+  }
+
+  /**
+   * Method that renders the Dot component
+   * @returns {TypeComponent[]}
+   * @memberof Dots
+   */
+  public Dot(): TypeComponent[] {
+    const { DotComponent, color, currentPage, isLight, numPages, size } = this._processProps()
+    const dots: TypeComponent[] = []
+
+    // tslint:disable-next-line: no-increment-decrement
+    for (let i = 0; i < (numPages as number); i++) {
+      const props = {
+        color,
+        isLight,
+        size,
+        // tslint:disable-next-line: object-literal-sort-keys
+        key: i,
+        selected: i === currentPage,
+      }
+
+      if (this._isComponent(DotComponent)) {
+        dots.push(React.cloneElement(DotComponent as any, props))
+      } else {
+        dots.push(<Dot { ...props } />)
+      }
+    }
+
+    return dots
   }
 
   /**
@@ -68,5 +87,16 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
     const _style: TypeStyle = {}
 
     return StyleSheet.flatten([styles.container, _style, style])
+  }
+
+  /**
+   * Method to valid if a object is a component
+   * @private
+   * @param {*} kind    Object to validate
+   * @returns {boolean}
+   * @memberof Pagination
+   */
+  private _isComponent(kind: any): boolean {
+    return (kind && kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol')
   }
 }
