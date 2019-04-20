@@ -25,6 +25,7 @@ Class to define the component DoneButton used in Onboarding
 
 ### Methods
 
+* [ButtonComponent](_pagination_donebutton_.donebutton.md#buttoncomponent)
 * [ButtonContent](_pagination_donebutton_.donebutton.md#buttoncontent)
 * [IconLeft](_pagination_donebutton_.donebutton.md#iconleft)
 * [IconRight](_pagination_donebutton_.donebutton.md#iconright)
@@ -76,6 +77,21 @@ ___
 
 ## Methods
 
+<a id="buttoncomponent"></a>
+
+###  ButtonComponent
+
+▸ **ButtonComponent**(): `TypeComponent`
+
+*Defined in Pagination/DoneButton.tsx:58*
+
+Method that renders the button
+
+*__memberof__*: DoneButton
+
+**Returns:** `TypeComponent`
+
+___
 <a id="buttoncontent"></a>
 
 ###  ButtonContent

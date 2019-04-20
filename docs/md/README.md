@@ -276,6 +276,9 @@ Todo
 *   Create tests
 *   Add new props and components in readme
 
+Version 1.1.2 ([Changelog](https://bitbucket.org/ticmakers/rn-onboarding/src/master/CHANGELOG.md))
+--------------------------------------------------------------------------------------------------
+
 ## Index
 
 ### External modules
