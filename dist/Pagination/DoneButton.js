@@ -46,15 +46,19 @@ var DoneButton = (function (_super) {
         }, 1000);
     };
     DoneButton.prototype.render = function () {
-        var children = this.props.children;
-        return (React.createElement(react_native_1.Animated.View, { style: { opacity: this.fadeAnimation } },
-            children &&
-                React.createElement(button_1.default, __assign({ clear: true }, this.props), children),
-            !children && this.props.title &&
-                React.createElement(button_1.default, __assign({ clear: true }, this.props)),
-            !children && !this.props.title &&
-                React.createElement(button_1.default, __assign({ clear: true }, this.props),
-                    React.createElement(icon_1.default, { name: "checkbox-marked-circle-outline", type: "material-community", size: 30 }))));
+        return (React.createElement(react_native_1.Animated.View, { style: { opacity: this.fadeAnimation } }, this.ButtonComponent()));
+    };
+    DoneButton.prototype.ButtonComponent = function () {
+        var _a = this.props, children = _a.children, title = _a.title;
+        var props = __assign({}, this.props, { clear: true });
+        if (children) {
+            return (React.createElement(button_1.default, __assign({}, props), children));
+        }
+        else if (!children && title) {
+            return React.createElement(button_1.default, __assign({}, props));
+        }
+        return (React.createElement(button_1.default, __assign({}, props),
+            React.createElement(icon_1.default, { name: "checkbox-marked-circle-outline", type: "material-community", size: 30 })));
     };
     return DoneButton;
 }(button_1.default));

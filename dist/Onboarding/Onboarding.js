@@ -168,7 +168,7 @@ var Onboarding = (function (_super) {
                 return {
                     backgroundColorAnim: new react_native_1.Animated.Value(0),
                     currentPage: index,
-                    previousPage: currentPage,
+                    previousPage: state.currentPage,
                 };
             });
         }
