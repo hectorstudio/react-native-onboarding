@@ -43,24 +43,40 @@ export default class DoneButton extends Button {
    * @memberof DoneButton
    */
   public render(): TypeComponent {
-    const { children } = this.props
-
     return (
       <Animated.View style={{ opacity: this.fadeAnimation }}>
-        { children &&
-          <Button clear { ...this.props }>
-            { children }
-          </Button>
-        }
-        { !children && this.props.title &&
-          <Button clear { ...this.props } />
-        }
-        { !children && !this.props.title &&
-          <Button clear { ...this.props }>
-            <Icon name="checkbox-marked-circle-outline" type="material-community" size={ 30 } />
-          </Button>
-        }
+        { this.ButtonComponent() }
       </Animated.View>
+    )
+  }
+
+  /**
+   * Method that renders the button
+   * @returns {TypeComponent}
+   * @memberof DoneButton
+   */
+  public ButtonComponent(): TypeComponent {
+    const { children, title } = this.props
+    const props = {
+      ...this.props,
+      clear: true,
+    }
+
+    if (children) {
+      return (
+        <Button { ...props }>
+          { children }
+        </Button>
+      )
+    // tslint:disable-next-line: no-else-after-return
+    } else if (!children && title) {
+      return <Button { ...props } />
+    }
+
+    return (
+      <Button { ...props }>
+        <Icon name="checkbox-marked-circle-outline" type="material-community" size={ 30 } />
+      </Button>
     )
   }
 }

@@ -270,7 +270,7 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
         return {
           backgroundColorAnim: new Animated.Value(0),
           currentPage: index,
-          previousPage: currentPage,
+          previousPage: state.currentPage,
         }
       })
     }

@@ -84,7 +84,10 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
 
     if (!hideDone && this.isLastPage()) {
       if (this._isComponent(DoneComponent)) {
-        return React.cloneElement(DoneComponent as any, props)
+        const _s = StyleSheet.flatten([props.style, (DoneComponent as any).props.style])
+        const _p = { ...props, ...(DoneComponent as any).props, style: _s }
+
+        return React.cloneElement(DoneComponent as any, _p)
       // tslint:disable-next-line: no-else-after-return
       } else if (props.title) {
         return React.cloneElement(DoneButton as any, props)

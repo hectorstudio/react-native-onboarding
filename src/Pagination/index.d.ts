@@ -397,6 +397,13 @@ declare class DoneButton extends Button {
    * @memberof DoneButton
    */
   public render(): TypeComponent
+
+  /**
+   * Method that renders the button
+   * @returns {TypeComponent}
+   * @memberof DoneButton
+   */
+  public ButtonComponent(): TypeComponent
 }
 
 /**
