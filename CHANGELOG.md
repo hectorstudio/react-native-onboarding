@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.1.3] - 2019-05-02
+
+### Release
+
+### Added
+
+- Implemented new helper to validate the components
+
 ## [1.1.2] - 2019-04-20
 
 ### Changes
@@ -75,6 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Release
 
 
+[1.1.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.3/
 [1.1.2]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.2/
 [1.1.1]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.1/
 [1.1.0]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.0/
