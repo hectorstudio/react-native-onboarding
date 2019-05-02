@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
+import { AppHelper } from '@ticmakers-react-native/core'
 import { IPageProps, IPageState, TypeComponent, TypeStyle } from './../../index'
 import styles from './styles'
 
@@ -66,7 +67,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
   public Title(): TypeComponent {
     const { allowFontScaling, isLight, title, titleStyle } = this._processProps()
 
-    if (this._isComponent(title)) {
+    if (AppHelper.isComponent(title)) {
       return React.cloneElement(title as any, { style: titleStyle })
     }
 
@@ -90,7 +91,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
   public Subtitle(): TypeComponent {
     const { allowFontScaling, isLight, subtitle, subtitleStyle } = this._processProps()
 
-    if (this._isComponent(subtitle)) {
+    if (AppHelper.isComponent(subtitle)) {
       return React.cloneElement(subtitle as any, { style: subtitleStyle })
     }
 
@@ -146,16 +147,5 @@ export default class Page extends React.Component<IPageProps, IPageState> {
     const _style: TypeStyle = {}
 
     return StyleSheet.flatten([styles.container, _style, containerStyle, { height, width }])
-  }
-
-  /**
-   * Method to valid if a object is a component
-   * @private
-   * @param {*} kind Object to validate
-   * @returns {boolean}
-   * @memberof Page
-   */
-  private _isComponent(kind: any): boolean {
-    return (kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol')
   }
 }

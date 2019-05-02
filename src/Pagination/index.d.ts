@@ -355,15 +355,6 @@ declare class Pagination extends React.Component<IPaginationProps, IPaginationSt
    * @memberof Pagination
    */
   private _processProps(): IPaginationState
-
-  /**
-   * Method to valid if a object is a component
-   * @private
-   * @param {*} kind Object to validate
-   * @returns {boolean}
-   * @memberof Pagination
-   */
-  private _isComponent(kind: any): boolean
 }
 
 /**

@@ -172,15 +172,6 @@ declare class Page extends React.Component<IPageProps, IPageState> {
    * @memberof Page
    */
   private _processStyle(): TypeStyle
-
-  /**
-   * Method to valid if a object is a component
-   * @private
-   * @param {*} kind Object to validate
-   * @returns {boolean}
-   * @memberof Page
-   */
-  private _isComponent(kind: any): boolean
 }
 
 /**

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 
+import { AppHelper } from '@ticmakers-react-native/core'
 import Dots from './../Dots/Dots'
 import DoneButton from './../Pagination/DoneButton'
 import Button from '@ticmakers-react-native/button'
@@ -83,7 +84,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if (!hideDone && this.isLastPage()) {
-      if (this._isComponent(DoneComponent)) {
+      if (AppHelper.isComponent(DoneComponent)) {
         const _s = StyleSheet.flatten([props.style, (DoneComponent as any).props.style])
         const _p = { ...props, ...(DoneComponent as any).props, style: _s }
 
@@ -136,7 +137,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if (!hideNext && !this.isLastPage()) {
-      if (this._isComponent(NextComponent)) {
+      if (AppHelper.isComponent(NextComponent)) {
         return React.cloneElement(NextComponent as any, props)
       }
 
@@ -160,7 +161,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if (!hideSkip) {
-      if (this._isComponent(SkipComponent)) {
+      if (AppHelper.isComponent(SkipComponent)) {
         return React.cloneElement(SkipComponent as any, props)
       }
 
@@ -251,16 +252,5 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     return props
-  }
-
-  /**
-   * Method to valid if a object is a component
-   * @private
-   * @param {*} kind    Object to validate
-   * @returns {boolean}
-   * @memberof Pagination
-   */
-  private _isComponent(kind: any): boolean {
-    return (kind && kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol')
   }
 }

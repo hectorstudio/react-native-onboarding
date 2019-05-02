@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 
+import { AppHelper } from '@ticmakers-react-native/core'
 import Dot from './../Dot/Dot'
 import { IDotsProps, IDotsState, TypeComponent, TypeStyle } from './../../index'
 import styles from './styles'
@@ -44,7 +45,7 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
         selected: i === currentPage,
       }
 
-      if (this._isComponent(DotComponent)) {
+      if (AppHelper.isComponent(DotComponent)) {
         dots.push(React.cloneElement(DotComponent as any, props))
       } else {
         dots.push(<Dot { ...props } />)
@@ -87,16 +88,5 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
     const _style: TypeStyle = {}
 
     return StyleSheet.flatten([styles.container, _style, style])
-  }
-
-  /**
-   * Method to valid if a object is a component
-   * @private
-   * @param {*} kind    Object to validate
-   * @returns {boolean}
-   * @memberof Pagination
-   */
-  private _isComponent(kind: any): boolean {
-    return (kind && kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol')
   }
 }
