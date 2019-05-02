@@ -36,7 +36,6 @@ Class to define the Dots components used in Onboarding
 * [UNSAFE_componentWillMount](_dots_dots_.dots.md#unsafe_componentwillmount)
 * [UNSAFE_componentWillReceiveProps](_dots_dots_.dots.md#unsafe_componentwillreceiveprops)
 * [UNSAFE_componentWillUpdate](_dots_dots_.dots.md#unsafe_componentwillupdate)
-* [_isComponent](_dots_dots_.dots.md#_iscomponent)
 * [_processProps](_dots_dots_.dots.md#_processprops)
 * [_processStyle](_dots_dots_.dots.md#_processstyle)
 * [componentDidCatch](_dots_dots_.dots.md#componentdidcatch)
@@ -197,7 +196,7 @@ ___
 
 ▸ **Dot**(): `TypeComponent`[]
 
-*Defined in Dots/Dots.tsx:32*
+*Defined in Dots/Dots.tsx:33*
 
 Method that renders the Dot component
 
@@ -300,34 +299,13 @@ Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps preven
 **Returns:** `void`
 
 ___
-<a id="_iscomponent"></a>
-
-### `<Private>` _isComponent
-
-▸ **_isComponent**(kind: *`any`*): `boolean`
-
-*Defined in Dots/Dots.tsx:99*
-
-Method to valid if a object is a component
-
-*__memberof__*: Pagination
-
-**Parameters:**
-
-| Name | Type | Description |
-| ------ | ------ | ------ |
-| kind | `any` |  Object to validate |
-
-**Returns:** `boolean`
-
-___
 <a id="_processprops"></a>
 
 ### `<Private>` _processProps
 
 ▸ **_processProps**(): [IDotsState](../interfaces/_dots_index_d_.idotsstate.md)
 
-*Defined in Dots/Dots.tsx:63*
+*Defined in Dots/Dots.tsx:64*
 
 Method to process the props
 
@@ -342,7 +320,7 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Dots/Dots.tsx:85*
+*Defined in Dots/Dots.tsx:86*
 
 Method to process the prop style
 
@@ -567,7 +545,7 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Dots/Dots.tsx:19*
+*Defined in Dots/Dots.tsx:20*
 
 Method to renders the component
 

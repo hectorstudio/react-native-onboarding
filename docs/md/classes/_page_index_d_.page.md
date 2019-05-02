@@ -39,7 +39,6 @@ Class to define the component Page used in Onboarding
 * [UNSAFE_componentWillMount](_page_index_d_.page.md#unsafe_componentwillmount)
 * [UNSAFE_componentWillReceiveProps](_page_index_d_.page.md#unsafe_componentwillreceiveprops)
 * [UNSAFE_componentWillUpdate](_page_index_d_.page.md#unsafe_componentwillupdate)
-* [_isComponent](_page_index_d_.page.md#_iscomponent)
 * [_processProps](_page_index_d_.page.md#_processprops)
 * [_processStyle](_page_index_d_.page.md#_processstyle)
 * [componentDidCatch](_page_index_d_.page.md#componentdidcatch)
@@ -346,27 +345,6 @@ Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps preven
 | nextContext | `any` |
 
 **Returns:** `void`
-
-___
-<a id="_iscomponent"></a>
-
-### `<Private>` _isComponent
-
-▸ **_isComponent**(kind: *`any`*): `boolean`
-
-*Defined in Page/index.d.ts:183*
-
-Method to valid if a object is a component
-
-*__memberof__*: Page
-
-**Parameters:**
-
-| Name | Type | Description |
-| ------ | ------ | ------ |
-| kind | `any` |  Object to validate |
-
-**Returns:** `boolean`
 
 ___
 <a id="_processprops"></a>

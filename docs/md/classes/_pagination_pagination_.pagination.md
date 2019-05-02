@@ -43,7 +43,6 @@ Class to define the Pagination component used in Onboarding
 * [UNSAFE_componentWillReceiveProps](_pagination_pagination_.pagination.md#unsafe_componentwillreceiveprops)
 * [UNSAFE_componentWillUpdate](_pagination_pagination_.pagination.md#unsafe_componentwillupdate)
 * [_getContent](_pagination_pagination_.pagination.md#_getcontent)
-* [_isComponent](_pagination_pagination_.pagination.md#_iscomponent)
 * [_processProps](_pagination_pagination_.pagination.md#_processprops)
 * [componentDidCatch](_pagination_pagination_.pagination.md#componentdidcatch)
 * [componentDidMount](_pagination_pagination_.pagination.md#componentdidmount)
@@ -204,7 +203,7 @@ ___
 
 ▸ **CenterContent**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:51*
+*Defined in Pagination/Pagination.tsx:52*
 
 Method that renders the center container component
 
@@ -219,7 +218,7 @@ ___
 
 ▸ **Done**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:75*
+*Defined in Pagination/Pagination.tsx:76*
 
 Method that renders the Done button
 
@@ -234,7 +233,7 @@ ___
 
 ▸ **Dots**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:105*
+*Defined in Pagination/Pagination.tsx:106*
 
 Method that renders the pagination Dots
 
@@ -249,7 +248,7 @@ ___
 
 ▸ **LeftContent**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:39*
+*Defined in Pagination/Pagination.tsx:40*
 
 Method that renders the left container component
 
@@ -264,7 +263,7 @@ ___
 
 ▸ **Next**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:128*
+*Defined in Pagination/Pagination.tsx:129*
 
 Method that renders the Next button
 
@@ -279,7 +278,7 @@ ___
 
 ▸ **RightContent**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:63*
+*Defined in Pagination/Pagination.tsx:64*
 
 Method that renders the right container component
 
@@ -294,7 +293,7 @@ ___
 
 ▸ **Skip**(): `TypeComponent`
 
-*Defined in Pagination/Pagination.tsx:152*
+*Defined in Pagination/Pagination.tsx:153*
 
 Methods that renders the Skip button
 
@@ -403,7 +402,7 @@ ___
 
 ▸ **_getContent**(position: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*): `TypeComponent`[]
 
-*Defined in Pagination/Pagination.tsx:188*
+*Defined in Pagination/Pagination.tsx:189*
 
 Method that renders the content of each container (left, center and right)
 
@@ -418,34 +417,13 @@ Method that renders the content of each container (left, center and right)
 **Returns:** `TypeComponent`[]
 
 ___
-<a id="_iscomponent"></a>
-
-### `<Private>` _isComponent
-
-▸ **_isComponent**(kind: *`any`*): `boolean`
-
-*Defined in Pagination/Pagination.tsx:263*
-
-Method to valid if a object is a component
-
-*__memberof__*: Pagination
-
-**Parameters:**
-
-| Name | Type | Description |
-| ------ | ------ | ------ |
-| kind | `any` |  Object to validate |
-
-**Returns:** `boolean`
-
-___
 <a id="_processprops"></a>
 
 ### `<Private>` _processProps
 
 ▸ **_processProps**(): [IPaginationState](../interfaces/_pagination_index_d_.ipaginationstate.md)
 
-*Defined in Pagination/Pagination.tsx:215*
+*Defined in Pagination/Pagination.tsx:216*
 
 Method that process the props of the component
 
@@ -668,7 +646,7 @@ ___
 
 ▸ **isLastPage**(): `boolean`
 
-*Defined in Pagination/Pagination.tsx:176*
+*Defined in Pagination/Pagination.tsx:177*
 
 Method to check if the current page is the last page
 
@@ -685,7 +663,7 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Pagination/Pagination.tsx:21*
+*Defined in Pagination/Pagination.tsx:22*
 
 Method that renders the component
 

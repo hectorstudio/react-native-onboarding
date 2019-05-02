@@ -54,7 +54,7 @@ Class to define the component DoneButton used in Onboarding
 
 **● fadeAnimation**: *`Animated.Value`*
 
-*Defined in Pagination/index.d.ts:379*
+*Defined in Pagination/index.d.ts:370*
 
 Initial value to the animation
 
@@ -67,7 +67,7 @@ ___
 
 **● fadeDuration**: *`undefined` \| `number`*
 
-*Defined in Pagination/index.d.ts:385*
+*Defined in Pagination/index.d.ts:376*
 
 Duration of the animation
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **ButtonComponent**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:406*
+*Defined in Pagination/index.d.ts:397*
 
 Method that renders the button
 
@@ -284,7 +284,7 @@ ___
 
 *Overrides ComponentLifecycle.componentDidMount*
 
-*Defined in Pagination/index.d.ts:392*
+*Defined in Pagination/index.d.ts:383*
 
 Method that fire when the component is mounted
 
@@ -453,7 +453,7 @@ ___
 
 *Overrides Button.render*
 
-*Defined in Pagination/index.d.ts:399*
+*Defined in Pagination/index.d.ts:390*
 
 Method that renders the component
 

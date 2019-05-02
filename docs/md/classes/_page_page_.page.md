@@ -39,7 +39,6 @@ Class to define the component Page used in Onboarding
 * [UNSAFE_componentWillMount](_page_page_.page.md#unsafe_componentwillmount)
 * [UNSAFE_componentWillReceiveProps](_page_page_.page.md#unsafe_componentwillreceiveprops)
 * [UNSAFE_componentWillUpdate](_page_page_.page.md#unsafe_componentwillupdate)
-* [_isComponent](_page_page_.page.md#_iscomponent)
 * [_processProps](_page_page_.page.md#_processprops)
 * [_processStyle](_page_page_.page.md#_processstyle)
 * [componentDidCatch](_page_page_.page.md#componentdidcatch)
@@ -200,7 +199,7 @@ ___
 
 ▸ **Header**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:34*
+*Defined in Page/Page.tsx:35*
 
 Method that renders the Header component
 
@@ -215,7 +214,7 @@ ___
 
 ▸ **Image**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:50*
+*Defined in Page/Page.tsx:51*
 
 Method that renders the Image component
 
@@ -230,7 +229,7 @@ ___
 
 ▸ **Subtitle**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:90*
+*Defined in Page/Page.tsx:91*
 
 Method that renders the Subtitle component
 
@@ -245,7 +244,7 @@ ___
 
 ▸ **Title**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:66*
+*Defined in Page/Page.tsx:67*
 
 Method that renders the Title component
 
@@ -348,34 +347,13 @@ Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps preven
 **Returns:** `void`
 
 ___
-<a id="_iscomponent"></a>
-
-### `<Private>` _isComponent
-
-▸ **_isComponent**(kind: *`any`*): `boolean`
-
-*Defined in Page/Page.tsx:158*
-
-Method to valid if a object is a component
-
-*__memberof__*: Page
-
-**Parameters:**
-
-| Name | Type | Description |
-| ------ | ------ | ------ |
-| kind | `any` |  Object to validate |
-
-**Returns:** `boolean`
-
-___
 <a id="_processprops"></a>
 
 ### `<Private>` _processProps
 
 ▸ **_processProps**(): [IPageState](../interfaces/_page_index_d_.ipagestate.md)
 
-*Defined in Page/Page.tsx:115*
+*Defined in Page/Page.tsx:116*
 
 Method that process the props of the component
 
@@ -390,7 +368,7 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Page/Page.tsx:144*
+*Defined in Page/Page.tsx:145*
 
 Method to process the prop style of the component
 
@@ -615,7 +593,7 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Page/Page.tsx:18*
+*Defined in Page/Page.tsx:19*
 
 Method that renders the component
 

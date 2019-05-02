@@ -43,7 +43,6 @@ Class to define the Pagination component used in Onboarding
 * [UNSAFE_componentWillReceiveProps](_pagination_index_d_.pagination.md#unsafe_componentwillreceiveprops)
 * [UNSAFE_componentWillUpdate](_pagination_index_d_.pagination.md#unsafe_componentwillupdate)
 * [_getContent](_pagination_index_d_.pagination.md#_getcontent)
-* [_isComponent](_pagination_index_d_.pagination.md#_iscomponent)
 * [_processProps](_pagination_index_d_.pagination.md#_processprops)
 * [componentDidCatch](_pagination_index_d_.pagination.md#componentdidcatch)
 * [componentDidMount](_pagination_index_d_.pagination.md#componentdidmount)
@@ -416,27 +415,6 @@ Method that renders the content of each container (left, center and right)
 | position | [TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition) |  Position of the container |
 
 **Returns:** `TypeComponent`[]
-
-___
-<a id="_iscomponent"></a>
-
-### `<Private>` _isComponent
-
-▸ **_isComponent**(kind: *`any`*): `boolean`
-
-*Defined in Pagination/index.d.ts:366*
-
-Method to valid if a object is a component
-
-*__memberof__*: Pagination
-
-**Parameters:**
-
-| Name | Type | Description |
-| ------ | ------ | ------ |
-| kind | `any` |  Object to validate |
-
-**Returns:** `boolean`
 
 ___
 <a id="_processprops"></a>
