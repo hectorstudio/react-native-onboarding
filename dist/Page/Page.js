@@ -26,6 +26,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
+var core_1 = require("@ticmakers-react-native/core");
 var styles_1 = require("./styles");
 var Page = (function (_super) {
     __extends(Page, _super);
@@ -55,7 +56,7 @@ var Page = (function (_super) {
     };
     Page.prototype.Title = function () {
         var _a = this._processProps(), allowFontScaling = _a.allowFontScaling, isLight = _a.isLight, title = _a.title, titleStyle = _a.titleStyle;
-        if (this._isComponent(title)) {
+        if (core_1.AppHelper.isComponent(title)) {
             return React.cloneElement(title, { style: titleStyle });
         }
         var props = {
@@ -67,7 +68,7 @@ var Page = (function (_super) {
     };
     Page.prototype.Subtitle = function () {
         var _a = this._processProps(), allowFontScaling = _a.allowFontScaling, isLight = _a.isLight, subtitle = _a.subtitle, subtitleStyle = _a.subtitleStyle;
-        if (this._isComponent(subtitle)) {
+        if (core_1.AppHelper.isComponent(subtitle)) {
             return React.cloneElement(subtitle, { style: subtitleStyle });
         }
         var props = {
@@ -101,9 +102,6 @@ var Page = (function (_super) {
         var _a = this._processProps(), containerStyle = _a.containerStyle, height = _a.height, width = _a.width;
         var _style = {};
         return react_native_1.StyleSheet.flatten([styles_1.default.container, _style, containerStyle, { height: height, width: width }]);
-    };
-    Page.prototype._isComponent = function (kind) {
-        return (kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol');
     };
     return Page;
 }(React.Component));

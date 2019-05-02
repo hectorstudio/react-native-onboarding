@@ -26,6 +26,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
+var core_1 = require("@ticmakers-react-native/core");
 var Dot_1 = require("./../Dot/Dot");
 var styles_1 = require("./styles");
 var Dots = (function (_super) {
@@ -47,7 +48,7 @@ var Dots = (function (_super) {
                 key: i,
                 selected: i === currentPage,
             };
-            if (this._isComponent(DotComponent)) {
+            if (core_1.AppHelper.isComponent(DotComponent)) {
                 dots.push(React.cloneElement(DotComponent, props));
             }
             else {
@@ -73,9 +74,6 @@ var Dots = (function (_super) {
         var style = this._processProps().style;
         var _style = {};
         return react_native_1.StyleSheet.flatten([styles_1.default.container, _style, style]);
-    };
-    Dots.prototype._isComponent = function (kind) {
-        return (kind && kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol');
     };
     return Dots;
 }(React.Component));

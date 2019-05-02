@@ -26,6 +26,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
+var core_1 = require("@ticmakers-react-native/core");
 var Dots_1 = require("./../Dots/Dots");
 var DoneButton_1 = require("./../Pagination/DoneButton");
 var button_1 = require("@ticmakers-react-native/button");
@@ -68,7 +69,7 @@ var Pagination = (function (_super) {
             title: doneLabel,
         };
         if (!hideDone && this.isLastPage()) {
-            if (this._isComponent(DoneComponent)) {
+            if (core_1.AppHelper.isComponent(DoneComponent)) {
                 var _s = react_native_1.StyleSheet.flatten([props.style, DoneComponent.props.style]);
                 var _p = __assign({}, props, DoneComponent.props, { style: _s });
                 return React.cloneElement(DoneComponent, _p);
@@ -104,7 +105,7 @@ var Pagination = (function (_super) {
             title: nextLabel,
         };
         if (!hideNext && !this.isLastPage()) {
-            if (this._isComponent(NextComponent)) {
+            if (core_1.AppHelper.isComponent(NextComponent)) {
                 return React.cloneElement(NextComponent, props);
             }
             return React.createElement(button_1.default, __assign({ clear: true }, props));
@@ -120,7 +121,7 @@ var Pagination = (function (_super) {
             title: skipLabel,
         };
         if (!hideSkip) {
-            if (this._isComponent(SkipComponent)) {
+            if (core_1.AppHelper.isComponent(SkipComponent)) {
                 return React.cloneElement(SkipComponent, props);
             }
             return React.createElement(button_1.default, __assign({ clear: true }, props));
@@ -185,9 +186,6 @@ var Pagination = (function (_super) {
             skipStyle: (options && options.skipStyle) || (skipStyle || undefined),
         };
         return props;
-    };
-    Pagination.prototype._isComponent = function (kind) {
-        return (kind && kind._owner && kind._owner.constructor.name === 'FiberNode' && kind.$$typeof && kind.$$typeof.constructor.name === 'Symbol');
     };
     return Pagination;
 }(React.Component));
