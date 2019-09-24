@@ -175,10 +175,15 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @memberof Onboarding
    */
   public getCurrentPage(): IOnboardingPage | undefined {
-    const { pages } = this._processProps()
+    const { defaultPages, pages } = this._processProps()
     const { currentPage } = this.state
+    let _pages = pages
 
-    return pages[currentPage || 0] || undefined
+    if (defaultPages) {
+      _pages = this.defaultPages()
+    }
+
+    return _pages[currentPage || 0] || undefined
   }
 
   /**
@@ -187,10 +192,15 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @memberof Onboarding
    */
   public getPreviousPage(): IOnboardingPage | undefined {
-    const { pages } = this._processProps()
+    const { defaultPages, pages } = this._processProps()
     const { currentPage, previousPage } = this.state
+    let _pages = pages
 
-    return currentPage !== previousPage && pages[previousPage || 0] || undefined
+    if (defaultPages) {
+      _pages = this.defaultPages()
+    }
+
+    return currentPage !== previousPage && _pages[previousPage || 0] || undefined
   }
 
   /**
@@ -301,10 +311,15 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @memberof Onboarding
    */
   private _skipToLastPage(): void {
-    const { pages, skipToPage } = this._processProps()
+    const { defaultPages, pages, skipToPage } = this._processProps()
     let index = skipToPage
+    let _pages = pages
 
-    if (!index) { index = pages.length - 1 }
+    if (defaultPages) {
+      _pages = this.defaultPages()
+    }
+
+    if (!index) { index = _pages.length - 1 }
     this.flatList.scrollToIndex({ index, animated: true })
   }
 
