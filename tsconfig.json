@@ -17,12 +17,6 @@
     "target": "es5",
     "sourceMap": true,
     "strict": true,
-    "types": [
-      "react",
-      "react-native",
-      "expo",
-      "tinycolor2"
-    ],
     "typeRoots": [
       "index.d.ts",
       "node_modules/@types"
