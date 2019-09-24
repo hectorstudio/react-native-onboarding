@@ -50,7 +50,7 @@ var DoneButton = (function (_super) {
     };
     DoneButton.prototype.ButtonComponent = function () {
         var _a = this.props, children = _a.children, title = _a.title;
-        var props = __assign({}, this.props, { clear: true });
+        var props = __assign(__assign({}, this.props), { clear: true });
         if (children) {
             return (React.createElement(button_1.default, __assign({}, props), children));
         }

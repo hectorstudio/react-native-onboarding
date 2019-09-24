@@ -73,7 +73,7 @@ var Onboarding = (function (_super) {
         var containerPaginationProps = {
             style: react_native_1.StyleSheet.flatten([bottomBarHighlight && styles_1.default.overlay]),
         };
-        var paginationProps = __assign({}, this._paginationProps(), { isLight: isLight });
+        var paginationProps = __assign(__assign({}, this._paginationProps()), { isLight: isLight });
         return (React.createElement(react_native_1.Animated.View, __assign({}, containerProps),
             controlStatusBar && React.createElement(react_native_1.StatusBar, { barStyle: barStyle }),
             React.createElement(react_native_1.FlatList, __assign({ ref: function (list) { return _this.flatList = list; } }, this._flatlistProps())),
@@ -122,14 +122,22 @@ var Onboarding = (function (_super) {
         return React.createElement(Page_1.default, __assign({}, props));
     };
     Onboarding.prototype.getCurrentPage = function () {
-        var pages = this._processProps().pages;
+        var _a = this._processProps(), defaultPages = _a.defaultPages, pages = _a.pages;
         var currentPage = this.state.currentPage;
-        return pages[currentPage || 0] || undefined;
+        var _pages = pages;
+        if (defaultPages) {
+            _pages = this.defaultPages();
+        }
+        return _pages[currentPage || 0] || undefined;
     };
     Onboarding.prototype.getPreviousPage = function () {
-        var pages = this._processProps().pages;
-        var _a = this.state, currentPage = _a.currentPage, previousPage = _a.previousPage;
-        return currentPage !== previousPage && pages[previousPage || 0] || undefined;
+        var _a = this._processProps(), defaultPages = _a.defaultPages, pages = _a.pages;
+        var _b = this.state, currentPage = _b.currentPage, previousPage = _b.previousPage;
+        var _pages = pages;
+        if (defaultPages) {
+            _pages = this.defaultPages();
+        }
+        return currentPage !== previousPage && _pages[previousPage || 0] || undefined;
     };
     Onboarding.prototype.goNext = function () {
         var currentPage = this.state.currentPage;
@@ -187,10 +195,14 @@ var Onboarding = (function (_super) {
         this.setState({ height: _h, width: _w });
     };
     Onboarding.prototype._skipToLastPage = function () {
-        var _a = this._processProps(), pages = _a.pages, skipToPage = _a.skipToPage;
+        var _a = this._processProps(), defaultPages = _a.defaultPages, pages = _a.pages, skipToPage = _a.skipToPage;
         var index = skipToPage;
+        var _pages = pages;
+        if (defaultPages) {
+            _pages = this.defaultPages();
+        }
         if (!index) {
-            index = pages.length - 1;
+            index = _pages.length - 1;
         }
         this.flatList.scrollToIndex({ index: index, animated: true });
     };

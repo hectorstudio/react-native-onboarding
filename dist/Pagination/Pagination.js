@@ -71,7 +71,7 @@ var Pagination = (function (_super) {
         if (!hideDone && this.isLastPage()) {
             if (core_1.AppHelper.isComponent(DoneComponent)) {
                 var _s = react_native_1.StyleSheet.flatten([props.style, DoneComponent.props.style]);
-                var _p = __assign({}, props, DoneComponent.props, { style: _s });
+                var _p = __assign(__assign(__assign({}, props), DoneComponent.props), { style: _s });
                 return React.cloneElement(DoneComponent, _p);
             }
             else if (props.title) {
