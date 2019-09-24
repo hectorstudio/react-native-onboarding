@@ -29,6 +29,7 @@ Interface to define the states of the Dot component
 * [accessibilityLabel](_dots_index_d_.idotsstate.md#accessibilitylabel)
 * [accessibilityLiveRegion](_dots_index_d_.idotsstate.md#accessibilityliveregion)
 * [accessibilityRole](_dots_index_d_.idotsstate.md#accessibilityrole)
+* [accessibilityState](_dots_index_d_.idotsstate.md#accessibilitystate)
 * [accessibilityStates](_dots_index_d_.idotsstate.md#accessibilitystates)
 * [accessibilityTraits](_dots_index_d_.idotsstate.md#accessibilitytraits)
 * [accessibilityViewIsModal](_dots_index_d_.idotsstate.md#accessibilityviewismodal)
@@ -36,9 +37,11 @@ Interface to define the states of the Dot component
 * [collapsable](_dots_index_d_.idotsstate.md#collapsable)
 * [color](_dots_index_d_.idotsstate.md#color)
 * [currentPage](_dots_index_d_.idotsstate.md#currentpage)
+* [hasTVPreferredFocus](_dots_index_d_.idotsstate.md#hastvpreferredfocus)
 * [hitSlop](_dots_index_d_.idotsstate.md#hitslop)
 * [importantForAccessibility](_dots_index_d_.idotsstate.md#importantforaccessibility)
 * [isLight](_dots_index_d_.idotsstate.md#islight)
+* [isTVSelectable](_dots_index_d_.idotsstate.md#istvselectable)
 * [nativeID](_dots_index_d_.idotsstate.md#nativeid)
 * [needsOffscreenAlphaCompositing](_dots_index_d_.idotsstate.md#needsoffscreenalphacompositing)
 * [numPages](_dots_index_d_.idotsstate.md#numpages)
@@ -70,6 +73,11 @@ Interface to define the states of the Dot component
 * [size](_dots_index_d_.idotsstate.md#size)
 * [style](_dots_index_d_.idotsstate.md#style)
 * [testID](_dots_index_d_.idotsstate.md#testid)
+* [tvParallaxMagnification](_dots_index_d_.idotsstate.md#tvparallaxmagnification)
+* [tvParallaxProperties](_dots_index_d_.idotsstate.md#tvparallaxproperties)
+* [tvParallaxShiftDistanceX](_dots_index_d_.idotsstate.md#tvparallaxshiftdistancex)
+* [tvParallaxShiftDistanceY](_dots_index_d_.idotsstate.md#tvparallaxshiftdistancey)
+* [tvParallaxTiltAngle](_dots_index_d_.idotsstate.md#tvparallaxtiltangle)
 
 ---
 
@@ -94,15 +102,13 @@ ___
 
 ### `<Optional>` accessibilityActions
 
-**● accessibilityActions**: *`Array`<`string`>*
+**● accessibilityActions**: *`ReadonlyArray`<`AccessibilityActionInfo`>*
 
-*Inherited from ViewPropsIOS.accessibilityActions*
+*Inherited from AccessibilityProps.accessibilityActions*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1815*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1978*
 
 Provides an array of custom actions available for accessibility.
-
-*__platform__*: ios
 
 ___
 <a id="accessibilitycomponenttype"></a>
@@ -113,7 +119,7 @@ ___
 
 *Inherited from AccessibilityPropsAndroid.accessibilityComponentType*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1931*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2092*
 
 In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. For instances, we support ‘button’, ‘radiobutton\_checked’ and ‘radiobutton\_unchecked’ and so on.
 
@@ -128,7 +134,7 @@ ___
 
 *Inherited from AccessibilityPropsIOS.accessibilityElementsHidden*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1961*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2122*
 
 A Boolean value indicating whether the accessibility elements contained within this accessibility element are hidden to the screen reader.
 
@@ -143,7 +149,7 @@ ___
 
 *Inherited from AccessibilityProps.accessibilityHint*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1905*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2002*
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
 
@@ -156,7 +162,7 @@ ___
 
 *Inherited from AccessibilityPropsIOS.accessibilityIgnoresInvertColors*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1986*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2153*
 
 [https://facebook.github.io/react-native/docs/accessibility#accessibilityignoresinvertcolorsios](https://facebook.github.io/react-native/docs/accessibility#accessibilityignoresinvertcolorsios)
 
@@ -171,7 +177,7 @@ ___
 
 *Inherited from AccessibilityProps.accessibilityLabel*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1891*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1984*
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the Text nodes separated by space.
 
@@ -184,7 +190,7 @@ ___
 
 *Inherited from AccessibilityPropsAndroid.accessibilityLiveRegion*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1939*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2100*
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. See [http://developer.android.com/reference/android/view/View.html#attr\_android:accessibilityLiveRegion](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for references.
 
@@ -199,22 +205,37 @@ ___
 
 *Inherited from AccessibilityProps.accessibilityRole*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1896*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1989*
 
 Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on.
+
+___
+<a id="accessibilitystate"></a>
+
+### `<Optional>` accessibilityState
+
+**● accessibilityState**: *`AccessibilityState`*
+
+*Inherited from AccessibilityProps.accessibilityState*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1998*
+
+Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on.
 
 ___
 <a id="accessibilitystates"></a>
 
 ### `<Optional>` accessibilityStates
 
-**● accessibilityStates**: *`AccessibilityState`[]*
+**● accessibilityStates**: *`AccessibilityStates`[]*
 
 *Inherited from AccessibilityProps.accessibilityStates*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1900*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1994*
 
 Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on.
+
+*__deprecated:__*: accessibilityState available in 0.60+
 
 ___
 <a id="accessibilitytraits"></a>
@@ -225,7 +246,7 @@ ___
 
 *Inherited from AccessibilityPropsIOS.accessibilityTraits*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1968*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2129*
 
 Accessibility traits tell a person using VoiceOver what kind of element they have selected. Is this element a label? A button? A header? These questions are answered by accessibilityTraits.
 
@@ -238,9 +259,9 @@ ___
 
 **● accessibilityViewIsModal**: *`undefined` \| `false` \| `true`*
 
-*Inherited from ViewPropsIOS.accessibilityViewIsModal*
+*Inherited from AccessibilityPropsIOS.accessibilityViewIsModal*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1809*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2135*
 
 A Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
 
@@ -255,7 +276,7 @@ ___
 
 *Inherited from AccessibilityProps.accessible*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1885*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1973*
 
 When true, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
@@ -268,7 +289,7 @@ ___
 
 *Inherited from ViewPropsAndroid.collapsable*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1843*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1931*
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to false to disable this optimization and ensure that this View exists in the native view hierarchy.
 
@@ -303,6 +324,21 @@ A number to define the current page
 *__memberof__*: IDotsState
 
 ___
+<a id="hastvpreferredfocus"></a>
+
+### `<Optional>` hasTVPreferredFocus
+
+**● hasTVPreferredFocus**: *`undefined` \| `false` \| `true`*
+
+*Inherited from TVViewPropsIOS.hasTVPreferredFocus*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1873*
+
+_(Apple TV only)_ May be set to true to force the Apple TV focus engine to move focus to this view.
+
+*__platform__*: ios
+
+___
 <a id="hitslop"></a>
 
 ### `<Optional>` hitSlop
@@ -311,7 +347,7 @@ ___
 
 *Inherited from ViewProps.hitSlop*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2027*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2194*
 
 This defines how far a touch event can start away from the view. Typical interface guidelines recommend touch targets that are at least 30 - 40 points/density-independent pixels. If a Touchable view has a height of 20 the touchable height can be extended to 40 with hitSlop={{top: 10, bottom: 10, left: 0, right: 0}} NOTE The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
@@ -324,7 +360,7 @@ ___
 
 *Inherited from AccessibilityPropsAndroid.importantForAccessibility*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1952*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2113*
 
 Controls how view is important for accessibility which is if it fires accessibility events and if it is reported to accessibility services that query the screen. Works for Android only. See [http://developer.android.com/reference/android/R.attr.html#importantForAccessibility](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for references.
 
@@ -346,6 +382,21 @@ Set true to define if the styles is light or dark
 *__memberof__*: IDotState
 
 ___
+<a id="istvselectable"></a>
+
+### `<Optional>` isTVSelectable
+
+**● isTVSelectable**: *`undefined` \| `false` \| `true`*
+
+*Inherited from TVViewPropsIOS.isTVSelectable*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1866*
+
+_(Apple TV only)_ When set to true, this view will be focusable and navigable using the Apple TV remote.
+
+*__platform__*: ios
+
+___
 <a id="nativeid"></a>
 
 ### `<Optional>` nativeID
@@ -354,7 +405,7 @@ ___
 
 *Inherited from ViewProps.nativeID*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2079*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2246*
 
 Used to reference react managed views from native code.
 
@@ -367,7 +418,7 @@ ___
 
 *Inherited from ViewPropsAndroid.needsOffscreenAlphaCompositing*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1859*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1947*
 
 Whether this view needs to rendered offscreen and composited with an alpha in order to preserve 100% correct colors and blending behavior. The default (false) falls back to drawing the component and its children with an alpha applied to the paint used to draw each element instead of rendering the full component offscreen and compositing it back with an alpha value. This default may be noticeable and undesired in the case where the View you are setting an opacity on has multiple overlapping elements (e.g. multiple overlapping Views, or text and a background).
 
@@ -395,13 +446,11 @@ ___
 
 **● onAccessibilityAction**: *`undefined` \| `function`*
 
-*Inherited from ViewPropsIOS.onAccessibilityAction*
+*Inherited from AccessibilityProps.onAccessibilityAction*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1822*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2007*
 
 When `accessible` is true, the system will try to invoke this function when the user performs an accessibility custom action.
-
-*__platform__*: ios
 
 ___
 <a id="onaccessibilitytap"></a>
@@ -412,7 +461,7 @@ ___
 
 *Inherited from AccessibilityPropsIOS.onAccessibilityTap*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1974*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2141*
 
 When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
 
@@ -427,7 +476,7 @@ ___
 
 *Inherited from ViewProps.onLayout*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2034*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2201*
 
 Invoked on mount and layout changes with
 
@@ -442,7 +491,7 @@ ___
 
 *Inherited from AccessibilityPropsIOS.onMagicTap*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1980*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2147*
 
 When accessible is true, the system will invoke this function when the user performs the magic tap gesture.
 
@@ -457,7 +506,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onMoveShouldSetResponder*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1683*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1696*
 
 Called for every touch move on the View when it is not the responder: does this view want to "claim" touch responsiveness
 
@@ -470,7 +519,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onMoveShouldSetResponderCapture*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1759*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1772*
 
 onStartShouldSetResponder and onMoveShouldSetResponder are called with a bubbling pattern, where the deepest node is called first. That means that the deepest component will become responder when multiple Views return true for \*ShouldSetResponder handlers. This is desirable in most cases, because it makes sure all controls and buttons are usable.
 
@@ -485,7 +534,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderEnd*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1689*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1702*
 
 If the View returns true and attempts to become the responder, one of the following will happen:
 
@@ -498,7 +547,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderGrant*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1695*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1708*
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening
 
@@ -511,7 +560,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderMove*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1709*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1722*
 
 The user is moving their finger
 
@@ -524,7 +573,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderReject*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1700*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1713*
 
 Something else is the responder right now and will not release it
 
@@ -537,7 +586,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderRelease*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1714*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1727*
 
 Fired at the end of the touch, ie "touchUp"
 
@@ -550,7 +599,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderStart*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1716*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1729*
 
 ___
 <a id="onresponderterminate"></a>
@@ -561,7 +610,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderTerminate*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1729*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1742*
 
 The responder has been taken from the View. Might be taken by other views after a call to onResponderTerminationRequest, or might be taken by the OS without asking (happens with control center/ notification center on iOS)
 
@@ -574,7 +623,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onResponderTerminationRequest*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1722*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1735*
 
 Something else wants to become responder. Should this view release the responder? Returning true allows release
 
@@ -587,7 +636,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onStartShouldSetResponder*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1678*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1691*
 
 Does this view want to become responder on the start of a touch
 
@@ -600,7 +649,7 @@ ___
 
 *Inherited from GestureResponderHandlers.onStartShouldSetResponderCapture*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1744*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1757*
 
 onStartShouldSetResponder and onMoveShouldSetResponder are called with a bubbling pattern, where the deepest node is called first. That means that the deepest component will become responder when multiple Views return true for \*ShouldSetResponder handlers. This is desirable in most cases, because it makes sure all controls and buttons are usable.
 
@@ -615,7 +664,7 @@ ___
 
 *Inherited from Touchable.onTouchCancel*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:437*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:443*
 
 ___
 <a id="ontouchend"></a>
@@ -626,7 +675,7 @@ ___
 
 *Inherited from Touchable.onTouchEnd*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:436*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:442*
 
 ___
 <a id="ontouchendcapture"></a>
@@ -637,7 +686,7 @@ ___
 
 *Inherited from Touchable.onTouchEndCapture*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:438*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:444*
 
 ___
 <a id="ontouchmove"></a>
@@ -648,7 +697,7 @@ ___
 
 *Inherited from Touchable.onTouchMove*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:435*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:441*
 
 ___
 <a id="ontouchstart"></a>
@@ -659,7 +708,7 @@ ___
 
 *Inherited from Touchable.onTouchStart*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:434*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:440*
 
 ___
 <a id="pointerevents"></a>
@@ -670,7 +719,7 @@ ___
 
 *Inherited from ViewProps.pointerEvents*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2059*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2226*
 
 In the absence of auto property, none is much like CSS's none value. box-none is as if you had applied the CSS class:
 
@@ -691,7 +740,7 @@ ___
 
 *Inherited from ViewProps.removeClippedSubviews*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2067*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2234*
 
 This is a special performance property exposed by RCTView and is useful for scrolling content when there are many subviews, most of which are offscreen. For this property to be effective, it must be applied to a view that contains many subviews that extend outside its bound. The subviews must also have overflow: hidden, as should the containing view (or one of its superviews).
 
@@ -704,7 +753,7 @@ ___
 
 *Inherited from ViewPropsAndroid.renderToHardwareTextureAndroid*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1868*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1956*
 
 Whether this view should render itself (and all of its children) into a single hardware texture on the GPU.
 
@@ -719,7 +768,7 @@ ___
 
 *Inherited from ViewPropsIOS.shouldRasterizeIOS*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1834*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1922*
 
 Whether this view should be rendered as a bitmap before compositing.
 
@@ -751,7 +800,7 @@ ___
 
 *Inherited from ViewProps.style*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2069*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2236*
 
 ___
 <a id="testid"></a>
@@ -762,9 +811,84 @@ ___
 
 *Inherited from ViewProps.testID*
 
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2074*
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:2241*
 
 Used to locate this view in end-to-end tests.
+
+___
+<a id="tvparallaxmagnification"></a>
+
+### `<Optional>` tvParallaxMagnification
+
+**● tvParallaxMagnification**: *`undefined` \| `number`*
+
+*Inherited from TVViewPropsIOS.tvParallaxMagnification*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1908*
+
+_(Apple TV only)_ May be used to change the appearance of the Apple TV parallax effect when this view goes in or out of focus. Defaults to 1.0.
+
+*__platform__*: ios
+
+___
+<a id="tvparallaxproperties"></a>
+
+### `<Optional>` tvParallaxProperties
+
+**● tvParallaxProperties**: *`TVParallaxProperties`*
+
+*Inherited from TVViewPropsIOS.tvParallaxProperties*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1880*
+
+_(Apple TV only)_ Object with properties to control Apple TV parallax effects.
+
+*__platform__*: ios
+
+___
+<a id="tvparallaxshiftdistancex"></a>
+
+### `<Optional>` tvParallaxShiftDistanceX
+
+**● tvParallaxShiftDistanceX**: *`undefined` \| `number`*
+
+*Inherited from TVViewPropsIOS.tvParallaxShiftDistanceX*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1887*
+
+_(Apple TV only)_ May be used to change the appearance of the Apple TV parallax effect when this view goes in or out of focus. Defaults to 2.0.
+
+*__platform__*: ios
+
+___
+<a id="tvparallaxshiftdistancey"></a>
+
+### `<Optional>` tvParallaxShiftDistanceY
+
+**● tvParallaxShiftDistanceY**: *`undefined` \| `number`*
+
+*Inherited from TVViewPropsIOS.tvParallaxShiftDistanceY*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1894*
+
+_(Apple TV only)_ May be used to change the appearance of the Apple TV parallax effect when this view goes in or out of focus. Defaults to 2.0.
+
+*__platform__*: ios
+
+___
+<a id="tvparallaxtiltangle"></a>
+
+### `<Optional>` tvParallaxTiltAngle
+
+**● tvParallaxTiltAngle**: *`undefined` \| `number`*
+
+*Inherited from TVViewPropsIOS.tvParallaxTiltAngle*
+
+*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:1901*
+
+_(Apple TV only)_ May be used to change the appearance of the Apple TV parallax effect when this view goes in or out of focus. Defaults to 0.05.
+
+*__platform__*: ios
 
 ___
 
