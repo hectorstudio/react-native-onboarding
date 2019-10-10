@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.2.0] - 2019-10-09
+
+### Fixed
+
+- Fixed backgroundColor to #FFF when a page don't have a backgroundColor
+- Fixed the height and width of the page
+- Fixed and improve typings
+
+### Added
+
+- Added method goPrev to show a previous page
+- Added prop usePrevious to show a button Previous after of the first page
+- Added prop backgroundImage to show a image as background in a page
+- Added prop Component to show a custom component as page
+- Added prop colorSelected to change color of the Dot selected
+- Added prop selectedStyle to apply a custom style to the Dot selected
+
+### Changes
+
+- The header prop of the a page is fixed to the top
+- The containers of the pagination is align to center
+- Improve styles files
+
 ## [1.1.4] - 2019-09-24
 
 ### Fixed
@@ -90,6 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Release
 
 
+[1.2.0]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.2.0/
 [1.1.4]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.4/
 [1.1.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.3/
 [1.1.2]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.2/
