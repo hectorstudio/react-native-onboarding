@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { IDotProps, IDotState, TypeComponent, TypeStyle } from './../../index'
+import { TypeComponent, TypeStyle } from '@ticmakers-react-native/core'
+import { IDotProps, IDotState } from './../../index'
 import styles from './styles'
 
 /**
@@ -13,7 +14,6 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
   /**
    * Method to renders the component
    * @returns {TypeComponent}
-   * @memberof Dot
    */
   public render(): TypeComponent {
     return(
@@ -27,19 +27,22 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
   /**
    * Method to process the props
    * @private
-   * @returns {IDotState}
-   * @memberof Dot
+   * @returns {IDotProps}
    */
-  private _processProps(): IDotState {
-    const { Component, color, isLight, options, selected, size, style } = this.props
-    const props: IDotState = {
-      Component: (options && options.Component) || (Component || undefined),
-      color: (options && options.color) || (color || undefined),
-      isLight: (options && options.isLight) || (isLight || false),
-      selected: (options && options.selected) || (selected || false),
-      size: (options && options.size) || (size || undefined),
-      style: (options && options.style) || (style || undefined),
+  private _processProps(): IDotProps {
+    const { Component, color, colorSelected, isLight, selected, selectedStyle, size, style } = this.props
+
+    const props: IDotProps = {
+      Component: (typeof Component !== 'undefined' ? Component : undefined),
+      color: (typeof color !== 'undefined' ? color : undefined),
+      colorSelected: (typeof colorSelected !== 'undefined' ? colorSelected : undefined),
+      isLight: (typeof isLight !== 'undefined' ? isLight : false),
+      selected: (typeof selected !== 'undefined' ? selected : false),
+      selectedStyle: (typeof selectedStyle !== 'undefined' ? selectedStyle : undefined),
+      size: (typeof size !== 'undefined' ? size : undefined),
+      style: (typeof style !== 'undefined' ? style : undefined),
     }
+
     return props
   }
 
@@ -47,10 +50,9 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
    * Method to process the prop style for the container
    * @private
    * @returns {TypeStyle}
-   * @memberof Dot
    */
   private _processStyle(): TypeStyle {
-    const { color, isLight, selected, size, style } = this._processProps()
+    const { color, colorSelected, isLight, selected, selectedStyle, size, style } = this._processProps()
     const _style: TypeStyle = {}
 
     if (isLight) {
@@ -59,8 +61,12 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
       _style.backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)'
     }
 
-    if (color && selected) {
+    if (color) {
       _style.backgroundColor = color
+    }
+
+    if (colorSelected && selected) {
+      _style.backgroundColor = colorSelected
     }
 
     if (size) {
@@ -68,6 +74,6 @@ export default class Dot extends React.Component<IDotProps, IDotState> {
       _style.borderRadius = size / 2
     }
 
-    return StyleSheet.flatten([styles.dot, _style, style])
+    return StyleSheet.flatten([styles.dot, _style, selected && selectedStyle,  style])
   }
 }
