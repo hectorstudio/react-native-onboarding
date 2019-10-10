@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { AppHelper } from '@ticmakers-react-native/core'
+import { AppHelper, TypeComponent, TypeStyle } from '@ticmakers-react-native/core'
+
 import Dot from './../Dot/Dot'
-import { IDotsProps, IDotsState, TypeComponent, TypeStyle } from './../../index'
+import { IDotsProps, IDotsState, IDotProps } from './../../index'
 import styles from './styles'
 
 /**
@@ -15,7 +16,6 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
   /**
    * Method to renders the component
    * @returns {TypeComponent}
-   * @memberof Dots
    */
   public render(): TypeComponent {
     return(
@@ -28,21 +28,22 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
   /**
    * Method that renders the Dot component
    * @returns {TypeComponent[]}
-   * @memberof Dots
    */
   public Dot(): TypeComponent[] {
-    const { DotComponent, color, currentPage, isLight, numPages, size } = this._processProps()
+    const { DotComponent, color, colorSelected, currentPage, isLight, numPages, selectedStyle, size } = this._processProps()
     const dots: TypeComponent[] = []
 
     // tslint:disable-next-line: no-increment-decrement
     for (let i = 0; i < (numPages as number); i++) {
-      const props = {
+      const props: IDotProps = {
         color,
+        colorSelected,
         isLight,
+        selectedStyle,
         size,
         // tslint:disable-next-line: object-literal-sort-keys
-        key: i,
         selected: i === currentPage,
+        key: i,
       }
 
       if (AppHelper.isComponent(DotComponent)) {
@@ -58,20 +59,21 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
   /**
    * Method to process the props
    * @private
-   * @returns {IDotsState}
-   * @memberof Dots
+   * @returns {IDotsProps}
    */
-  private _processProps(): IDotsState {
-    const { DotComponent, color, currentPage, isLight, numPages, options, size, style } = this.props
+  private _processProps(): IDotsProps {
+    const { DotComponent, color, colorSelected, currentPage, isLight, numPages, selectedStyle, size, style } = this.props
 
-    const props: IDotsState = {
-      DotComponent: (options && options.DotComponent) || (DotComponent || undefined),
-      color: (options && options.color) || (color || undefined),
-      currentPage: (options && options.currentPage) || (currentPage || 0),
-      isLight: (options && options.isLight) || (isLight || false),
-      numPages: (options && options.numPages) || (numPages || undefined),
-      size: (options && options.size) || (size || undefined),
-      style: (options && options.style) || (style || undefined),
+    const props: IDotsProps = {
+      DotComponent: (typeof DotComponent !== 'undefined' ? DotComponent : undefined),
+      color: (typeof color !== 'undefined' ? color : undefined),
+      colorSelected: (typeof colorSelected !== 'undefined' ? colorSelected : undefined),
+      currentPage: (typeof currentPage !== 'undefined' ? currentPage : 0),
+      isLight: (typeof isLight !== 'undefined' ? isLight : false),
+      numPages: (typeof numPages !== 'undefined' ? numPages : undefined),
+      selectedStyle: (typeof selectedStyle !== 'undefined' ? selectedStyle : undefined),
+      size: (typeof size !== 'undefined' ? size : undefined),
+      style: (typeof style !== 'undefined' ? style : undefined),
     }
 
     return props
@@ -81,12 +83,9 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
    * Method to process the prop style
    * @private
    * @returns {TypeStyle}
-   * @memberof Dots
    */
   private _processStyle(): TypeStyle {
     const { style } = this._processProps()
-    const _style: TypeStyle = {}
-
-    return StyleSheet.flatten([styles.container, _style, style])
+    return StyleSheet.flatten([styles.container, style])
   }
 }
