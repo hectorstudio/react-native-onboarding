@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { AppHelper } from '@ticmakers-react-native/core'
+import { AppHelper, TypeComponent } from '@ticmakers-react-native/core'
+import Button from '@ticmakers-react-native/button'
+
 import Dots from './../Dots/Dots'
 import DoneButton from './../Pagination/DoneButton'
-import Button from '@ticmakers-react-native/button'
-import { IPaginationProps, IPaginationState, TypeComponent, TypePaginationPosition } from './../../index'
+import { IPaginationProps, IPaginationState, TypePaginationPosition, IDotsProps } from './../../index'
 import styles from './styles'
 
 /**
@@ -17,11 +18,10 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public render(): TypeComponent {
-    const { bottomBarHeight, containerStyle } = this._processProps()
-    const _style = StyleSheet.flatten([{ height: bottomBarHeight, ...styles.container }, containerStyle])
+    const { bottomBarHeight, containerStyle, style } = this._processProps()
+    const _style = StyleSheet.flatten([{ height: bottomBarHeight, ...styles.container }, containerStyle, style])
 
     return(
       <View style={ _style }>
@@ -35,7 +35,6 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the left container component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public LeftContent(): TypeComponent {
     const { leftContainerStyle } = this._processProps()
@@ -47,7 +46,6 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the center container component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public CenterContent(): TypeComponent {
     const { centerContainerStyle } = this._processProps()
@@ -59,7 +57,6 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the right container component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public RightContent(): TypeComponent {
     const { rightContainerStyle } = this._processProps()
@@ -71,7 +68,6 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the Done button
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Done(): TypeComponent {
     const { DoneComponent, allowFontScaling, doneLabel, doneStyle, hideDone, isLight, onDone } = this._processProps()
@@ -101,17 +97,20 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the pagination Dots
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Dots(): TypeComponent {
-    const { DotComponent, currentPage, dotsSize, dotsStyle, hideDots, isLight, numPages } = this._processProps()
-    const props = {
+    const { DotComponent, currentPage, dotColorSelected, dotSelectedStyle, dotsColor, dotsSize, dotsStyle, hideDots, isLight, numPages } = this._processProps()
+
+    const props: IDotsProps = {
       DotComponent,
       currentPage,
       isLight,
       numPages,
       // tslint:disable-next-line: object-literal-sort-keys
+      colorSelected: dotColorSelected,
+      color: dotsColor,
       key: 'dots',
+      selectedStyle: dotSelectedStyle,
       size: dotsSize,
       style: StyleSheet.flatten([styles.dots, dotsStyle]),
     }
@@ -124,13 +123,12 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that renders the Next button
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Next(): TypeComponent {
     const { NextComponent, allowFontScaling, hideNext, isLight, nextLabel, nextStyle, onNext } = this._processProps()
     const props = {
       allowFontScaling,
-      key: 'skip',
+      key: 'next',
       onPress: () => onNext && onNext(),
       style: StyleSheet.flatten([!isLight && styles.colorLight, { alignSelf: 'center' }, nextStyle]),
       title: nextLabel,
@@ -146,12 +144,36 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   }
 
   /**
+   * Method that renders the Previous button
+   * @returns {TypeComponent}
+   */
+  public Prev(): TypeComponent {
+    const { PrevComponent, allowFontScaling, isLight, prevLabel, prevStyle, onPrev, usePrevious } = this._processProps()
+
+    const props = {
+      allowFontScaling,
+      key: 'prev',
+      onPress: () => onPrev && onPrev(),
+      style: StyleSheet.flatten([!isLight && styles.colorLight, { alignSelf: 'center' }, prevStyle]),
+      title: prevLabel,
+    }
+
+    if (usePrevious && !this.isFirstPage()) {
+      if (AppHelper.isComponent(PrevComponent)) {
+        return React.cloneElement(PrevComponent as any, props)
+      }
+
+      return <Button clear { ...props } />
+    }
+  }
+
+  /**
    * Methods that renders the Skip button
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Skip(): TypeComponent {
-    const { SkipComponent, allowFontScaling, onSkip, skipLabel, skipStyle, hideSkip, isLight } = this._processProps()
+    const { SkipComponent, allowFontScaling, onSkip, skipLabel, skipStyle, hideSkip, isLight, usePrevious } = this._processProps()
+
     const props = {
       allowFontScaling,
       key: 'skip',
@@ -160,7 +182,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
       title: skipLabel,
     }
 
-    if (!hideSkip) {
+    if ((!hideSkip && usePrevious && this.isFirstPage()) || (!hideSkip && !usePrevious && !this.isLastPage())) {
       if (AppHelper.isComponent(SkipComponent)) {
         return React.cloneElement(SkipComponent as any, props)
       }
@@ -170,9 +192,17 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   }
 
   /**
+   * Method to check if the current page is the first page
+   * @returns {boolean}
+   */
+  public isFirstPage(): boolean {
+    const { currentPage } = this._processProps()
+    return currentPage === 0
+  }
+
+  /**
    * Method to check if the current page is the last page
    * @returns {boolean}
-   * @memberof Pagination
    */
   public isLastPage(): boolean {
     const { currentPage, numPages } = this._processProps()
@@ -184,10 +214,9 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
    * @private
    * @param {TypePaginationPosition} position     Position of the container
    * @returns {TypeComponent[]}
-   * @memberof Pagination
    */
   private _getContent(position: TypePaginationPosition): TypeComponent[] {
-    const { donePosition, dotsPosition, nextPosition, skipPosition } = this._processProps()
+    const { donePosition, dotsPosition, nextPosition, prevPosition, skipPosition } = this._processProps()
     const pos = position
     const children: TypeComponent[] = []
 
@@ -200,6 +229,9 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     if (nextPosition === pos) {
       children.push(this.Next())
     }
+    if (prevPosition === pos) {
+      children.push(this.Prev())
+    }
     if (skipPosition === pos) {
       children.push(this.Skip())
     }
@@ -210,45 +242,53 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
   /**
    * Method that process the props of the component
    * @private
-   * @returns {IPaginationState}
-   * @memberof Pagination
+   * @returns {IPaginationProps}
    */
-  private _processProps(): IPaginationState {
-    const { DoneComponent, DotComponent, NextComponent, SkipComponent, allowFontScaling, bottomBarHeight, centerContainerStyle, containerStyle, currentPage, doneLabel, donePosition, doneStyle, dotsPosition, dotsSize, dotsStyle, numPages, hideDone, hideDots, hideNext, hideSkip, isLight, leftContainerStyle, nextLabel, nextPosition, nextStyle, onDone, onNext, onSkip, rightContainerStyle, options, skipLabel, skipPosition, skipStyle } = this.props
+  private _processProps(): IPaginationProps {
+    const { DoneComponent, DotComponent, NextComponent, PrevComponent, SkipComponent, allowFontScaling, bottomBarHeight, centerContainerStyle, containerStyle, currentPage, doneLabel, donePosition, doneStyle, dotColorSelected, dotSelectedStyle, dotsColor, dotsPosition, dotsSize, dotsStyle, numPages, hideDone, hideDots, hideNext, hideSkip, isLight, leftContainerStyle, nextLabel, nextPosition, nextStyle, onDone, onNext, onPrev, onSkip, prevLabel, prevPosition, prevStyle, rightContainerStyle, skipLabel, skipPosition, skipStyle, usePrevious } = this.props
 
-    const props: IPaginationState = {
-      DoneComponent: (options && options.DoneComponent) || (DoneComponent || undefined),
-      DotComponent: (options && options.DotComponent) || (DotComponent || undefined),
-      NextComponent: (options && options.NextComponent) || (NextComponent || undefined),
-      SkipComponent: (options && options.SkipComponent) || (SkipComponent || undefined),
-      allowFontScaling: (options && options.allowFontScaling) || (allowFontScaling || true),
-      bottomBarHeight: (options && options.bottomBarHeight) || (bottomBarHeight || undefined),
-      centerContainerStyle: (options && options.centerContainerStyle) || (centerContainerStyle || undefined),
-      containerStyle: (options && options.containerStyle) || (containerStyle || undefined),
-      currentPage: (options && options.currentPage) || (currentPage || 0),
-      doneLabel: (options && options.doneLabel) || (doneLabel || undefined),
-      donePosition: (options && options.donePosition) || (donePosition || 'right'),
-      doneStyle: (options && options.doneStyle) || (doneStyle || undefined),
-      dotsPosition: (options && options.dotsPosition) || (dotsPosition || 'center'),
-      dotsSize: (options && options.dotsSize) || (dotsSize || 6),
-      dotsStyle: (options && options.dotsStyle) || (dotsStyle || undefined),
-      hideDone: (options && options.hideDone) || (hideDone || false),
-      hideDots: (options && options.hideDots) || (hideDots || false),
-      hideNext: (options && options.hideNext) || (hideNext || false),
-      hideSkip: (options && options.hideSkip) || (hideSkip || false),
-      isLight: (options && options.isLight) || (isLight || false),
-      leftContainerStyle: (options && options.leftContainerStyle) || (leftContainerStyle || undefined),
-      nextLabel: (options && options.nextLabel) || (nextLabel || 'Next'),
-      nextPosition: (options && options.nextPosition) || (nextPosition || 'right'),
-      nextStyle: (options && options.nextStyle) || (nextStyle || undefined),
-      numPages: (options && options.numPages) || (numPages || 0),
-      onDone: (options && options.onDone) || (onDone || undefined),
-      onNext: (options && options.onNext) || (onNext || undefined),
-      onSkip: (options && options.onSkip) || (onSkip || undefined),
-      rightContainerStyle: (options && options.rightContainerStyle) || (rightContainerStyle || undefined),
-      skipLabel: (options && options.skipLabel) || (skipLabel || 'Skip'),
-      skipPosition: (options && options.skipPosition) || (skipPosition || 'left'),
-      skipStyle: (options && options.skipStyle) || (skipStyle || undefined),
+    const props: IPaginationProps = {
+      DoneComponent: (typeof DoneComponent !== 'undefined' ? DoneComponent : undefined),
+      DotComponent: (typeof DotComponent !== 'undefined' ? DotComponent : undefined),
+      NextComponent: (typeof NextComponent !== 'undefined' ? NextComponent : undefined),
+      PrevComponent: (typeof PrevComponent !== 'undefined' ? PrevComponent : undefined),
+      SkipComponent: (typeof SkipComponent !== 'undefined' ? SkipComponent : undefined),
+      allowFontScaling: (typeof allowFontScaling !== 'undefined' ? allowFontScaling : true),
+      bottomBarHeight: (typeof bottomBarHeight !== 'undefined' ? bottomBarHeight : undefined),
+      centerContainerStyle: (typeof centerContainerStyle !== 'undefined' ? centerContainerStyle : undefined),
+      containerStyle: (typeof containerStyle !== 'undefined' ? containerStyle : undefined),
+      currentPage: (typeof currentPage !== 'undefined' ? currentPage : 0),
+      doneLabel: (typeof doneLabel !== 'undefined' ? doneLabel : undefined),
+      donePosition: (typeof donePosition !== 'undefined' ? donePosition : 'right'),
+      doneStyle: (typeof doneStyle !== 'undefined' ? doneStyle : undefined),
+      dotColorSelected: (typeof dotColorSelected !== 'undefined' ? dotColorSelected : undefined),
+      dotSelectedStyle: (typeof dotSelectedStyle !== 'undefined' ? dotSelectedStyle : undefined),
+      dotsColor: (typeof dotsColor !== 'undefined' ? dotsColor : undefined),
+      dotsPosition: (typeof dotsPosition !== 'undefined' ? dotsPosition : 'center'),
+      dotsSize: (typeof dotsSize !== 'undefined' ? dotsSize : 6),
+      dotsStyle: (typeof dotsStyle !== 'undefined' ? dotsStyle : undefined),
+      hideDone: (typeof hideDone !== 'undefined' ? hideDone : false),
+      hideDots: (typeof hideDots !== 'undefined' ? hideDots : false),
+      hideNext: (typeof hideNext !== 'undefined' ? hideNext : false),
+      hideSkip: (typeof hideSkip !== 'undefined' ? hideSkip : false),
+      isLight: (typeof isLight !== 'undefined' ? isLight : false),
+      leftContainerStyle: (typeof leftContainerStyle !== 'undefined' ? leftContainerStyle : undefined),
+      nextLabel: (typeof nextLabel !== 'undefined' ? nextLabel : 'Next'),
+      nextPosition: (typeof nextPosition !== 'undefined' ? nextPosition : 'right'),
+      nextStyle: (typeof nextStyle !== 'undefined' ? nextStyle : undefined),
+      numPages: (typeof numPages !== 'undefined' ? numPages : 0),
+      onDone: (typeof onDone !== 'undefined' ? onDone : undefined),
+      onNext: (typeof onNext !== 'undefined' ? onNext : undefined),
+      onPrev: (typeof onPrev !== 'undefined' ? onPrev : undefined),
+      onSkip: (typeof onSkip !== 'undefined' ? onSkip : undefined),
+      prevLabel: (typeof prevLabel !== 'undefined' ? prevLabel : 'Previous'),
+      prevPosition: (typeof prevPosition !== 'undefined' ? prevPosition : 'right'),
+      prevStyle: (typeof prevStyle !== 'undefined' ? prevStyle : undefined),
+      rightContainerStyle: (typeof rightContainerStyle !== 'undefined' ? rightContainerStyle : undefined),
+      skipLabel: (typeof skipLabel !== 'undefined' ? skipLabel : 'Skip'),
+      skipPosition: (typeof skipPosition !== 'undefined' ? skipPosition : 'left'),
+      skipStyle: (typeof skipStyle !== 'undefined' ? skipStyle : undefined),
+      usePrevious: (typeof usePrevious !== 'undefined' ? usePrevious : false),
     }
 
     return props
