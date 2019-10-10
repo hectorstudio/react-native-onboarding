@@ -1,29 +1,51 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const { width, height } = Dimensions.get('window')
-const potrait = height > width
+const { width, height } = Dimensions.get('screen')
+const portrait = height > width
 
 export const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    // alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
-    justifyContent: potrait ? 'center' : 'flex-start',
-    paddingTop: potrait ? 0 : 10,
+    // justifyContent: portrait ? 'center' : 'flex-start',
+    // paddingTop: portrait ? 0 : 10,
+  },
+
+  backgroundImage: {
+    left: 0,
+    position: 'absolute',
+    top: 0,
+  },
+
+  contentPage: {
+    // alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    // justifyContent: portrait ? 'center' : 'flex-start',
+    paddingTop: 60,
   },
 
   headerContainer: {
     alignItems: 'center',
     flex: 0,
     justifyContent: 'center',
-    marginBottom: 60,
+    marginBottom: 24,
     width: '100%',
+  },
+
+  bodyPage: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginBottom: 60,
   },
 
   imageContainer: {
     alignItems: 'center',
     flex: 0,
-    paddingBottom: potrait ? 60 : 10,
+    paddingBottom: portrait ? 60 : 10,
     width: '100%',
   },
 
