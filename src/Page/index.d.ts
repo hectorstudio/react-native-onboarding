@@ -1,68 +1,66 @@
 import * as React from 'react'
 import { ViewProps } from 'react-native'
 
-import { TypeComponent, TypeStyle } from './../../index'
+import { TypeComponent, TypeStyle } from '@ticmakers-react-native/core'
+import { TypeImageSource, IImageProps } from '@ticmakers-react-native/image'
 
 /**
- * Interface to define the states of the Page component
- * @export
- * @interface IPageState
+ * Interface to define the props of the Page component
+ * @interface IPageProps
  */
-export interface IPageState extends ViewProps {
+export interface IPageProps extends ViewProps {
   /**
    * Font scaling can cause troubles with high-resolution screens. You may want to disable it
    * @type {boolean}
-   * @memberof IPageState
    * @default true
    */
   allowFontScaling?: boolean
 
   /**
+   * Set a custom background image in the page
+   * @type {TypeImageSource}
+   */
+  backgroundImage?: TypeImageSource
+
+  /**
    * Apply a custom style to the container of the component
    * @type {TypeStyle}
-   * @memberof IPageState
    */
   containerStyle?: TypeStyle
 
   /**
    * A React-Native component to replace the header
    * @type {TypeComponent}
-   * @memberof IPageState
    */
   header?: TypeComponent
 
   /**
    * Apply a custom style to the header
    * @type {TypeStyle}
-   * @memberof IPageState
    */
   headerContainerStyle?: TypeStyle
 
   /**
    * Define a custom height to the pages
    * @type {number}
-   * @memberof IPageState
    */
   height?: number
 
   /**
    * A React-Native component to replace the image
    * @type {TypeComponent}
-   * @memberof IPageState
    */
-  image: TypeComponent
+  image: TypeComponent | IImageProps
 
   /**
    * Apply a custom style to the image container
    * @type {TypeStyle}
-   * @memberof IPageState
    */
   imageContainerStyle?: TypeStyle
 
   /**
    * A boolean to set if the style is light or dark
    * @type {boolean}
-   * @memberof IPageState
    * @default true
    */
   isLight?: boolean
@@ -70,50 +68,49 @@ export interface IPageState extends ViewProps {
   /**
    * A React-Native component to replace the title
    * @type {(string | TypeComponent)}
-   * @memberof IPageState
    */
   title: string | TypeComponent
 
   /**
    * Apply a custom style to the title
    * @type {TypeStyle}
-   * @memberof IPageState
    */
   titleStyle?: TypeStyle
 
   /**
    * A React-Native component to replace the subtitle
    * @type {(string | TypeComponent)}
-   * @memberof IPageState
    */
   subtitle?: string | TypeComponent
 
   /**
    * Apply a custom style to the subtitle
    * @type {TypeStyle}
-   * @memberof IPageState
    */
   subtitleStyle?: TypeStyle
 
   /**
-   * Define a custom height to the pages
+   * Define a custom width to the pages
    * @type {number}
-   * @memberof IPageState
    */
   width?: number
 }
 
 /**
  * Interface to define the props of the Page component
- * @export
  * @interface IPageProps
- * @extends {IPageState}
  */
-export interface IPageProps extends IPageState {
-  /**
-   * Prop for group all the props of the Page component
+export interface IPageState {
+  /** Define the height to the pages
+   * @type {number}
    */
-  options?: IPageState
+  height?: number
+
+  /**
+   * Define the width to the pages
+   * @type {number}
+   */
+  width?: number
 }
 
 /**

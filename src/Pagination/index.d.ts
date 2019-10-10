@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { ViewProps, Animated } from 'react-native'
 
+import { TypeComponent, TypeStyle } from '@ticmakers-react-native/core'
 import Button from '@ticmakers-react-native/button'
-import { TypeComponent, TypeStyle } from './../../index'
 
 /**
  * Type to define the positions used in the Pagination component
@@ -10,43 +10,44 @@ import { TypeComponent, TypeStyle } from './../../index'
 export type TypePaginationPosition = 'left' | 'center' | 'right' | undefined
 
 /**
- * Interface to define the states of the Pagination component
+ * Interface to define the props of the Pagination component
  * @export
- * @interface IPaginationState
+ * @interface IPaginationProps
  */
-export interface IPaginationState extends ViewProps {
+export interface IPaginationProps extends ViewProps {
   /**
    * A React-Native component to replace the Done button
    * @type {TypeComponent}
-   * @memberof IPaginationState
    */
   DoneComponent?: TypeComponent
 
   /**
    * A React-Native component to replace the pagination Dot
    * @type {TypeComponent}
-   * @memberof IPaginationState
    */
   DotComponent?: TypeComponent
 
   /**
    * A React-Native component to replace the Next button
    * @type {TypeComponent}
-   * @memberof IPaginationState
    */
   NextComponent?: TypeComponent
 
   /**
+   * A React-Native component to replace the Previous button
+   * @type {TypeComponent}
+   */
+  PrevComponent?: TypeComponent
+
+  /**
    * A React-Native component to replace the Skip button
    * @type {TypeComponent}
-   * @memberof IPaginationState
    */
   SkipComponent?: TypeComponent
 
   /**
    * Font scaling can cause troubles with high-resolution screens. You may want to disable it
    * @type {boolean}
-   * @memberof IPaginationState
    * @default true
    */
   allowFontScaling?: boolean
@@ -54,7 +55,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * A number for the height of the bottom bar
    * @type {number}
-   * @memberof IPaginationState
    * @default 60
    */
   bottomBarHeight?: number
@@ -62,36 +62,31 @@ export interface IPaginationState extends ViewProps {
   /**
    * Apply a custom style to the pagination center container
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   centerContainerStyle?: TypeStyle
 
   /**
    * Apply a custom style to the pagination container
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   containerStyle?: TypeStyle
 
   /**
    * A number to define what is the current page
    * @type {number}
-   * @memberof IPaginationState
    * @default 0
    */
-  currentPage: number
+  currentPage?: number
 
   /**
    * Define a text to show in done button
    * @type {string}
-   * @memberof IPaginationState
    */
   doneLabel?: string
 
   /**
    * Define the position where the done button will be displayed
    * @type {TypePaginationPosition}
-   * @memberof IPaginationState
    * @default right
    */
   donePosition?: TypePaginationPosition
@@ -99,14 +94,30 @@ export interface IPaginationState extends ViewProps {
   /**
    * Apply a custom style to the done button
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   doneStyle?: TypeStyle
 
   /**
+   * Apply a custom color to the Dot selected
+   * @type {string}
+   */
+  dotColorSelected?: string
+
+  /**
+   * Apply a custom style to the Dot selected
+   * @type {TypeStyle}
+   */
+  dotSelectedStyle?: TypeStyle
+
+  /**
+   * Apply a custom color to all Dots
+   * @type {string}
+   */
+  dotsColor?: string
+
+  /**
    * Define the position where the pagination dots will be displayed
    * @type {TypePaginationPosition}
-   * @memberof IPaginationState
    * @default center
    */
   dotsPosition?: TypePaginationPosition
@@ -114,21 +125,18 @@ export interface IPaginationState extends ViewProps {
   /**
    * Apply a size to the pagination dots
    * @type {number}
-   * @memberof IPaginationState
    */
   dotsSize?: number
 
   /**
    * Apply a custom style to the pagination dots
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   dotsStyle?: TypeStyle
 
   /**
    * Set true for hide the done button
    * @type {boolean}
-   * @memberof IPaginationState
    * @default false
    */
   hideDone?: boolean
@@ -136,7 +144,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * Set true for hide the pagination dots
    * @type {boolean}
-   * @memberof IPaginationState
    * @default false
    */
   hideDots?: boolean
@@ -144,7 +151,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * Set true to hide the next button
    * @type {boolean}
-   * @memberof IPaginationState
    * @default false
    */
   hideNext?: boolean
@@ -152,7 +158,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * Set true to hide the skip button
    * @type {boolean}
-   * @memberof IPaginationState
    * @default false
    */
   hideSkip?: boolean
@@ -160,7 +165,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * A boolean to set if the style is light or dark
    * @type {boolean}
-   * @memberof IPaginationState
    * @default true
    */
   isLight?: boolean
@@ -168,14 +172,12 @@ export interface IPaginationState extends ViewProps {
   /**
    * Apply a custom style to the pagination left container
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   leftContainerStyle?: TypeStyle
 
   /**
    * A text to show in the next button
    * @type {string}
-   * @memberof IPaginationState
    * @default Next
    */
   nextLabel?: string
@@ -183,7 +185,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * Define the position where the next button will be displayed
    * @type {TypePaginationPosition}
-   * @memberof IPaginationState
    * @default right
    */
   nextPosition?: TypePaginationPosition
@@ -191,49 +192,68 @@ export interface IPaginationState extends ViewProps {
   /**
    * Apply a custom style to the next button
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   nextStyle?: TypeStyle
 
   /**
    * A number of the total of the pages
    * @type {number}
-   * @memberof IPaginationState
    */
-  numPages: number
+  numPages?: number
 
   /**
    * Method that fire when the button done is pressed
    * @type {Function}
-   * @memberof IPaginationState
    */
-  onDone: () => void
+  onDone?: () => void
 
   /**
    * Method that fire when the button next is pressed
    * @type {Function}
-   * @memberof IPaginationState
    */
   onNext?: () => void
 
   /**
+   * Method that fire when the button previous is pressed
+   * @type {Function}
+   */
+  onPrev?: () => void
+
+  /**
    * Method that fire when the button skip is pressed
    * @type {Function}
-   * @memberof IPaginationState
    */
   onSkip?: () => void
 
   /**
+   * A text to show in the previous button
+   * @type {string}
+   * @default Previous
+   */
+  prevLabel?: string
+
+  /**
+   * Define the position where the previous button will be displayed
+   * @type {TypePaginationPosition}
+   * @default left
+   */
+  prevPosition?: TypePaginationPosition
+
+  /**
+   * Apply a custom style to the previous button
+   * @type {TypeStyle}
+   */
+  prevStyle?: TypeStyle
+
+  /**
    * Apply a custom style to the pagination right container
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   rightContainerStyle?: TypeStyle
 
   /**
    * A text to show in the skip button
    * @type {string}
-   * @memberof IPaginationState
    * @default Skip
    */
   skipLabel?: string
@@ -241,7 +261,6 @@ export interface IPaginationState extends ViewProps {
   /**
    * Define the position where the next button will be displayed
    * @type {TypePaginationPosition}
-   * @memberof IPaginationState
    * @default left
    */
   skipPosition?: TypePaginationPosition
@@ -249,24 +268,22 @@ export interface IPaginationState extends ViewProps {
   /**
    * Apply a custom style to the skip button
    * @type {TypeStyle}
-   * @memberof IPaginationState
    */
   skipStyle?: TypeStyle
+
+  /**
+   * Use to show the previous button
+   * @type {boolean}
+   */
+  usePrevious?: boolean
 }
 
 /**
- * Interface to define the props of the Pagination component
+ * Interface to define the state of the Pagination component
  * @export
- * @interface IPaginationProps
- * @extends {IPaginationState}
+ * @interface IPaginationState
  */
-export interface IPaginationProps extends IPaginationState {
-  /**
-   * Prop for group all the props of the Pagination component
-   * @type {IPaginationState}
-   * @memberof IPaginationProps
-   */
-  options?: IPaginationState
+export interface IPaginationState {
 }
 
 /**
@@ -278,64 +295,66 @@ declare class Pagination extends React.Component<IPaginationProps, IPaginationSt
   /**
    * Method that renders the component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public render(): TypeComponent
 
   /**
    * Method that renders the left container component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public LeftContent(): TypeComponent
 
   /**
    * Method that renders the center container component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public CenterContent(): TypeComponent
 
   /**
    * Method that renders the right container component
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public RightContent(): TypeComponent
-
 
   /**
    * Method that renders the Done button
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Done(): TypeComponent
 
   /**
    * Method that renders the pagination Dots
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Dots(): TypeComponent
 
   /**
    * Method that renders the Next button
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Next(): TypeComponent
 
   /**
+   * Method that renders the Previous button
+   * @returns {TypeComponent}
+   */
+  public Prev(): TypeComponent
+
+  /**
    * Methods that renders the Skip button
    * @returns {TypeComponent}
-   * @memberof Pagination
    */
   public Skip(): TypeComponent
 
   /**
+   * Method to check if the current page is the first page
+   * @returns {boolean}
+   */
+  public isFirstPage(): boolean
+
+  /**
    * Method to check if the current page is the last page
    * @returns {boolean}
-   * @memberof Pagination
    */
   public isLastPage(): boolean
 
@@ -344,17 +363,15 @@ declare class Pagination extends React.Component<IPaginationProps, IPaginationSt
    * @private
    * @param {TypePaginationPosition} position     Position of the container
    * @returns {TypeComponent[]}
-   * @memberof Pagination
    */
   private _getContent(position: TypePaginationPosition): TypeComponent[]
 
   /**
    * Method that process the props of the component
    * @private
-   * @returns {IPaginationState}
-   * @memberof Pagination
+   * @returns {IPaginationProps}
    */
-  private _processProps(): IPaginationState
+  private _processProps(): IPaginationProps
 }
 
 /**
@@ -365,34 +382,29 @@ declare class Pagination extends React.Component<IPaginationProps, IPaginationSt
 declare class DoneButton extends Button {
   /**
    * Initial value to the animation
-   * @memberof DoneButton
    */
   public fadeAnimation?: Animated.Value
 
   /**
    * Duration of the animation
-   * @memberof DoneButton
    */
   public fadeDuration?: number
 
   /**
    * Method that fire when the component is mounted
    * @returns {void}
-   * @memberof DoneButton
    */
   public componentDidMount(): void
 
   /**
    * Method that renders the component
    * @returns {TypeComponent}
-   * @memberof DoneButton
    */
   public render(): TypeComponent
 
   /**
    * Method that renders the button
    * @returns {TypeComponent}
-   * @memberof DoneButton
    */
   public ButtonComponent(): TypeComponent
 }
