@@ -59,6 +59,7 @@ Class to define the component Onboarding
 * [getPreviousPage](_onboarding_onboarding_.onboarding.md#getpreviouspage)
 * [getSnapshotBeforeUpdate](_onboarding_onboarding_.onboarding.md#getsnapshotbeforeupdate)
 * [goNext](_onboarding_onboarding_.onboarding.md#gonext)
+* [goPrev](_onboarding_onboarding_.onboarding.md#goprev)
 * [render](_onboarding_onboarding_.onboarding.md#render)
 * [renderPage](_onboarding_onboarding_.onboarding.md#renderpage)
 * [setState](_onboarding_onboarding_.onboarding.md#setstate)
@@ -76,11 +77,9 @@ Class to define the component Onboarding
 
 *Overrides Component.__constructor*
 
-*Defined in Onboarding/Onboarding.tsx:30*
+*Defined in Onboarding/Onboarding.tsx:31*
 
 Creates an instance of Onboarding.
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 
@@ -122,13 +121,11 @@ ___
 
 **● flatList**: *`any`*
 
-*Defined in Onboarding/Onboarding.tsx:21*
+*Defined in Onboarding/Onboarding.tsx:23*
 
 The reference to the FlatList component
 
 *__type__*: {FlatList}
-
-*__memberof__*: Onboarding
 
 ___
 <a id="itemvisiblehotfix"></a>
@@ -137,13 +134,11 @@ ___
 
 **● itemVisibleHotfix**: *`undefined` \| `object`*
 
-*Defined in Onboarding/Onboarding.tsx:28*
+*Defined in Onboarding/Onboarding.tsx:29*
 
 Hotfix to swipe the pages
 
 *__type__*: {{ itemVisiblePercentThreshold: number }}
-
-*__memberof__*: Onboarding
 
 ___
 <a id="props"></a>
@@ -318,11 +313,9 @@ ___
 
 ▸ **_flatlistProps**(): `FlatListProps`<`__type`>
 
-*Defined in Onboarding/Onboarding.tsx:392*
+*Defined in Onboarding/Onboarding.tsx:410*
 
 Method that process the props for the FlatList
-
-*__memberof__*: Onboarding
 
 **Returns:** `FlatListProps`<`__type`>
 > }
@@ -334,11 +327,9 @@ ___
 
 ▸ **_onChangePage**(index: *`number`*): `void`
 
-*Defined in Onboarding/Onboarding.tsx:256*
+*Defined in Onboarding/Onboarding.tsx:271*
 
 Method that fire when a pages change, this returns the current index page
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 
@@ -355,11 +346,9 @@ ___
 
 ▸ **_onDone**(): `void`
 
-*Defined in Onboarding/Onboarding.tsx:225*
+*Defined in Onboarding/Onboarding.tsx:242*
 
 Method that fire when the button Done is pressed
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -370,11 +359,9 @@ ___
 
 ▸ **_onLayout**(): `void`
 
-*Defined in Onboarding/Onboarding.tsx:295*
+*Defined in Onboarding/Onboarding.tsx:308*
 
 Method that fire when the layout is changed
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -385,11 +372,9 @@ ___
 
 ▸ **_onSkip**(): `void`
 
-*Defined in Onboarding/Onboarding.tsx:239*
+*Defined in Onboarding/Onboarding.tsx:255*
 
 Method that fire when the button Skip is pressed
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -400,11 +385,9 @@ ___
 
 ▸ **_onSwipePageChange**(data: *`any`*): `void`
 
-*Defined in Onboarding/Onboarding.tsx:271*
+*Defined in Onboarding/Onboarding.tsx:285*
 
 Method thar fire when a page is swiped
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 
@@ -421,11 +404,9 @@ ___
 
 ▸ **_paginationProps**(): [IPaginationProps](../interfaces/_pagination_index_d_.ipaginationprops.md)
 
-*Defined in Onboarding/Onboarding.tsx:417*
+*Defined in Onboarding/Onboarding.tsx:434*
 
 Method that process the props for the pagination
-
-*__memberof__*: Onboarding
 
 **Returns:** [IPaginationProps](../interfaces/_pagination_index_d_.ipaginationprops.md)
 
@@ -434,15 +415,13 @@ ___
 
 ### `<Private>` _processProps
 
-▸ **_processProps**(): [IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)
+▸ **_processProps**(): [IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)
 
-*Defined in Onboarding/Onboarding.tsx:332*
+*Defined in Onboarding/Onboarding.tsx:343*
 
 Method that process the props of the component
 
-*__memberof__*: Onboarding
-
-**Returns:** [IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)
+**Returns:** [IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)
 
 ___
 <a id="_skiptolastpage"></a>
@@ -451,11 +430,9 @@ ___
 
 ▸ **_skipToLastPage**(): `void`
 
-*Defined in Onboarding/Onboarding.tsx:313*
+*Defined in Onboarding/Onboarding.tsx:325*
 
 Method that changes to the last page
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -505,11 +482,9 @@ ___
 
 *Overrides NewLifecycle.componentDidUpdate*
 
-*Defined in Onboarding/Onboarding.tsx:50*
+*Defined in Onboarding/Onboarding.tsx:57*
 
 Method that fire when the component is updated
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -623,11 +598,9 @@ ___
 
 ▸ **defaultPages**(): [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md)[]
 
-*Defined in Onboarding/Onboarding.tsx:120*
+*Defined in Onboarding/Onboarding.tsx:125*
 
 Method that define 3 pages by default
-
-*__memberof__*: Onboarding
 
 **Returns:** [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md)[]
 
@@ -657,11 +630,9 @@ ___
 
 ▸ **getCurrentPage**(): [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
-*Defined in Onboarding/Onboarding.tsx:177*
+*Defined in Onboarding/Onboarding.tsx:185*
 
 Method to get the current page
-
-*__memberof__*: Onboarding
 
 **Returns:** [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
@@ -672,11 +643,9 @@ ___
 
 ▸ **getPreviousPage**(): [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
-*Defined in Onboarding/Onboarding.tsx:194*
+*Defined in Onboarding/Onboarding.tsx:201*
 
 Method to get the previous page
-
-*__memberof__*: Onboarding
 
 **Returns:** [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
@@ -711,11 +680,22 @@ ___
 
 ▸ **goNext**(): `void`
 
-*Defined in Onboarding/Onboarding.tsx:211*
+*Defined in Onboarding/Onboarding.tsx:217*
 
 Method to advance to the next page
 
-*__memberof__*: Onboarding
+**Returns:** `void`
+
+___
+<a id="goprev"></a>
+
+###  goPrev
+
+▸ **goPrev**(): `void`
+
+*Defined in Onboarding/Onboarding.tsx:229*
+
+Method to back to the previous page
 
 **Returns:** `void`
 
@@ -728,11 +708,9 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Onboarding/Onboarding.tsx:67*
+*Defined in Onboarding/Onboarding.tsx:73*
 
 Method that renders the component
-
-*__memberof__*: Onboarding
 
 **Returns:** `TypeComponent`
 
@@ -743,11 +721,9 @@ ___
 
 ▸ **renderPage**(data?: *`any`*): `TypeComponent`
 
-*Defined in Onboarding/Onboarding.tsx:144*
+*Defined in Onboarding/Onboarding.tsx:148*
 
 Method that renders the page in the component
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 

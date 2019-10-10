@@ -199,7 +199,7 @@ ___
 
 ▸ **Header**(): `TypeComponent`
 
-*Defined in Page/index.d.ts:137*
+*Defined in Page/index.d.ts:134*
 
 Method that renders the Header component
 
@@ -214,7 +214,7 @@ ___
 
 ▸ **Image**(): `TypeComponent`
 
-*Defined in Page/index.d.ts:144*
+*Defined in Page/index.d.ts:141*
 
 Method that renders the Image component
 
@@ -229,7 +229,7 @@ ___
 
 ▸ **Subtitle**(): `TypeComponent`
 
-*Defined in Page/index.d.ts:158*
+*Defined in Page/index.d.ts:155*
 
 Method that renders the Subtitle component
 
@@ -244,7 +244,7 @@ ___
 
 ▸ **Title**(): `TypeComponent`
 
-*Defined in Page/index.d.ts:151*
+*Defined in Page/index.d.ts:148*
 
 Method that renders the Title component
 
@@ -353,7 +353,7 @@ ___
 
 ▸ **_processProps**(): [IPageState](../interfaces/_page_index_d_.ipagestate.md)
 
-*Defined in Page/index.d.ts:166*
+*Defined in Page/index.d.ts:163*
 
 Method that process the props of the component
 
@@ -368,7 +368,7 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Page/index.d.ts:174*
+*Defined in Page/index.d.ts:171*
 
 Method to process the prop style of the component
 
@@ -593,7 +593,7 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Page/index.d.ts:130*
+*Defined in Page/index.d.ts:127*
 
 Method that renders the component
 

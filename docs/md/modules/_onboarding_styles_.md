@@ -17,18 +17,43 @@
 ### `<Const>` styles
 
 **● styles**: *`object`* =  StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+
   overlay: {
     backgroundColor: 'rgba(0,0,0,.1)',
   },
+
+  paginationContainer: {
+    bottom: 0,
+    position: 'absolute',
+    width: '100%',
+  },
 })
 
-*Defined in Onboarding/styles.tsx:3*
+*Defined in Onboarding/styles.ts:3*
 
 #### Type declaration
+
+ container: `object`
+
+ flex: `number`
+
+ justifyContent: "center"
 
  overlay: `object`
 
  backgroundColor: `string`
+
+ paginationContainer: `object`
+
+ bottom: `number`
+
+ position: "absolute"
+
+ width: `string`
 
 ___
 

@@ -28,7 +28,7 @@
 
 **Ƭ TypeOnboardingStatusBarStyle**: *"default" \| "light-content" \| "dark-content" \| `undefined`*
 
-*Defined in Onboarding/index.d.ts:14*
+*Defined in Onboarding/index.d.ts:11*
 
 Type to define the status bar styles
 

@@ -73,8 +73,6 @@
 						<p>Interface to define the properties of a page</p>
 					</div>
 					<dl class="tsd-comment-tags">
-						<dt>export</dt>
-						<dd></dd>
 						<dt>interface</dt>
 						<dd><p>IOnboardingPage</p>
 						</dd>
@@ -96,7 +94,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#component" class="tsd-kind-icon">Component</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#backgroundimage" class="tsd-kind-icon">background<wbr>Image</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#containerstyle" class="tsd-kind-icon">container<wbr>Style</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#header" class="tsd-kind-icon">header</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#headerstyle" class="tsd-kind-icon">header<wbr>Style</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_onboarding_index_d_.ionboardingpage.html#image" class="tsd-kind-icon">image</a></li>
@@ -113,12 +114,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="component" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Component</h3>
+					<div class="tsd-signature tsd-kind-icon">Component<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeComponent</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Onboarding/index.d.ts:35</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A React Component or Element to show the page</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{TypeComponent}</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="backgroundcolor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> background<wbr>Color</h3>
 					<div class="tsd-signature tsd-kind-icon">background<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:28</li>
+							<li>Defined in Onboarding/index.d.ts:23</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -132,8 +153,45 @@
 							<dt>default</dt>
 							<dd><p>white</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="backgroundimage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> background<wbr>Image</h3>
+					<div class="tsd-signature tsd-kind-icon">background<wbr>Image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeImageSource</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Onboarding/index.d.ts:29</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A background image for the page</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{TypeImageSource}</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="containerstyle" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> container<wbr>Style</h3>
+					<div class="tsd-signature tsd-kind-icon">container<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeStyle</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Onboarding/index.d.ts:41</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Set a custom style to the container of the page</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{TypeStyle}</p>
 							</dd>
 						</dl>
 					</div>
@@ -144,7 +202,7 @@
 					<div class="tsd-signature tsd-kind-icon">header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeComponent</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:35</li>
+							<li>Defined in Onboarding/index.d.ts:47</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -155,9 +213,6 @@
 							<dt>type</dt>
 							<dd><p>{TypeComponent}</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
-							</dd>
 						</dl>
 					</div>
 				</section>
@@ -167,7 +222,7 @@
 					<div class="tsd-signature tsd-kind-icon">header<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeStyle</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:42</li>
+							<li>Defined in Onboarding/index.d.ts:53</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,19 +233,16 @@
 							<dt>type</dt>
 							<dd><p>{TypeStyle}</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
-							</dd>
 						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="image" class="tsd-anchor"></a>
-					<h3>image</h3>
-					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeComponent</span></div>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> image</h3>
+					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeComponent</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IImageProps</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:49</li>
+							<li>Defined in Onboarding/index.d.ts:59</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -201,9 +253,6 @@
 							<dt>type</dt>
 							<dd><p>{TypeComponent}</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
-							</dd>
 						</dl>
 					</div>
 				</section>
@@ -213,7 +262,7 @@
 					<div class="tsd-signature tsd-kind-icon">image<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeStyle</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:56</li>
+							<li>Defined in Onboarding/index.d.ts:65</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -224,9 +273,6 @@
 							<dt>type</dt>
 							<dd><p>{TypeStyle}</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
-							</dd>
 						</dl>
 					</div>
 				</section>
@@ -236,7 +282,7 @@
 					<div class="tsd-signature tsd-kind-icon">subtitle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:77</li>
+							<li>Defined in Onboarding/index.d.ts:83</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,9 +293,6 @@
 							<dt>type</dt>
 							<dd><p>{string}</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
-							</dd>
 						</dl>
 					</div>
 				</section>
@@ -259,7 +302,7 @@
 					<div class="tsd-signature tsd-kind-icon">subtitle<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeStyle</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:83</li>
+							<li>Defined in Onboarding/index.d.ts:89</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,11 +318,11 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="title" class="tsd-anchor"></a>
-					<h3>title</h3>
-					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> title</h3>
+					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:63</li>
+							<li>Defined in Onboarding/index.d.ts:71</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -290,9 +333,6 @@
 							<dt>type</dt>
 							<dd><p>{string}</p>
 							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
-							</dd>
 						</dl>
 					</div>
 				</section>
@@ -302,7 +342,7 @@
 					<div class="tsd-signature tsd-kind-icon">title<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeStyle</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Onboarding/index.d.ts:70</li>
+							<li>Defined in Onboarding/index.d.ts:77</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -312,9 +352,6 @@
 						<dl class="tsd-comment-tags">
 							<dt>type</dt>
 							<dd><p>{TypeStyle}</p>
-							</dd>
-							<dt>memberof</dt>
-							<dd><p>IOnboardingPage</p>
 							</dd>
 						</dl>
 					</div>
@@ -391,7 +428,16 @@
 						<a href="_onboarding_index_d_.ionboardingpage.html" class="tsd-kind-icon">IOnboarding<wbr>Page</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_onboarding_index_d_.ionboardingpage.html#component" class="tsd-kind-icon">Component</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_onboarding_index_d_.ionboardingpage.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_onboarding_index_d_.ionboardingpage.html#backgroundimage" class="tsd-kind-icon">background<wbr>Image</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_onboarding_index_d_.ionboardingpage.html#containerstyle" class="tsd-kind-icon">container<wbr>Style</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_onboarding_index_d_.ionboardingpage.html#header" class="tsd-kind-icon">header</a>

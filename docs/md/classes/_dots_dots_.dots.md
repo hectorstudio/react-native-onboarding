@@ -196,11 +196,9 @@ ___
 
 ▸ **Dot**(): `TypeComponent`[]
 
-*Defined in Dots/Dots.tsx:33*
+*Defined in Dots/Dots.tsx:32*
 
 Method that renders the Dot component
-
-*__memberof__*: Dots
 
 **Returns:** `TypeComponent`[]
 
@@ -303,15 +301,13 @@ ___
 
 ### `<Private>` _processProps
 
-▸ **_processProps**(): [IDotsState](../interfaces/_dots_index_d_.idotsstate.md)
+▸ **_processProps**(): [IDotsProps](../interfaces/_dots_index_d_.idotsprops.md)
 
 *Defined in Dots/Dots.tsx:64*
 
 Method to process the props
 
-*__memberof__*: Dots
-
-**Returns:** [IDotsState](../interfaces/_dots_index_d_.idotsstate.md)
+**Returns:** [IDotsProps](../interfaces/_dots_index_d_.idotsprops.md)
 
 ___
 <a id="_processstyle"></a>
@@ -320,11 +316,9 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Dots/Dots.tsx:86*
+*Defined in Dots/Dots.tsx:87*
 
 Method to process the prop style
-
-*__memberof__*: Dots
 
 **Returns:** `TypeStyle`
 
@@ -548,8 +542,6 @@ ___
 *Defined in Dots/Dots.tsx:20*
 
 Method to renders the component
-
-*__memberof__*: Dots
 
 **Returns:** `TypeComponent`
 

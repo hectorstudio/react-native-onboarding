@@ -287,15 +287,13 @@ ___
 
 ### `<Private>` _processProps
 
-▸ **_processProps**(): [IDotState](../interfaces/_dot_index_d_.idotstate.md)
+▸ **_processProps**(): [IDotProps](../interfaces/_dot_index_d_.idotprops.md)
 
-*Defined in Dot/Dot.tsx:33*
+*Defined in Dot/Dot.tsx:32*
 
 Method to process the props
 
-*__memberof__*: Dot
-
-**Returns:** [IDotState](../interfaces/_dot_index_d_.idotstate.md)
+**Returns:** [IDotProps](../interfaces/_dot_index_d_.idotprops.md)
 
 ___
 <a id="_processstyle"></a>
@@ -304,11 +302,9 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Dot/Dot.tsx:52*
+*Defined in Dot/Dot.tsx:54*
 
 Method to process the prop style for the container
-
-*__memberof__*: Dot
 
 **Returns:** `TypeStyle`
 
@@ -532,8 +528,6 @@ ___
 *Defined in Dot/Dot.tsx:18*
 
 Method to renders the component
-
-*__memberof__*: Dot
 
 **Returns:** `TypeComponent`
 

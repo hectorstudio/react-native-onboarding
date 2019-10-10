@@ -4,17 +4,11 @@
 
 Interface to define the props of the Onboarding component
 
-*__export__*: 
-
 *__interface__*: IOnboardingProps
-
-*__extends__*: {IOnboardingState}
 
 ## Hierarchy
 
- [IOnboardingState](_onboarding_index_d_.ionboardingstate.md)
-
-**↳ IOnboardingProps**
+**IOnboardingProps**
 
 ## Index
 
@@ -23,12 +17,14 @@ Interface to define the props of the Onboarding component
 * [DoneComponent](_onboarding_index_d_.ionboardingprops.md#donecomponent)
 * [DotComponent](_onboarding_index_d_.ionboardingprops.md#dotcomponent)
 * [NextComponent](_onboarding_index_d_.ionboardingprops.md#nextcomponent)
+* [PrevComponent](_onboarding_index_d_.ionboardingprops.md#prevcomponent)
 * [SkipComponent](_onboarding_index_d_.ionboardingprops.md#skipcomponent)
 * [allowFontScalingButtons](_onboarding_index_d_.ionboardingprops.md#allowfontscalingbuttons)
 * [allowFontScalingText](_onboarding_index_d_.ionboardingprops.md#allowfontscalingtext)
 * [backgroundColorAnim](_onboarding_index_d_.ionboardingprops.md#backgroundcoloranim)
 * [bottomBarHeight](_onboarding_index_d_.ionboardingprops.md#bottombarheight)
 * [bottomBarHighlight](_onboarding_index_d_.ionboardingprops.md#bottombarhighlight)
+* [bottomBarStyle](_onboarding_index_d_.ionboardingprops.md#bottombarstyle)
 * [containerStyle](_onboarding_index_d_.ionboardingprops.md#containerstyle)
 * [controlStatusBar](_onboarding_index_d_.ionboardingprops.md#controlstatusbar)
 * [currentPage](_onboarding_index_d_.ionboardingprops.md#currentpage)
@@ -36,6 +32,9 @@ Interface to define the props of the Onboarding component
 * [doneLabel](_onboarding_index_d_.ionboardingprops.md#donelabel)
 * [donePosition](_onboarding_index_d_.ionboardingprops.md#doneposition)
 * [doneStyle](_onboarding_index_d_.ionboardingprops.md#donestyle)
+* [dotColorSelected](_onboarding_index_d_.ionboardingprops.md#dotcolorselected)
+* [dotSelectedStyle](_onboarding_index_d_.ionboardingprops.md#dotselectedstyle)
+* [dotsColor](_onboarding_index_d_.ionboardingprops.md#dotscolor)
 * [dotsPosition](_onboarding_index_d_.ionboardingprops.md#dotsposition)
 * [dotsSize](_onboarding_index_d_.ionboardingprops.md#dotssize)
 * [dotsStyle](_onboarding_index_d_.ionboardingprops.md#dotsstyle)
@@ -53,9 +52,11 @@ Interface to define the props of the Onboarding component
 * [onChangePage](_onboarding_index_d_.ionboardingprops.md#onchangepage)
 * [onDone](_onboarding_index_d_.ionboardingprops.md#ondone)
 * [onSkip](_onboarding_index_d_.ionboardingprops.md#onskip)
-* [options](_onboarding_index_d_.ionboardingprops.md#options)
 * [pages](_onboarding_index_d_.ionboardingprops.md#pages)
 * [paginationProps](_onboarding_index_d_.ionboardingprops.md#paginationprops)
+* [prevLabel](_onboarding_index_d_.ionboardingprops.md#prevlabel)
+* [prevPosition](_onboarding_index_d_.ionboardingprops.md#prevposition)
+* [prevStyle](_onboarding_index_d_.ionboardingprops.md#prevstyle)
 * [previousPage](_onboarding_index_d_.ionboardingprops.md#previouspage)
 * [skipLabel](_onboarding_index_d_.ionboardingprops.md#skiplabel)
 * [skipPosition](_onboarding_index_d_.ionboardingprops.md#skipposition)
@@ -65,6 +66,7 @@ Interface to define the props of the Onboarding component
 * [subtitleStyle](_onboarding_index_d_.ionboardingprops.md#subtitlestyle)
 * [titleStyle](_onboarding_index_d_.ionboardingprops.md#titlestyle)
 * [transitionAnimationDuration](_onboarding_index_d_.ionboardingprops.md#transitionanimationduration)
+* [usePrevious](_onboarding_index_d_.ionboardingprops.md#useprevious)
 * [width](_onboarding_index_d_.ionboardingprops.md#width)
 
 ---
@@ -77,15 +79,11 @@ Interface to define the props of the Onboarding component
 
 **● DoneComponent**: *`TypeComponent`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[DoneComponent](_onboarding_index_d_.ionboardingstate.md#donecomponent)*
-
-*Defined in Onboarding/index.d.ts:97*
+*Defined in Onboarding/index.d.ts:101*
 
 A React-Native component to replace the done button
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="dotcomponent"></a>
@@ -94,15 +92,11 @@ ___
 
 **● DotComponent**: *`TypeComponent`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[DotComponent](_onboarding_index_d_.ionboardingstate.md#dotcomponent)*
-
-*Defined in Onboarding/index.d.ts:104*
+*Defined in Onboarding/index.d.ts:107*
 
 A React-Native component to replace the pagination dot
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="nextcomponent"></a>
@@ -111,15 +105,24 @@ ___
 
 **● NextComponent**: *`TypeComponent`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[NextComponent](_onboarding_index_d_.ionboardingstate.md#nextcomponent)*
-
-*Defined in Onboarding/index.d.ts:111*
+*Defined in Onboarding/index.d.ts:113*
 
 A React-Native component to replace the next button
 
 *__type__*: {TypeComponent}
 
-*__memberof__*: IOnboardingState
+___
+<a id="prevcomponent"></a>
+
+### `<Optional>` PrevComponent
+
+**● PrevComponent**: *`TypeComponent`*
+
+*Defined in Onboarding/index.d.ts:119*
+
+A React-Native component to replace the previous button
+
+*__type__*: {TypeComponent}
 
 ___
 <a id="skipcomponent"></a>
@@ -128,15 +131,11 @@ ___
 
 **● SkipComponent**: *`TypeComponent`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[SkipComponent](_onboarding_index_d_.ionboardingstate.md#skipcomponent)*
-
-*Defined in Onboarding/index.d.ts:118*
+*Defined in Onboarding/index.d.ts:125*
 
 A React-Native component to replace the skip button
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="allowfontscalingbuttons"></a>
@@ -145,15 +144,11 @@ ___
 
 **● allowFontScalingButtons**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[allowFontScalingButtons](_onboarding_index_d_.ionboardingstate.md#allowfontscalingbuttons)*
-
-*Defined in Onboarding/index.d.ts:126*
+*Defined in Onboarding/index.d.ts:132*
 
 Font scaling can cause troubles with high-resolution screens. You may want to disable it
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: true
 
@@ -164,15 +159,11 @@ ___
 
 **● allowFontScalingText**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[allowFontScalingText](_onboarding_index_d_.ionboardingstate.md#allowfontscalingtext)*
-
-*Defined in Onboarding/index.d.ts:134*
+*Defined in Onboarding/index.d.ts:139*
 
 Font scaling can cause troubles with high-resolution screens. You may want to disable it
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: true
 
@@ -183,15 +174,11 @@ ___
 
 **● backgroundColorAnim**: *`Value` \| `ValueXY`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[backgroundColorAnim](_onboarding_index_d_.ionboardingstate.md#backgroundcoloranim)*
-
-*Defined in Onboarding/index.d.ts:141*
+*Defined in Onboarding/index.d.ts:145*
 
 A React-Animated value to define background animation
 
 *__type__*: {(Animated.Value \| Animated.ValueXY)}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="bottombarheight"></a>
@@ -200,15 +187,11 @@ ___
 
 **● bottomBarHeight**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[bottomBarHeight](_onboarding_index_d_.ionboardingstate.md#bottombarheight)*
-
-*Defined in Onboarding/index.d.ts:149*
+*Defined in Onboarding/index.d.ts:152*
 
 A number for the height of the bottom bar
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: 60
 
@@ -219,17 +202,26 @@ ___
 
 **● bottomBarHighlight**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[bottomBarHighlight](_onboarding_index_d_.ionboardingstate.md#bottombarhighlight)*
-
-*Defined in Onboarding/index.d.ts:157*
+*Defined in Onboarding/index.d.ts:159*
 
 A bool flag indicating whether the bottom bar should be highlighted
 
 *__type__*: {boolean}
 
-*__memberof__*: IOnboardingState
-
 *__default__*: true
+
+___
+<a id="bottombarstyle"></a>
+
+### `<Optional>` bottomBarStyle
+
+**● bottomBarStyle**: *`TypeStyle`*
+
+*Defined in Onboarding/index.d.ts:165*
+
+Set a custom style to the bottom bar (pagination style)
+
+*__type__*: {TypeStyle}
 
 ___
 <a id="containerstyle"></a>
@@ -238,15 +230,11 @@ ___
 
 **● containerStyle**: *`undefined` \| `object`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[containerStyle](_onboarding_index_d_.ionboardingstate.md#containerstyle)*
-
-*Defined in Onboarding/index.d.ts:164*
+*Defined in Onboarding/index.d.ts:171*
 
 Override the default container styles
 
 *__type__*: {object}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="controlstatusbar"></a>
@@ -255,15 +243,11 @@ ___
 
 **● controlStatusBar**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[controlStatusBar](_onboarding_index_d_.ionboardingstate.md#controlstatusbar)*
-
-*Defined in Onboarding/index.d.ts:172*
+*Defined in Onboarding/index.d.ts:178*
 
 A bool flag indicating whether the status bar should change with the background color
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: true
 
@@ -274,15 +258,11 @@ ___
 
 **● currentPage**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[currentPage](_onboarding_index_d_.ionboardingstate.md#currentpage)*
-
-*Defined in Onboarding/index.d.ts:180*
+*Defined in Onboarding/index.d.ts:185*
 
 A number to define what is the current page
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: 0
 
@@ -293,15 +273,11 @@ ___
 
 **● defaultPages**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[defaultPages](_onboarding_index_d_.ionboardingstate.md#defaultpages)*
-
-*Defined in Onboarding/index.d.ts:188*
+*Defined in Onboarding/index.d.ts:192*
 
 Use 3 pages by default
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: false
 
@@ -312,15 +288,11 @@ ___
 
 **● doneLabel**: *`undefined` \| `string`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[doneLabel](_onboarding_index_d_.ionboardingstate.md#donelabel)*
-
-*Defined in Onboarding/index.d.ts:195*
+*Defined in Onboarding/index.d.ts:198*
 
 Define a text to show in done button
 
 *__type__*: {string}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="doneposition"></a>
@@ -329,15 +301,11 @@ ___
 
 **● donePosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[donePosition](_onboarding_index_d_.ionboardingstate.md#doneposition)*
-
-*Defined in Onboarding/index.d.ts:203*
+*Defined in Onboarding/index.d.ts:205*
 
 Define the position where the done button will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: right
 
@@ -348,15 +316,50 @@ ___
 
 **● doneStyle**: *`TypeStyle`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[doneStyle](_onboarding_index_d_.ionboardingstate.md#donestyle)*
-
-*Defined in Onboarding/index.d.ts:210*
+*Defined in Onboarding/index.d.ts:211*
 
 Apply a custom style to the done button
 
 *__type__*: {TypeStyle}
 
-*__memberof__*: IOnboardingState
+___
+<a id="dotcolorselected"></a>
+
+### `<Optional>` dotColorSelected
+
+**● dotColorSelected**: *`undefined` \| `string`*
+
+*Defined in Onboarding/index.d.ts:217*
+
+Apply a custom color to the pagination Dot selected
+
+*__type__*: {string}
+
+___
+<a id="dotselectedstyle"></a>
+
+### `<Optional>` dotSelectedStyle
+
+**● dotSelectedStyle**: *`TypeStyle`*
+
+*Defined in Onboarding/index.d.ts:223*
+
+Apply a custom style to the pagination Dot selected
+
+*__type__*: {TypeStyle}
+
+___
+<a id="dotscolor"></a>
+
+### `<Optional>` dotsColor
+
+**● dotsColor**: *`undefined` \| `string`*
+
+*Defined in Onboarding/index.d.ts:229*
+
+Apply a custom color to all pagination Dot
+
+*__type__*: {string}
 
 ___
 <a id="dotsposition"></a>
@@ -365,15 +368,11 @@ ___
 
 **● dotsPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[dotsPosition](_onboarding_index_d_.ionboardingstate.md#dotsposition)*
-
-*Defined in Onboarding/index.d.ts:218*
+*Defined in Onboarding/index.d.ts:236*
 
 Define the position where the pagination dots will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: center
 
@@ -384,15 +383,11 @@ ___
 
 **● dotsSize**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[dotsSize](_onboarding_index_d_.ionboardingstate.md#dotssize)*
-
-*Defined in Onboarding/index.d.ts:225*
+*Defined in Onboarding/index.d.ts:242*
 
 Apply a size to the pagination dots
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="dotsstyle"></a>
@@ -401,15 +396,11 @@ ___
 
 **● dotsStyle**: *`TypeStyle`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[dotsStyle](_onboarding_index_d_.ionboardingstate.md#dotsstyle)*
-
-*Defined in Onboarding/index.d.ts:232*
+*Defined in Onboarding/index.d.ts:248*
 
 Apply a custom style to the pagination dots
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="flatlistprops"></a>
@@ -418,15 +409,11 @@ ___
 
 **● flatlistProps**: *`undefined` \| `object`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[flatlistProps](_onboarding_index_d_.ionboardingstate.md#flatlistprops)*
-
-*Defined in Onboarding/index.d.ts:239*
+*Defined in Onboarding/index.d.ts:254*
 
 Additional props for the which holds all the pages
 
 *__type__*: {object}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="headercontainerstyle"></a>
@@ -435,15 +422,11 @@ ___
 
 **● headerContainerStyle**: *`TypeStyle`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[headerContainerStyle](_onboarding_index_d_.ionboardingstate.md#headercontainerstyle)*
-
-*Defined in Onboarding/index.d.ts:246*
+*Defined in Onboarding/index.d.ts:260*
 
 Apply a custom style to the header container
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="height"></a>
@@ -452,15 +435,11 @@ ___
 
 **● height**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[height](_onboarding_index_d_.ionboardingstate.md#height)*
-
-*Defined in Onboarding/index.d.ts:253*
+*Defined in Onboarding/index.d.ts:266*
 
 Define a custom height to the pages
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="hidedone"></a>
@@ -469,15 +448,11 @@ ___
 
 **● hideDone**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[hideDone](_onboarding_index_d_.ionboardingstate.md#hidedone)*
-
-*Defined in Onboarding/index.d.ts:261*
+*Defined in Onboarding/index.d.ts:273*
 
 Set true for hide the done button
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: false
 
@@ -488,15 +463,11 @@ ___
 
 **● hideDots**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[hideDots](_onboarding_index_d_.ionboardingstate.md#hidedots)*
-
-*Defined in Onboarding/index.d.ts:269*
+*Defined in Onboarding/index.d.ts:280*
 
 Set true for hide the pagination dots
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: false
 
@@ -507,15 +478,11 @@ ___
 
 **● hideNext**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[hideNext](_onboarding_index_d_.ionboardingstate.md#hidenext)*
-
-*Defined in Onboarding/index.d.ts:277*
+*Defined in Onboarding/index.d.ts:287*
 
 Set true to hide the next button
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: false
 
@@ -526,15 +493,11 @@ ___
 
 **● hideSkip**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[hideSkip](_onboarding_index_d_.ionboardingstate.md#hideskip)*
-
-*Defined in Onboarding/index.d.ts:285*
+*Defined in Onboarding/index.d.ts:294*
 
 Set true to hide the skip button
 
 *__type__*: {boolean}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: false
 
@@ -545,15 +508,11 @@ ___
 
 **● imageContainerStyle**: *`undefined` \| `object`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[imageContainerStyle](_onboarding_index_d_.ionboardingstate.md#imagecontainerstyle)*
-
-*Defined in Onboarding/index.d.ts:292*
+*Defined in Onboarding/index.d.ts:300*
 
 Override the default image container styles
 
 *__type__*: {object}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="nextlabel"></a>
@@ -562,15 +521,11 @@ ___
 
 **● nextLabel**: *`undefined` \| `string`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[nextLabel](_onboarding_index_d_.ionboardingstate.md#nextlabel)*
-
-*Defined in Onboarding/index.d.ts:300*
+*Defined in Onboarding/index.d.ts:307*
 
 A text to show in the next button
 
 *__type__*: {string}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: Next
 
@@ -581,15 +536,11 @@ ___
 
 **● nextPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[nextPosition](_onboarding_index_d_.ionboardingstate.md#nextposition)*
-
-*Defined in Onboarding/index.d.ts:308*
+*Defined in Onboarding/index.d.ts:314*
 
 Define the position where the next button will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: right
 
@@ -600,15 +551,11 @@ ___
 
 **● nextStyle**: *`TypeStyle`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[nextStyle](_onboarding_index_d_.ionboardingstate.md#nextstyle)*
-
-*Defined in Onboarding/index.d.ts:315*
+*Defined in Onboarding/index.d.ts:320*
 
 Apply a custom style to the next button
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="onchangepage"></a>
@@ -617,15 +564,11 @@ ___
 
 **● onChangePage**: *`undefined` \| `function`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[onChangePage](_onboarding_index_d_.ionboardingstate.md#onchangepage)*
-
-*Defined in Onboarding/index.d.ts:322*
+*Defined in Onboarding/index.d.ts:326*
 
 A function that receives the page index as a parameter on page change
 
 *__type__*: {Function}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="ondone"></a>
@@ -634,15 +577,11 @@ ___
 
 **● onDone**: *`undefined` \| `function`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[onDone](_onboarding_index_d_.ionboardingstate.md#ondone)*
-
-*Defined in Onboarding/index.d.ts:329*
+*Defined in Onboarding/index.d.ts:332*
 
 A callback that is fired after the Onboarding is completed
 
 *__type__*: {Function}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="onskip"></a>
@@ -651,26 +590,11 @@ ___
 
 **● onSkip**: *`undefined` \| `function`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[onSkip](_onboarding_index_d_.ionboardingstate.md#onskip)*
-
-*Defined in Onboarding/index.d.ts:336*
+*Defined in Onboarding/index.d.ts:338*
 
 A callback that is fired if the Onboarding is skipped
 
 *__type__*: {Function}
-
-*__memberof__*: IOnboardingState
-
-___
-<a id="options"></a>
-
-### `<Optional>` options
-
-**● options**: *[IOnboardingState](_onboarding_index_d_.ionboardingstate.md)*
-
-*Defined in Onboarding/index.d.ts:437*
-
-Prop for group all the props of the Onboarding component
 
 ___
 <a id="pages"></a>
@@ -679,15 +603,11 @@ ___
 
 **● pages**: *[IOnboardingPage](_onboarding_index_d_.ionboardingpage.md)[]*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[pages](_onboarding_index_d_.ionboardingstate.md#pages)*
-
-*Defined in Onboarding/index.d.ts:343*
+*Defined in Onboarding/index.d.ts:344*
 
 A array of pages to show in the component
 
 *__type__*: {IOnboardingPage\[\]}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="paginationprops"></a>
@@ -696,15 +616,52 @@ ___
 
 **● paginationProps**: *[IPaginationProps](_pagination_index_d_.ipaginationprops.md)*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[paginationProps](_onboarding_index_d_.ionboardingstate.md#paginationprops)*
-
 *Defined in Onboarding/index.d.ts:350*
 
 Define additional props for the pagination
 
 *__type__*: {IPaginationProps}
 
-*__memberof__*: IOnboardingState
+___
+<a id="prevlabel"></a>
+
+### `<Optional>` prevLabel
+
+**● prevLabel**: *`undefined` \| `string`*
+
+*Defined in Onboarding/index.d.ts:356*
+
+Define a text to show in previous button
+
+*__type__*: {string}
+
+___
+<a id="prevposition"></a>
+
+### `<Optional>` prevPosition
+
+**● prevPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
+
+*Defined in Onboarding/index.d.ts:363*
+
+Define the position where the previous button will be displayed
+
+*__type__*: {TypePaginationPosition}
+
+*__default__*: left
+
+___
+<a id="prevstyle"></a>
+
+### `<Optional>` prevStyle
+
+**● prevStyle**: *`TypeStyle`*
+
+*Defined in Onboarding/index.d.ts:369*
+
+Apply a custom style to the previous button
+
+*__type__*: {TypeStyle}
 
 ___
 <a id="previouspage"></a>
@@ -713,15 +670,11 @@ ___
 
 **● previousPage**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[previousPage](_onboarding_index_d_.ionboardingstate.md#previouspage)*
-
-*Defined in Onboarding/index.d.ts:357*
+*Defined in Onboarding/index.d.ts:375*
 
 A number to define what is the previous page
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="skiplabel"></a>
@@ -730,15 +683,11 @@ ___
 
 **● skipLabel**: *`undefined` \| `string`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[skipLabel](_onboarding_index_d_.ionboardingstate.md#skiplabel)*
-
-*Defined in Onboarding/index.d.ts:365*
+*Defined in Onboarding/index.d.ts:382*
 
 A text to show in the skip button
 
 *__type__*: {string}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: Skip
 
@@ -749,15 +698,11 @@ ___
 
 **● skipPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[skipPosition](_onboarding_index_d_.ionboardingstate.md#skipposition)*
-
-*Defined in Onboarding/index.d.ts:373*
+*Defined in Onboarding/index.d.ts:389*
 
 Define the position where the next button will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: left
 
@@ -768,15 +713,11 @@ ___
 
 **● skipStyle**: *`TypeStyle`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[skipStyle](_onboarding_index_d_.ionboardingstate.md#skipstyle)*
-
-*Defined in Onboarding/index.d.ts:380*
+*Defined in Onboarding/index.d.ts:395*
 
 Apply a custom style to the skip button
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="skiptopage"></a>
@@ -785,15 +726,11 @@ ___
 
 **● skipToPage**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[skipToPage](_onboarding_index_d_.ionboardingstate.md#skiptopage)*
-
-*Defined in Onboarding/index.d.ts:387*
+*Defined in Onboarding/index.d.ts:401*
 
 Index number of the page that will be displayed when the skip button is pressed
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="statusbarstyle"></a>
@@ -802,15 +739,11 @@ ___
 
 **● statusBarStyle**: *[TypeOnboardingStatusBarStyle](../modules/_onboarding_index_d_.md#typeonboardingstatusbarstyle)*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[statusBarStyle](_onboarding_index_d_.ionboardingstate.md#statusbarstyle)*
-
-*Defined in Onboarding/index.d.ts:395*
+*Defined in Onboarding/index.d.ts:408*
 
 Define a custom status bar style
 
 *__type__*: {TypeOnboardingStatusBarStyle}
-
-*__memberof__*: IOnboardingState
 
 *__default__*: default
 
@@ -821,15 +754,11 @@ ___
 
 **● subtitleStyle**: *`undefined` \| `object`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[subtitleStyle](_onboarding_index_d_.ionboardingstate.md#subtitlestyle)*
-
-*Defined in Onboarding/index.d.ts:402*
+*Defined in Onboarding/index.d.ts:414*
 
 Override the default subtitle styles
 
 *__type__*: {object}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="titlestyle"></a>
@@ -838,15 +767,11 @@ ___
 
 **● titleStyle**: *`undefined` \| `object`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[titleStyle](_onboarding_index_d_.ionboardingstate.md#titlestyle)*
-
-*Defined in Onboarding/index.d.ts:409*
+*Defined in Onboarding/index.d.ts:420*
 
 Override the default title styles
 
 *__type__*: {object}
-
-*__memberof__*: IOnboardingState
 
 ___
 <a id="transitionanimationduration"></a>
@@ -855,17 +780,26 @@ ___
 
 **● transitionAnimationDuration**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[transitionAnimationDuration](_onboarding_index_d_.ionboardingstate.md#transitionanimationduration)*
-
-*Defined in Onboarding/index.d.ts:417*
+*Defined in Onboarding/index.d.ts:427*
 
 The duration in milliseconds for the animation of the background color for the page transition
 
 *__type__*: {number}
 
-*__memberof__*: IOnboardingState
-
 *__default__*: 500
+
+___
+<a id="useprevious"></a>
+
+### `<Optional>` usePrevious
+
+**● usePrevious**: *`undefined` \| `false` \| `true`*
+
+*Defined in Onboarding/index.d.ts:433*
+
+Use to show the previous button
+
+*__type__*: {boolean}
 
 ___
 <a id="width"></a>
@@ -874,15 +808,11 @@ ___
 
 **● width**: *`undefined` \| `number`*
 
-*Inherited from [IOnboardingState](_onboarding_index_d_.ionboardingstate.md).[width](_onboarding_index_d_.ionboardingstate.md#width)*
-
-*Defined in Onboarding/index.d.ts:424*
+*Defined in Onboarding/index.d.ts:439*
 
 Define a custom width to the pages
 
 *__type__*: {number}
-
-*__memberof__*: IOnboardingState
 
 ___
 

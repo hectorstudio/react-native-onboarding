@@ -54,11 +54,9 @@ Class to define the component DoneButton used in Onboarding
 
 **● fadeAnimation**: *`Value`* =  new Animated.Value(0)
 
-*Defined in Pagination/DoneButton.tsx:18*
+*Defined in Pagination/DoneButton.tsx:17*
 
 Initial value to the animation
-
-*__memberof__*: DoneButton
 
 ___
 <a id="fadeduration"></a>
@@ -67,11 +65,9 @@ ___
 
 **● fadeDuration**: *`number`* = 1000
 
-*Defined in Pagination/DoneButton.tsx:24*
+*Defined in Pagination/DoneButton.tsx:22*
 
 Duration of the animation
-
-*__memberof__*: DoneButton
 
 ___
 
@@ -83,11 +79,9 @@ ___
 
 ▸ **ButtonComponent**(): `TypeComponent`
 
-*Defined in Pagination/DoneButton.tsx:58*
+*Defined in Pagination/DoneButton.tsx:53*
 
 Method that renders the button
-
-*__memberof__*: DoneButton
 
 **Returns:** `TypeComponent`
 
@@ -284,11 +278,9 @@ ___
 
 *Overrides ComponentLifecycle.componentDidMount*
 
-*Defined in Pagination/DoneButton.tsx:31*
+*Defined in Pagination/DoneButton.tsx:28*
 
 Method that fire when the component is mounted
-
-*__memberof__*: DoneButton
 
 **Returns:** `void`
 
@@ -453,11 +445,9 @@ ___
 
 *Overrides Button.render*
 
-*Defined in Pagination/DoneButton.tsx:45*
+*Defined in Pagination/DoneButton.tsx:41*
 
 Method that renders the component
-
-*__memberof__*: DoneButton
 
 **Returns:** `TypeComponent`
 

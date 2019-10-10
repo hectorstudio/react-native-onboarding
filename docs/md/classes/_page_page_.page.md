@@ -34,6 +34,7 @@ Class to define the component Page used in Onboarding
 
 * [Header](_page_page_.page.md#header)
 * [Image](_page_page_.page.md#image)
+* [ImageBackground](_page_page_.page.md#imagebackground)
 * [Subtitle](_page_page_.page.md#subtitle)
 * [Title](_page_page_.page.md#title)
 * [UNSAFE_componentWillMount](_page_page_.page.md#unsafe_componentwillmount)
@@ -62,36 +63,17 @@ Class to define the component Page used in Onboarding
 
 ###  constructor
 
-⊕ **new Page**(props: *`Readonly`<[IPageProps](../interfaces/_page_index_d_.ipageprops.md)>*): [Page](_page_page_.page.md)
+⊕ **new Page**(props: *[IPageProps](../interfaces/_page_index_d_.ipageprops.md)*): [Page](_page_page_.page.md)
 
-⊕ **new Page**(props: *[IPageProps](../interfaces/_page_index_d_.ipageprops.md)*, context?: *`any`*): [Page](_page_page_.page.md)
+*Overrides Component.__constructor*
 
-*Inherited from Component.__constructor*
-
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react/index.d.ts:425*
-
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| props | `Readonly`<[IPageProps](../interfaces/_page_index_d_.ipageprops.md)> |
-
-**Returns:** [Page](_page_page_.page.md)
-
-*Inherited from Component.__constructor*
-
-*Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react/index.d.ts:427*
-
-*__deprecated__*: 
-
-*__see__*: [https://reactjs.org/docs/legacy-context.html](https://reactjs.org/docs/legacy-context.html)
+*Defined in Page/Page.tsx:15*
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
 | props | [IPageProps](../interfaces/_page_index_d_.ipageprops.md) |
-| `Optional` context | `any` |
 
 **Returns:** [Page](_page_page_.page.md)
 
@@ -199,11 +181,9 @@ ___
 
 ▸ **Header**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:35*
+*Defined in Page/Page.tsx:66*
 
 Method that renders the Header component
-
-*__memberof__*: Page
 
 **Returns:** `TypeComponent`
 
@@ -214,11 +194,20 @@ ___
 
 ▸ **Image**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:51*
+*Defined in Page/Page.tsx:104*
 
 Method that renders the Image component
 
-*__memberof__*: Page
+**Returns:** `TypeComponent`
+
+___
+<a id="imagebackground"></a>
+
+###  ImageBackground
+
+▸ **ImageBackground**(): `TypeComponent`
+
+*Defined in Page/Page.tsx:48*
 
 **Returns:** `TypeComponent`
 
@@ -229,11 +218,9 @@ ___
 
 ▸ **Subtitle**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:91*
+*Defined in Page/Page.tsx:169*
 
 Method that renders the Subtitle component
-
-*__memberof__*: Page
 
 **Returns:** `TypeComponent`
 
@@ -244,11 +231,9 @@ ___
 
 ▸ **Title**(): `TypeComponent`
 
-*Defined in Page/Page.tsx:67*
+*Defined in Page/Page.tsx:144*
 
 Method that renders the Title component
-
-*__memberof__*: Page
 
 **Returns:** `TypeComponent`
 
@@ -351,15 +336,13 @@ ___
 
 ### `<Private>` _processProps
 
-▸ **_processProps**(): [IPageState](../interfaces/_page_index_d_.ipagestate.md)
+▸ **_processProps**(): [IPageProps](../interfaces/_page_index_d_.ipageprops.md)
 
-*Defined in Page/Page.tsx:116*
+*Defined in Page/Page.tsx:195*
 
 Method that process the props of the component
 
-*__memberof__*: Page
-
-**Returns:** [IPageState](../interfaces/_page_index_d_.ipagestate.md)
+**Returns:** [IPageProps](../interfaces/_page_index_d_.ipageprops.md)
 
 ___
 <a id="_processstyle"></a>
@@ -368,11 +351,9 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Page/Page.tsx:145*
+*Defined in Page/Page.tsx:224*
 
 Method to process the prop style of the component
-
-*__memberof__*: Page
 
 **Returns:** `TypeStyle`
 
@@ -593,11 +574,9 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Page/Page.tsx:19*
+*Defined in Page/Page.tsx:30*
 
 Method that renders the component
-
-*__memberof__*: Page
 
 **Returns:** `TypeComponent`
 

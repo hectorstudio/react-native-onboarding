@@ -4,15 +4,11 @@
 
 Interface to define the props of the Page component
 
-*__export__*: 
-
 *__interface__*: IPageProps
-
-*__extends__*: {IPageState}
 
 ## Hierarchy
 
-↳  [IPageState](_page_index_d_.ipagestate.md)
+ `ViewProps`
 
 **↳ IPageProps**
 
@@ -34,6 +30,7 @@ Interface to define the props of the Page component
 * [accessibilityViewIsModal](_page_index_d_.ipageprops.md#accessibilityviewismodal)
 * [accessible](_page_index_d_.ipageprops.md#accessible)
 * [allowFontScaling](_page_index_d_.ipageprops.md#allowfontscaling)
+* [backgroundImage](_page_index_d_.ipageprops.md#backgroundimage)
 * [collapsable](_page_index_d_.ipageprops.md#collapsable)
 * [containerStyle](_page_index_d_.ipageprops.md#containerstyle)
 * [hasTVPreferredFocus](_page_index_d_.ipageprops.md#hastvpreferredfocus)
@@ -69,7 +66,6 @@ Interface to define the props of the Page component
 * [onTouchEndCapture](_page_index_d_.ipageprops.md#ontouchendcapture)
 * [onTouchMove](_page_index_d_.ipageprops.md#ontouchmove)
 * [onTouchStart](_page_index_d_.ipageprops.md#ontouchstart)
-* [options](_page_index_d_.ipageprops.md#options)
 * [pointerEvents](_page_index_d_.ipageprops.md#pointerevents)
 * [removeClippedSubviews](_page_index_d_.ipageprops.md#removeclippedsubviews)
 * [renderToHardwareTextureAndroid](_page_index_d_.ipageprops.md#rendertohardwaretextureandroid)
@@ -280,17 +276,26 @@ ___
 
 **● allowFontScaling**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[allowFontScaling](_page_index_d_.ipagestate.md#allowfontscaling)*
-
-*Defined in Page/index.d.ts:18*
+*Defined in Page/index.d.ts:17*
 
 Font scaling can cause troubles with high-resolution screens. You may want to disable it
 
 *__type__*: {boolean}
 
-*__memberof__*: IPageState
-
 *__default__*: true
+
+___
+<a id="backgroundimage"></a>
+
+### `<Optional>` backgroundImage
+
+**● backgroundImage**: *`TypeImageSource`*
+
+*Defined in Page/index.d.ts:23*
+
+Set a custom background image in the page
+
+*__type__*: {TypeImageSource}
 
 ___
 <a id="collapsable"></a>
@@ -312,15 +317,11 @@ ___
 
 **● containerStyle**: *`TypeStyle`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[containerStyle](_page_index_d_.ipagestate.md#containerstyle)*
-
-*Defined in Page/index.d.ts:25*
+*Defined in Page/index.d.ts:29*
 
 Apply a custom style to the container of the component
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPageState
 
 ___
 <a id="hastvpreferredfocus"></a>
@@ -344,15 +345,11 @@ ___
 
 **● header**: *`TypeComponent`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[header](_page_index_d_.ipagestate.md#header)*
-
-*Defined in Page/index.d.ts:32*
+*Defined in Page/index.d.ts:35*
 
 A React-Native component to replace the header
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IPageState
 
 ___
 <a id="headercontainerstyle"></a>
@@ -361,15 +358,11 @@ ___
 
 **● headerContainerStyle**: *`TypeStyle`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[headerContainerStyle](_page_index_d_.ipagestate.md#headercontainerstyle)*
-
-*Defined in Page/index.d.ts:39*
+*Defined in Page/index.d.ts:41*
 
 Apply a custom style to the header
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPageState
 
 ___
 <a id="height"></a>
@@ -378,15 +371,11 @@ ___
 
 **● height**: *`undefined` \| `number`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[height](_page_index_d_.ipagestate.md#height)*
-
-*Defined in Page/index.d.ts:46*
+*Defined in Page/index.d.ts:47*
 
 Define a custom height to the pages
 
 *__type__*: {number}
-
-*__memberof__*: IPageState
 
 ___
 <a id="hitslop"></a>
@@ -406,17 +395,13 @@ ___
 
 ###  image
 
-**● image**: *`TypeComponent`*
-
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[image](_page_index_d_.ipagestate.md#image)*
+**● image**: *`TypeComponent` \| `IImageProps`*
 
 *Defined in Page/index.d.ts:53*
 
 A React-Native component to replace the image
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IPageState
 
 ___
 <a id="imagecontainerstyle"></a>
@@ -425,15 +410,11 @@ ___
 
 **● imageContainerStyle**: *`TypeStyle`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[imageContainerStyle](_page_index_d_.ipagestate.md#imagecontainerstyle)*
-
-*Defined in Page/index.d.ts:60*
+*Defined in Page/index.d.ts:59*
 
 Apply a custom style to the image container
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPageState
 
 ___
 <a id="importantforaccessibility"></a>
@@ -457,15 +438,11 @@ ___
 
 **● isLight**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[isLight](_page_index_d_.ipagestate.md#islight)*
-
-*Defined in Page/index.d.ts:68*
+*Defined in Page/index.d.ts:66*
 
 A boolean to set if the style is light or dark
 
 *__type__*: {boolean}
-
-*__memberof__*: IPageState
 
 *__default__*: true
 
@@ -784,17 +761,6 @@ ___
 *Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:440*
 
 ___
-<a id="options"></a>
-
-### `<Optional>` options
-
-**● options**: *[IPageState](_page_index_d_.ipagestate.md)*
-
-*Defined in Page/index.d.ts:116*
-
-Prop for group all the props of the Page component
-
-___
 <a id="pointerevents"></a>
 
 ### `<Optional>` pointerEvents
@@ -878,15 +844,11 @@ ___
 
 **● subtitle**: *`string` \| `TypeComponent`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[subtitle](_page_index_d_.ipagestate.md#subtitle)*
-
-*Defined in Page/index.d.ts:89*
+*Defined in Page/index.d.ts:84*
 
 A React-Native component to replace the subtitle
 
 *__type__*: {(string \| TypeComponent)}
-
-*__memberof__*: IPageState
 
 ___
 <a id="subtitlestyle"></a>
@@ -895,15 +857,11 @@ ___
 
 **● subtitleStyle**: *`TypeStyle`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[subtitleStyle](_page_index_d_.ipagestate.md#subtitlestyle)*
-
-*Defined in Page/index.d.ts:96*
+*Defined in Page/index.d.ts:90*
 
 Apply a custom style to the subtitle
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPageState
 
 ___
 <a id="testid"></a>
@@ -925,15 +883,11 @@ ___
 
 **● title**: *`string` \| `TypeComponent`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[title](_page_index_d_.ipagestate.md#title)*
-
-*Defined in Page/index.d.ts:75*
+*Defined in Page/index.d.ts:72*
 
 A React-Native component to replace the title
 
 *__type__*: {(string \| TypeComponent)}
-
-*__memberof__*: IPageState
 
 ___
 <a id="titlestyle"></a>
@@ -942,15 +896,11 @@ ___
 
 **● titleStyle**: *`TypeStyle`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[titleStyle](_page_index_d_.ipagestate.md#titlestyle)*
-
-*Defined in Page/index.d.ts:82*
+*Defined in Page/index.d.ts:78*
 
 Apply a custom style to the title
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPageState
 
 ___
 <a id="tvparallaxmagnification"></a>
@@ -1034,15 +984,11 @@ ___
 
 **● width**: *`undefined` \| `number`*
 
-*Inherited from [IPageState](_page_index_d_.ipagestate.md).[width](_page_index_d_.ipagestate.md#width)*
+*Defined in Page/index.d.ts:96*
 
-*Defined in Page/index.d.ts:103*
-
-Define a custom height to the pages
+Define a custom width to the pages
 
 *__type__*: {number}
-
-*__memberof__*: IPageState
 
 ___
 

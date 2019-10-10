@@ -24,7 +24,7 @@
   },
 })
 
-*Defined in Dots/styles.tsx:3*
+*Defined in Dots/styles.ts:3*
 
 #### Type declaration
 

@@ -8,11 +8,9 @@ Interface to define the props of the Pagination component
 
 *__interface__*: IPaginationProps
 
-*__extends__*: {IPaginationState}
-
 ## Hierarchy
 
-↳  [IPaginationState](_pagination_index_d_.ipaginationstate.md)
+ `ViewProps`
 
 **↳ IPaginationProps**
 
@@ -23,6 +21,7 @@ Interface to define the props of the Pagination component
 * [DoneComponent](_pagination_index_d_.ipaginationprops.md#donecomponent)
 * [DotComponent](_pagination_index_d_.ipaginationprops.md#dotcomponent)
 * [NextComponent](_pagination_index_d_.ipaginationprops.md#nextcomponent)
+* [PrevComponent](_pagination_index_d_.ipaginationprops.md#prevcomponent)
 * [SkipComponent](_pagination_index_d_.ipaginationprops.md#skipcomponent)
 * [accessibilityActions](_pagination_index_d_.ipaginationprops.md#accessibilityactions)
 * [accessibilityComponentType](_pagination_index_d_.ipaginationprops.md#accessibilitycomponenttype)
@@ -46,6 +45,9 @@ Interface to define the props of the Pagination component
 * [doneLabel](_pagination_index_d_.ipaginationprops.md#donelabel)
 * [donePosition](_pagination_index_d_.ipaginationprops.md#doneposition)
 * [doneStyle](_pagination_index_d_.ipaginationprops.md#donestyle)
+* [dotColorSelected](_pagination_index_d_.ipaginationprops.md#dotcolorselected)
+* [dotSelectedStyle](_pagination_index_d_.ipaginationprops.md#dotselectedstyle)
+* [dotsColor](_pagination_index_d_.ipaginationprops.md#dotscolor)
 * [dotsPosition](_pagination_index_d_.ipaginationprops.md#dotsposition)
 * [dotsSize](_pagination_index_d_.ipaginationprops.md#dotssize)
 * [dotsStyle](_pagination_index_d_.ipaginationprops.md#dotsstyle)
@@ -73,6 +75,7 @@ Interface to define the props of the Pagination component
 * [onMoveShouldSetResponder](_pagination_index_d_.ipaginationprops.md#onmoveshouldsetresponder)
 * [onMoveShouldSetResponderCapture](_pagination_index_d_.ipaginationprops.md#onmoveshouldsetrespondercapture)
 * [onNext](_pagination_index_d_.ipaginationprops.md#onnext)
+* [onPrev](_pagination_index_d_.ipaginationprops.md#onprev)
 * [onResponderEnd](_pagination_index_d_.ipaginationprops.md#onresponderend)
 * [onResponderGrant](_pagination_index_d_.ipaginationprops.md#onrespondergrant)
 * [onResponderMove](_pagination_index_d_.ipaginationprops.md#onrespondermove)
@@ -89,8 +92,10 @@ Interface to define the props of the Pagination component
 * [onTouchEndCapture](_pagination_index_d_.ipaginationprops.md#ontouchendcapture)
 * [onTouchMove](_pagination_index_d_.ipaginationprops.md#ontouchmove)
 * [onTouchStart](_pagination_index_d_.ipaginationprops.md#ontouchstart)
-* [options](_pagination_index_d_.ipaginationprops.md#options)
 * [pointerEvents](_pagination_index_d_.ipaginationprops.md#pointerevents)
+* [prevLabel](_pagination_index_d_.ipaginationprops.md#prevlabel)
+* [prevPosition](_pagination_index_d_.ipaginationprops.md#prevposition)
+* [prevStyle](_pagination_index_d_.ipaginationprops.md#prevstyle)
 * [removeClippedSubviews](_pagination_index_d_.ipaginationprops.md#removeclippedsubviews)
 * [renderToHardwareTextureAndroid](_pagination_index_d_.ipaginationprops.md#rendertohardwaretextureandroid)
 * [rightContainerStyle](_pagination_index_d_.ipaginationprops.md#rightcontainerstyle)
@@ -105,6 +110,7 @@ Interface to define the props of the Pagination component
 * [tvParallaxShiftDistanceX](_pagination_index_d_.ipaginationprops.md#tvparallaxshiftdistancex)
 * [tvParallaxShiftDistanceY](_pagination_index_d_.ipaginationprops.md#tvparallaxshiftdistancey)
 * [tvParallaxTiltAngle](_pagination_index_d_.ipaginationprops.md#tvparallaxtiltangle)
+* [usePrevious](_pagination_index_d_.ipaginationprops.md#useprevious)
 
 ---
 
@@ -116,15 +122,11 @@ Interface to define the props of the Pagination component
 
 **● DoneComponent**: *`TypeComponent`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[DoneComponent](_pagination_index_d_.ipaginationstate.md#donecomponent)*
-
-*Defined in Pagination/index.d.ts:23*
+*Defined in Pagination/index.d.ts:22*
 
 A React-Native component to replace the Done button
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="dotcomponent"></a>
@@ -133,15 +135,11 @@ ___
 
 **● DotComponent**: *`TypeComponent`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[DotComponent](_pagination_index_d_.ipaginationstate.md#dotcomponent)*
-
-*Defined in Pagination/index.d.ts:30*
+*Defined in Pagination/index.d.ts:28*
 
 A React-Native component to replace the pagination Dot
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="nextcomponent"></a>
@@ -150,15 +148,24 @@ ___
 
 **● NextComponent**: *`TypeComponent`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[NextComponent](_pagination_index_d_.ipaginationstate.md#nextcomponent)*
-
-*Defined in Pagination/index.d.ts:37*
+*Defined in Pagination/index.d.ts:34*
 
 A React-Native component to replace the Next button
 
 *__type__*: {TypeComponent}
 
-*__memberof__*: IPaginationState
+___
+<a id="prevcomponent"></a>
+
+### `<Optional>` PrevComponent
+
+**● PrevComponent**: *`TypeComponent`*
+
+*Defined in Pagination/index.d.ts:40*
+
+A React-Native component to replace the Previous button
+
+*__type__*: {TypeComponent}
 
 ___
 <a id="skipcomponent"></a>
@@ -167,15 +174,11 @@ ___
 
 **● SkipComponent**: *`TypeComponent`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[SkipComponent](_pagination_index_d_.ipaginationstate.md#skipcomponent)*
-
-*Defined in Pagination/index.d.ts:44*
+*Defined in Pagination/index.d.ts:46*
 
 A React-Native component to replace the Skip button
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="accessibilityactions"></a>
@@ -367,15 +370,11 @@ ___
 
 **● allowFontScaling**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[allowFontScaling](_pagination_index_d_.ipaginationstate.md#allowfontscaling)*
-
-*Defined in Pagination/index.d.ts:52*
+*Defined in Pagination/index.d.ts:53*
 
 Font scaling can cause troubles with high-resolution screens. You may want to disable it
 
 *__type__*: {boolean}
-
-*__memberof__*: IPaginationState
 
 *__default__*: true
 
@@ -386,15 +385,11 @@ ___
 
 **● bottomBarHeight**: *`undefined` \| `number`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[bottomBarHeight](_pagination_index_d_.ipaginationstate.md#bottombarheight)*
-
 *Defined in Pagination/index.d.ts:60*
 
 A number for the height of the bottom bar
 
 *__type__*: {number}
-
-*__memberof__*: IPaginationState
 
 *__default__*: 60
 
@@ -405,15 +400,11 @@ ___
 
 **● centerContainerStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[centerContainerStyle](_pagination_index_d_.ipaginationstate.md#centercontainerstyle)*
-
-*Defined in Pagination/index.d.ts:67*
+*Defined in Pagination/index.d.ts:66*
 
 Apply a custom style to the pagination center container
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="collapsable"></a>
@@ -435,32 +426,24 @@ ___
 
 **● containerStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[containerStyle](_pagination_index_d_.ipaginationstate.md#containerstyle)*
-
-*Defined in Pagination/index.d.ts:74*
+*Defined in Pagination/index.d.ts:72*
 
 Apply a custom style to the pagination container
 
 *__type__*: {TypeStyle}
 
-*__memberof__*: IPaginationState
-
 ___
 <a id="currentpage"></a>
 
-###  currentPage
+### `<Optional>` currentPage
 
-**● currentPage**: *`number`*
+**● currentPage**: *`undefined` \| `number`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[currentPage](_pagination_index_d_.ipaginationstate.md#currentpage)*
-
-*Defined in Pagination/index.d.ts:82*
+*Defined in Pagination/index.d.ts:79*
 
 A number to define what is the current page
 
 *__type__*: {number}
-
-*__memberof__*: IPaginationState
 
 *__default__*: 0
 
@@ -471,15 +454,11 @@ ___
 
 **● doneLabel**: *`undefined` \| `string`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[doneLabel](_pagination_index_d_.ipaginationstate.md#donelabel)*
-
-*Defined in Pagination/index.d.ts:89*
+*Defined in Pagination/index.d.ts:85*
 
 Define a text to show in done button
 
 *__type__*: {string}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="doneposition"></a>
@@ -488,15 +467,11 @@ ___
 
 **● donePosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[donePosition](_pagination_index_d_.ipaginationstate.md#doneposition)*
-
-*Defined in Pagination/index.d.ts:97*
+*Defined in Pagination/index.d.ts:92*
 
 Define the position where the done button will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IPaginationState
 
 *__default__*: right
 
@@ -507,15 +482,50 @@ ___
 
 **● doneStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[doneStyle](_pagination_index_d_.ipaginationstate.md#donestyle)*
-
-*Defined in Pagination/index.d.ts:104*
+*Defined in Pagination/index.d.ts:98*
 
 Apply a custom style to the done button
 
 *__type__*: {TypeStyle}
 
-*__memberof__*: IPaginationState
+___
+<a id="dotcolorselected"></a>
+
+### `<Optional>` dotColorSelected
+
+**● dotColorSelected**: *`undefined` \| `string`*
+
+*Defined in Pagination/index.d.ts:104*
+
+Apply a custom color to the Dot selected
+
+*__type__*: {string}
+
+___
+<a id="dotselectedstyle"></a>
+
+### `<Optional>` dotSelectedStyle
+
+**● dotSelectedStyle**: *`TypeStyle`*
+
+*Defined in Pagination/index.d.ts:110*
+
+Apply a custom style to the Dot selected
+
+*__type__*: {TypeStyle}
+
+___
+<a id="dotscolor"></a>
+
+### `<Optional>` dotsColor
+
+**● dotsColor**: *`undefined` \| `string`*
+
+*Defined in Pagination/index.d.ts:116*
+
+Apply a custom color to all Dots
+
+*__type__*: {string}
 
 ___
 <a id="dotsposition"></a>
@@ -524,15 +534,11 @@ ___
 
 **● dotsPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[dotsPosition](_pagination_index_d_.ipaginationstate.md#dotsposition)*
-
-*Defined in Pagination/index.d.ts:112*
+*Defined in Pagination/index.d.ts:123*
 
 Define the position where the pagination dots will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IPaginationState
 
 *__default__*: center
 
@@ -543,15 +549,11 @@ ___
 
 **● dotsSize**: *`undefined` \| `number`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[dotsSize](_pagination_index_d_.ipaginationstate.md#dotssize)*
-
-*Defined in Pagination/index.d.ts:119*
+*Defined in Pagination/index.d.ts:129*
 
 Apply a size to the pagination dots
 
 *__type__*: {number}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="dotsstyle"></a>
@@ -560,15 +562,11 @@ ___
 
 **● dotsStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[dotsStyle](_pagination_index_d_.ipaginationstate.md#dotsstyle)*
-
-*Defined in Pagination/index.d.ts:126*
+*Defined in Pagination/index.d.ts:135*
 
 Apply a custom style to the pagination dots
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="hastvpreferredfocus"></a>
@@ -592,15 +590,11 @@ ___
 
 **● hideDone**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[hideDone](_pagination_index_d_.ipaginationstate.md#hidedone)*
-
-*Defined in Pagination/index.d.ts:134*
+*Defined in Pagination/index.d.ts:142*
 
 Set true for hide the done button
 
 *__type__*: {boolean}
-
-*__memberof__*: IPaginationState
 
 *__default__*: false
 
@@ -611,15 +605,11 @@ ___
 
 **● hideDots**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[hideDots](_pagination_index_d_.ipaginationstate.md#hidedots)*
-
-*Defined in Pagination/index.d.ts:142*
+*Defined in Pagination/index.d.ts:149*
 
 Set true for hide the pagination dots
 
 *__type__*: {boolean}
-
-*__memberof__*: IPaginationState
 
 *__default__*: false
 
@@ -630,15 +620,11 @@ ___
 
 **● hideNext**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[hideNext](_pagination_index_d_.ipaginationstate.md#hidenext)*
-
-*Defined in Pagination/index.d.ts:150*
+*Defined in Pagination/index.d.ts:156*
 
 Set true to hide the next button
 
 *__type__*: {boolean}
-
-*__memberof__*: IPaginationState
 
 *__default__*: false
 
@@ -649,15 +635,11 @@ ___
 
 **● hideSkip**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[hideSkip](_pagination_index_d_.ipaginationstate.md#hideskip)*
-
-*Defined in Pagination/index.d.ts:158*
+*Defined in Pagination/index.d.ts:163*
 
 Set true to hide the skip button
 
 *__type__*: {boolean}
-
-*__memberof__*: IPaginationState
 
 *__default__*: false
 
@@ -696,15 +678,11 @@ ___
 
 **● isLight**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[isLight](_pagination_index_d_.ipaginationstate.md#islight)*
-
-*Defined in Pagination/index.d.ts:166*
+*Defined in Pagination/index.d.ts:170*
 
 A boolean to set if the style is light or dark
 
 *__type__*: {boolean}
-
-*__memberof__*: IPaginationState
 
 *__default__*: true
 
@@ -730,15 +708,11 @@ ___
 
 **● leftContainerStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[leftContainerStyle](_pagination_index_d_.ipaginationstate.md#leftcontainerstyle)*
-
-*Defined in Pagination/index.d.ts:173*
+*Defined in Pagination/index.d.ts:176*
 
 Apply a custom style to the pagination left container
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="nativeid"></a>
@@ -775,15 +749,11 @@ ___
 
 **● nextLabel**: *`undefined` \| `string`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[nextLabel](_pagination_index_d_.ipaginationstate.md#nextlabel)*
-
-*Defined in Pagination/index.d.ts:181*
+*Defined in Pagination/index.d.ts:183*
 
 A text to show in the next button
 
 *__type__*: {string}
-
-*__memberof__*: IPaginationState
 
 *__default__*: Next
 
@@ -794,15 +764,11 @@ ___
 
 **● nextPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[nextPosition](_pagination_index_d_.ipaginationstate.md#nextposition)*
-
-*Defined in Pagination/index.d.ts:189*
+*Defined in Pagination/index.d.ts:190*
 
 Define the position where the next button will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IPaginationState
 
 *__default__*: right
 
@@ -813,32 +779,24 @@ ___
 
 **● nextStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[nextStyle](_pagination_index_d_.ipaginationstate.md#nextstyle)*
-
 *Defined in Pagination/index.d.ts:196*
 
 Apply a custom style to the next button
 
 *__type__*: {TypeStyle}
 
-*__memberof__*: IPaginationState
-
 ___
 <a id="numpages"></a>
 
-###  numPages
+### `<Optional>` numPages
 
-**● numPages**: *`number`*
+**● numPages**: *`undefined` \| `number`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[numPages](_pagination_index_d_.ipaginationstate.md#numpages)*
-
-*Defined in Pagination/index.d.ts:203*
+*Defined in Pagination/index.d.ts:202*
 
 A number of the total of the pages
 
 *__type__*: {number}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="onaccessibilityaction"></a>
@@ -871,24 +829,15 @@ When `accessible` is true, the system will try to invoke this function when the 
 ___
 <a id="ondone"></a>
 
-###  onDone
+### `<Optional>` onDone
 
-**● onDone**: *`function`*
+**● onDone**: *`undefined` \| `function`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[onDone](_pagination_index_d_.ipaginationstate.md#ondone)*
-
-*Defined in Pagination/index.d.ts:210*
+*Defined in Pagination/index.d.ts:208*
 
 Method that fire when the button done is pressed
 
 *__type__*: {Function}
-
-*__memberof__*: IPaginationState
-
-#### Type declaration
-▸(): `void`
-
-**Returns:** `void`
 
 ___
 <a id="onlayout"></a>
@@ -955,15 +904,24 @@ ___
 
 **● onNext**: *`undefined` \| `function`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[onNext](_pagination_index_d_.ipaginationstate.md#onnext)*
-
-*Defined in Pagination/index.d.ts:217*
+*Defined in Pagination/index.d.ts:214*
 
 Method that fire when the button next is pressed
 
 *__type__*: {Function}
 
-*__memberof__*: IPaginationState
+___
+<a id="onprev"></a>
+
+### `<Optional>` onPrev
+
+**● onPrev**: *`undefined` \| `function`*
+
+*Defined in Pagination/index.d.ts:220*
+
+Method that fire when the button previous is pressed
+
+*__type__*: {Function}
 
 ___
 <a id="onresponderend"></a>
@@ -1074,15 +1032,11 @@ ___
 
 **● onSkip**: *`undefined` \| `function`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[onSkip](_pagination_index_d_.ipaginationstate.md#onskip)*
-
-*Defined in Pagination/index.d.ts:224*
+*Defined in Pagination/index.d.ts:226*
 
 Method that fire when the button skip is pressed
 
 *__type__*: {Function}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="onstartshouldsetresponder"></a>
@@ -1168,21 +1122,6 @@ ___
 *Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:440*
 
 ___
-<a id="options"></a>
-
-### `<Optional>` options
-
-**● options**: *[IPaginationState](_pagination_index_d_.ipaginationstate.md)*
-
-*Defined in Pagination/index.d.ts:269*
-
-Prop for group all the props of the Pagination component
-
-*__type__*: {IPaginationState}
-
-*__memberof__*: IPaginationProps
-
-___
 <a id="pointerevents"></a>
 
 ### `<Optional>` pointerEvents
@@ -1202,6 +1141,49 @@ box-only is the equivalent of
 .box-only { pointer-events: all; } .box-only \* { pointer-events: none; }
 
 But since pointerEvents does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include pointerEvents on style. On some platforms, we would need to implement it as a className anyways. Using style or not is an implementation detail of the platform.
+
+___
+<a id="prevlabel"></a>
+
+### `<Optional>` prevLabel
+
+**● prevLabel**: *`undefined` \| `string`*
+
+*Defined in Pagination/index.d.ts:233*
+
+A text to show in the previous button
+
+*__type__*: {string}
+
+*__default__*: Previous
+
+___
+<a id="prevposition"></a>
+
+### `<Optional>` prevPosition
+
+**● prevPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
+
+*Defined in Pagination/index.d.ts:240*
+
+Define the position where the previous button will be displayed
+
+*__type__*: {TypePaginationPosition}
+
+*__default__*: left
+
+___
+<a id="prevstyle"></a>
+
+### `<Optional>` prevStyle
+
+**● prevStyle**: *`TypeStyle`*
+
+*Defined in Pagination/index.d.ts:246*
+
+Apply a custom style to the previous button
+
+*__type__*: {TypeStyle}
 
 ___
 <a id="removeclippedsubviews"></a>
@@ -1238,15 +1220,11 @@ ___
 
 **● rightContainerStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[rightContainerStyle](_pagination_index_d_.ipaginationstate.md#rightcontainerstyle)*
-
-*Defined in Pagination/index.d.ts:231*
+*Defined in Pagination/index.d.ts:252*
 
 Apply a custom style to the pagination right container
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="shouldrasterizeios"></a>
@@ -1272,15 +1250,11 @@ ___
 
 **● skipLabel**: *`undefined` \| `string`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[skipLabel](_pagination_index_d_.ipaginationstate.md#skiplabel)*
-
-*Defined in Pagination/index.d.ts:239*
+*Defined in Pagination/index.d.ts:259*
 
 A text to show in the skip button
 
 *__type__*: {string}
-
-*__memberof__*: IPaginationState
 
 *__default__*: Skip
 
@@ -1291,15 +1265,11 @@ ___
 
 **● skipPosition**: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[skipPosition](_pagination_index_d_.ipaginationstate.md#skipposition)*
-
-*Defined in Pagination/index.d.ts:247*
+*Defined in Pagination/index.d.ts:266*
 
 Define the position where the next button will be displayed
 
 *__type__*: {TypePaginationPosition}
-
-*__memberof__*: IPaginationState
 
 *__default__*: left
 
@@ -1310,15 +1280,11 @@ ___
 
 **● skipStyle**: *`TypeStyle`*
 
-*Inherited from [IPaginationState](_pagination_index_d_.ipaginationstate.md).[skipStyle](_pagination_index_d_.ipaginationstate.md#skipstyle)*
-
-*Defined in Pagination/index.d.ts:254*
+*Defined in Pagination/index.d.ts:272*
 
 Apply a custom style to the skip button
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IPaginationState
 
 ___
 <a id="style"></a>
@@ -1418,6 +1384,19 @@ ___
 _(Apple TV only)_ May be used to change the appearance of the Apple TV parallax effect when this view goes in or out of focus. Defaults to 0.05.
 
 *__platform__*: ios
+
+___
+<a id="useprevious"></a>
+
+### `<Optional>` usePrevious
+
+**● usePrevious**: *`undefined` \| `false` \| `true`*
+
+*Defined in Pagination/index.d.ts:278*
+
+Use to show the previous button
+
+*__type__*: {boolean}
 
 ___
 

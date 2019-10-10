@@ -4,8 +4,6 @@
 
 Interface to define the properties of a page
 
-*__export__*: 
-
 *__interface__*: IOnboardingPage
 
 ## Hierarchy
@@ -16,7 +14,10 @@ Interface to define the properties of a page
 
 ### Properties
 
+* [Component](_onboarding_index_d_.ionboardingpage.md#component)
 * [backgroundColor](_onboarding_index_d_.ionboardingpage.md#backgroundcolor)
+* [backgroundImage](_onboarding_index_d_.ionboardingpage.md#backgroundimage)
+* [containerStyle](_onboarding_index_d_.ionboardingpage.md#containerstyle)
 * [header](_onboarding_index_d_.ionboardingpage.md#header)
 * [headerStyle](_onboarding_index_d_.ionboardingpage.md#headerstyle)
 * [image](_onboarding_index_d_.ionboardingpage.md#image)
@@ -30,13 +31,26 @@ Interface to define the properties of a page
 
 ## Properties
 
+<a id="component"></a>
+
+### `<Optional>` Component
+
+**● Component**: *`TypeComponent`*
+
+*Defined in Onboarding/index.d.ts:35*
+
+A React Component or Element to show the page
+
+*__type__*: {TypeComponent}
+
+___
 <a id="backgroundcolor"></a>
 
 ### `<Optional>` backgroundColor
 
 **● backgroundColor**: *`undefined` \| `string`*
 
-*Defined in Onboarding/index.d.ts:28*
+*Defined in Onboarding/index.d.ts:23*
 
 A background color. The color of the font and dots adapts to the background color
 
@@ -44,7 +58,31 @@ A background color. The color of the font and dots adapts to the background colo
 
 *__default__*: white
 
-*__memberof__*: IOnboardingPage
+___
+<a id="backgroundimage"></a>
+
+### `<Optional>` backgroundImage
+
+**● backgroundImage**: *`TypeImageSource`*
+
+*Defined in Onboarding/index.d.ts:29*
+
+A background image for the page
+
+*__type__*: {TypeImageSource}
+
+___
+<a id="containerstyle"></a>
+
+### `<Optional>` containerStyle
+
+**● containerStyle**: *`TypeStyle`*
+
+*Defined in Onboarding/index.d.ts:41*
+
+Set a custom style to the container of the page
+
+*__type__*: {TypeStyle}
 
 ___
 <a id="header"></a>
@@ -53,13 +91,11 @@ ___
 
 **● header**: *`TypeComponent`*
 
-*Defined in Onboarding/index.d.ts:35*
+*Defined in Onboarding/index.d.ts:47*
 
 A React-Native component to display at the header of the page
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IOnboardingPage
 
 ___
 <a id="headerstyle"></a>
@@ -68,28 +104,24 @@ ___
 
 **● headerStyle**: *`TypeStyle`*
 
-*Defined in Onboarding/index.d.ts:42*
+*Defined in Onboarding/index.d.ts:53*
 
 Apply a custom style to the header
 
 *__type__*: {TypeStyle}
 
-*__memberof__*: IOnboardingPage
-
 ___
 <a id="image"></a>
 
-###  image
+### `<Optional>` image
 
-**● image**: *`TypeComponent`*
+**● image**: *`TypeComponent` \| `IImageProps`*
 
-*Defined in Onboarding/index.d.ts:49*
+*Defined in Onboarding/index.d.ts:59*
 
 A React-Native component to display at the top of the page
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IOnboardingPage
 
 ___
 <a id="imagestyle"></a>
@@ -98,13 +130,11 @@ ___
 
 **● imageStyle**: *`TypeStyle`*
 
-*Defined in Onboarding/index.d.ts:56*
+*Defined in Onboarding/index.d.ts:65*
 
 Apply a custom style to the image
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IOnboardingPage
 
 ___
 <a id="subtitle"></a>
@@ -113,13 +143,11 @@ ___
 
 **● subtitle**: *`undefined` \| `string`*
 
-*Defined in Onboarding/index.d.ts:77*
+*Defined in Onboarding/index.d.ts:83*
 
 A string OR a React-Native component
 
 *__type__*: {string}
-
-*__memberof__*: IOnboardingPage
 
 ___
 <a id="subtitlestyle"></a>
@@ -128,7 +156,7 @@ ___
 
 **● subtitleStyle**: *`TypeStyle`*
 
-*Defined in Onboarding/index.d.ts:83*
+*Defined in Onboarding/index.d.ts:89*
 
 Modify styles of a specific page's subtitle
 
@@ -137,17 +165,15 @@ Modify styles of a specific page's subtitle
 ___
 <a id="title"></a>
 
-###  title
+### `<Optional>` title
 
-**● title**: *`string`*
+**● title**: *`undefined` \| `string`*
 
-*Defined in Onboarding/index.d.ts:63*
+*Defined in Onboarding/index.d.ts:71*
 
 A string OR a React-Native component
 
 *__type__*: {string}
-
-*__memberof__*: IOnboardingPage
 
 ___
 <a id="titlestyle"></a>
@@ -156,13 +182,11 @@ ___
 
 **● titleStyle**: *`TypeStyle`*
 
-*Defined in Onboarding/index.d.ts:70*
+*Defined in Onboarding/index.d.ts:77*
 
 Modify styles of a specific page's title
 
 *__type__*: {TypeStyle}
-
-*__memberof__*: IOnboardingPage
 
 ___
 

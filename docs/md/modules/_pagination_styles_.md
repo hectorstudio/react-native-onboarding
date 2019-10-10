@@ -21,11 +21,11 @@
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingHorizontal: 6,
+    padding: 16,
   },
 
   leftContainer: {
-    alignItems: 'flex-start',
+    alignItems: 'center',
     flexGrow: 1,
     width: 100,
   },
@@ -36,7 +36,7 @@
   },
 
   rightContainer: {
-    alignItems: 'flex-end',
+    alignItems: 'center',
     flexGrow: 1,
     width: 100,
   },
@@ -54,7 +54,7 @@
   },
 })
 
-*Defined in Pagination/styles.tsx:3*
+*Defined in Pagination/styles.ts:3*
 
 #### Type declaration
 
@@ -80,7 +80,7 @@
 
  justifyContent: "center"
 
- paddingHorizontal: `number`
+ padding: `number`
 
  dots: `object`
 
@@ -88,7 +88,7 @@
 
  leftContainer: `object`
 
- alignItems: "flex-start"
+ alignItems: "center"
 
  flexGrow: `number`
 
@@ -96,7 +96,7 @@
 
  rightContainer: `object`
 
- alignItems: "flex-end"
+ alignItems: "center"
 
  flexGrow: `number`
 

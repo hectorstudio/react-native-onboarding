@@ -6,13 +6,13 @@ Class to define the component Onboarding
 
 *__class__*: Onboarding
 
-*__extends__*: {React.Component<IOnboardingProps, IOnboardingState>}
+*__extends__*: {React.Component<IOnboardingProps, IOnboardingProps>}
 
 ## Type parameters
 #### SS 
 ## Hierarchy
 
- `Component`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md), [IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)>
+ `Component`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md), [IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>
 
 **↳ Onboarding**
 
@@ -59,6 +59,7 @@ Class to define the component Onboarding
 * [getPreviousPage](_onboarding_index_d_.onboarding.md#getpreviouspage)
 * [getSnapshotBeforeUpdate](_onboarding_index_d_.onboarding.md#getsnapshotbeforeupdate)
 * [goNext](_onboarding_index_d_.onboarding.md#gonext)
+* [goPrev](_onboarding_index_d_.onboarding.md#goprev)
 * [render](_onboarding_index_d_.onboarding.md#render)
 * [renderPage](_onboarding_index_d_.onboarding.md#renderpage)
 * [setState](_onboarding_index_d_.onboarding.md#setstate)
@@ -137,13 +138,11 @@ ___
 
 **● flatList**: *`any`*
 
-*Defined in Onboarding/index.d.ts:451*
+*Defined in Onboarding/index.d.ts:489*
 
 The reference to the FlatList component
 
 *__type__*: {FlatList}
-
-*__memberof__*: Onboarding
 
 ___
 <a id="itemvisiblehotfix"></a>
@@ -152,13 +151,11 @@ ___
 
 **● itemVisibleHotfix**: *`undefined` \| `object`*
 
-*Defined in Onboarding/index.d.ts:458*
+*Defined in Onboarding/index.d.ts:495*
 
 Hotfix to swipe the pages
 
 *__type__*: {{ itemVisiblePercentThreshold: number }}
-
-*__memberof__*: Onboarding
 
 ___
 <a id="props"></a>
@@ -193,7 +190,7 @@ ___
 
 ###  state
 
-**● state**: *`Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)>*
+**● state**: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*
 
 *Inherited from Component.state*
 
@@ -296,7 +293,7 @@ ___
 
 ### `<Optional>` UNSAFE_componentWillUpdate
 
-▸ **UNSAFE_componentWillUpdate**(nextProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextState: *`Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)>*, nextContext: *`any`*): `void`
+▸ **UNSAFE_componentWillUpdate**(nextProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextState: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextContext: *`any`*): `void`
 
 *Inherited from DeprecatedLifecycle.UNSAFE_componentWillUpdate*
 
@@ -321,7 +318,7 @@ Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps preven
 | Name | Type |
 | ------ | ------ |
 | nextProps | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
-| nextState | `Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)> |
+| nextState | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
 | nextContext | `any` |
 
 **Returns:** `void`
@@ -333,11 +330,9 @@ ___
 
 ▸ **_flatlistProps**(): `FlatListProps`<`__type`>
 
-*Defined in Onboarding/index.d.ts:575*
+*Defined in Onboarding/index.d.ts:603*
 
 Method that process the props for the FlatList
-
-*__memberof__*: Onboarding
 
 **Returns:** `FlatListProps`<`__type`>
 > }
@@ -349,11 +344,9 @@ ___
 
 ▸ **_onChangePage**(index: *`number`*): `void`
 
-*Defined in Onboarding/index.d.ts:534*
+*Defined in Onboarding/index.d.ts:567*
 
 Method that fire when a pages change, this returns the current index page
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 
@@ -370,11 +363,9 @@ ___
 
 ▸ **_onDone**(): `void`
 
-*Defined in Onboarding/index.d.ts:517*
+*Defined in Onboarding/index.d.ts:552*
 
 Method that fire when the button Done is pressed
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -385,11 +376,9 @@ ___
 
 ▸ **_onLayout**(): `void`
 
-*Defined in Onboarding/index.d.ts:551*
+*Defined in Onboarding/index.d.ts:582*
 
 Method that fire when the layout is changed
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -400,11 +389,9 @@ ___
 
 ▸ **_onSkip**(): `void`
 
-*Defined in Onboarding/index.d.ts:525*
+*Defined in Onboarding/index.d.ts:559*
 
 Method that fire when the button Skip is pressed
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -415,11 +402,9 @@ ___
 
 ▸ **_onSwipePageChange**(data: *`any`*): `void`
 
-*Defined in Onboarding/index.d.ts:543*
+*Defined in Onboarding/index.d.ts:575*
 
 Method thar fire when a page is swiped
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 
@@ -436,13 +421,9 @@ ___
 
 ▸ **_paginationProps**(): [IPaginationProps](../interfaces/_pagination_index_d_.ipaginationprops.md)
 
-*Defined in Onboarding/index.d.ts:584*
+*Defined in Onboarding/index.d.ts:610*
 
 Method that process the props for the pagination
-
-*__author__*: (Set the text for this tag by adding docthis.authorName to your settings file.)
-
-*__memberof__*: Onboarding
 
 **Returns:** [IPaginationProps](../interfaces/_pagination_index_d_.ipaginationprops.md)
 
@@ -451,15 +432,13 @@ ___
 
 ### `<Private>` _processProps
 
-▸ **_processProps**(): [IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)
+▸ **_processProps**(): [IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)
 
-*Defined in Onboarding/index.d.ts:567*
+*Defined in Onboarding/index.d.ts:596*
 
 Method that process the props of the component
 
-*__memberof__*: Onboarding
-
-**Returns:** [IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)
+**Returns:** [IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)
 
 ___
 <a id="_skiptolastpage"></a>
@@ -468,11 +447,9 @@ ___
 
 ▸ **_skipToLastPage**(): `void`
 
-*Defined in Onboarding/index.d.ts:559*
+*Defined in Onboarding/index.d.ts:589*
 
 Method that changes to the last page
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -522,11 +499,9 @@ ___
 
 *Overrides NewLifecycle.componentDidUpdate*
 
-*Defined in Onboarding/index.d.ts:467*
+*Defined in Onboarding/index.d.ts:503*
 
 Method that fire when the component is updated
-
-*__memberof__*: Onboarding
 
 **Returns:** `void`
 
@@ -605,7 +580,7 @@ ___
 
 ### `<Optional>` componentWillUpdate
 
-▸ **componentWillUpdate**(nextProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextState: *`Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)>*, nextContext: *`any`*): `void`
+▸ **componentWillUpdate**(nextProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextState: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextContext: *`any`*): `void`
 
 *Inherited from DeprecatedLifecycle.componentWillUpdate*
 
@@ -628,7 +603,7 @@ Note: the presence of getSnapshotBeforeUpdate or getDerivedStateFromProps preven
 | Name | Type |
 | ------ | ------ |
 | nextProps | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
-| nextState | `Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)> |
+| nextState | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
 | nextContext | `any` |
 
 **Returns:** `void`
@@ -640,11 +615,9 @@ ___
 
 ▸ **defaultPages**(): [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md)[]
 
-*Defined in Onboarding/index.d.ts:481*
+*Defined in Onboarding/index.d.ts:515*
 
 Method that define 3 pages by default
-
-*__memberof__*: Onboarding
 
 **Returns:** [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md)[]
 
@@ -674,11 +647,9 @@ ___
 
 ▸ **getCurrentPage**(): [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
-*Defined in Onboarding/index.d.ts:495*
+*Defined in Onboarding/index.d.ts:527*
 
 Method to get the current page
-
-*__memberof__*: Onboarding
 
 **Returns:** [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
@@ -689,11 +660,9 @@ ___
 
 ▸ **getPreviousPage**(): [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
-*Defined in Onboarding/index.d.ts:502*
+*Defined in Onboarding/index.d.ts:533*
 
 Method to get the previous page
-
-*__memberof__*: Onboarding
 
 **Returns:** [IOnboardingPage](../interfaces/_onboarding_index_d_.ionboardingpage.md) \| `undefined`
 
@@ -702,7 +671,7 @@ ___
 
 ### `<Optional>` getSnapshotBeforeUpdate
 
-▸ **getSnapshotBeforeUpdate**(prevProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, prevState: *`Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)>*): `SS` \| `null`
+▸ **getSnapshotBeforeUpdate**(prevProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, prevState: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*): `SS` \| `null`
 
 *Inherited from NewLifecycle.getSnapshotBeforeUpdate*
 
@@ -717,7 +686,7 @@ Note: the presence of getSnapshotBeforeUpdate prevents any of the deprecated lif
 | Name | Type |
 | ------ | ------ |
 | prevProps | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
-| prevState | `Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)> |
+| prevState | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
 
 **Returns:** `SS` \| `null`
 
@@ -728,11 +697,22 @@ ___
 
 ▸ **goNext**(): `void`
 
-*Defined in Onboarding/index.d.ts:509*
+*Defined in Onboarding/index.d.ts:539*
 
 Method to advance to the next page
 
-*__memberof__*: Onboarding
+**Returns:** `void`
+
+___
+<a id="goprev"></a>
+
+###  goPrev
+
+▸ **goPrev**(): `void`
+
+*Defined in Onboarding/index.d.ts:545*
+
+Method to back to the previous page
 
 **Returns:** `void`
 
@@ -745,11 +725,9 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Onboarding/index.d.ts:474*
+*Defined in Onboarding/index.d.ts:509*
 
 Method that renders the component
-
-*__memberof__*: Onboarding
 
 **Returns:** `TypeComponent`
 
@@ -760,11 +738,9 @@ ___
 
 ▸ **renderPage**(data?: *`any`*): `TypeComponent`
 
-*Defined in Onboarding/index.d.ts:488*
+*Defined in Onboarding/index.d.ts:521*
 
 Method that renders the page in the component
-
-*__memberof__*: Onboarding
 
 **Parameters:**
 
@@ -787,7 +763,7 @@ ___
 
 **Type parameters:**
 
-#### K :  `keyof IOnboardingState`
+#### K :  `keyof IOnboardingProps`
 **Parameters:**
 
 | Name | Type |
@@ -802,7 +778,7 @@ ___
 
 ### `<Optional>` shouldComponentUpdate
 
-▸ **shouldComponentUpdate**(nextProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextState: *`Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)>*, nextContext: *`any`*): `boolean`
+▸ **shouldComponentUpdate**(nextProps: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextState: *`Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)>*, nextContext: *`any`*): `boolean`
 
 *Inherited from ComponentLifecycle.shouldComponentUpdate*
 
@@ -819,7 +795,7 @@ If false is returned, `Component#render`, `componentWillUpdate` and `componentDi
 | Name | Type |
 | ------ | ------ |
 | nextProps | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
-| nextState | `Readonly`<[IOnboardingState](../interfaces/_onboarding_index_d_.ionboardingstate.md)> |
+| nextState | `Readonly`<[IOnboardingProps](../interfaces/_onboarding_index_d_.ionboardingprops.md)> |
 | nextContext | `any` |
 
 **Returns:** `boolean`

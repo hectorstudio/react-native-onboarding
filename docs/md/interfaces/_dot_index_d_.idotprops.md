@@ -4,15 +4,11 @@
 
 Interface to define the props of the Dot component
 
-*__export__*: 
-
 *__interface__*: IDotProps
-
-*__extends__*: {IDotState}
 
 ## Hierarchy
 
-↳  [IDotState](_dot_index_d_.idotstate.md)
+ `ViewProps`
 
 **↳ IDotProps**
 
@@ -36,11 +32,13 @@ Interface to define the props of the Dot component
 * [accessible](_dot_index_d_.idotprops.md#accessible)
 * [collapsable](_dot_index_d_.idotprops.md#collapsable)
 * [color](_dot_index_d_.idotprops.md#color)
+* [colorSelected](_dot_index_d_.idotprops.md#colorselected)
 * [hasTVPreferredFocus](_dot_index_d_.idotprops.md#hastvpreferredfocus)
 * [hitSlop](_dot_index_d_.idotprops.md#hitslop)
 * [importantForAccessibility](_dot_index_d_.idotprops.md#importantforaccessibility)
 * [isLight](_dot_index_d_.idotprops.md#islight)
 * [isTVSelectable](_dot_index_d_.idotprops.md#istvselectable)
+* [key](_dot_index_d_.idotprops.md#key)
 * [nativeID](_dot_index_d_.idotprops.md#nativeid)
 * [needsOffscreenAlphaCompositing](_dot_index_d_.idotprops.md#needsoffscreenalphacompositing)
 * [onAccessibilityAction](_dot_index_d_.idotprops.md#onaccessibilityaction)
@@ -64,11 +62,11 @@ Interface to define the props of the Dot component
 * [onTouchEndCapture](_dot_index_d_.idotprops.md#ontouchendcapture)
 * [onTouchMove](_dot_index_d_.idotprops.md#ontouchmove)
 * [onTouchStart](_dot_index_d_.idotprops.md#ontouchstart)
-* [options](_dot_index_d_.idotprops.md#options)
 * [pointerEvents](_dot_index_d_.idotprops.md#pointerevents)
 * [removeClippedSubviews](_dot_index_d_.idotprops.md#removeclippedsubviews)
 * [renderToHardwareTextureAndroid](_dot_index_d_.idotprops.md#rendertohardwaretextureandroid)
 * [selected](_dot_index_d_.idotprops.md#selected)
+* [selectedStyle](_dot_index_d_.idotprops.md#selectedstyle)
 * [shouldRasterizeIOS](_dot_index_d_.idotprops.md#shouldrasterizeios)
 * [size](_dot_index_d_.idotprops.md#size)
 * [style](_dot_index_d_.idotprops.md#style)
@@ -89,13 +87,9 @@ Interface to define the props of the Dot component
 
 **● Component**: *`TypeComponent`*
 
-*Inherited from [IDotState](_dot_index_d_.idotstate.md).[Component](_dot_index_d_.idotstate.md#component)*
-
-*Defined in Dot/index.d.ts:16*
+*Defined in Dot/index.d.ts:14*
 
 A React-Native component to replace this component
-
-*__memberof__*: IDotState
 
 ___
 <a id="accessibilityactions"></a>
@@ -300,15 +294,24 @@ ___
 
 **● color**: *`undefined` \| `string`*
 
-*Inherited from [IDotState](_dot_index_d_.idotstate.md).[color](_dot_index_d_.idotstate.md#color)*
+*Defined in Dot/index.d.ts:20*
 
-*Defined in Dot/index.d.ts:23*
+Apply a custom color to the background of a Dot
+
+*__type__*: {string}
+
+___
+<a id="colorselected"></a>
+
+### `<Optional>` colorSelected
+
+**● colorSelected**: *`undefined` \| `string`*
+
+*Defined in Dot/index.d.ts:26*
 
 Apply a custom color to the background of a Dot selected
 
 *__type__*: {string}
-
-*__memberof__*: IDotState
 
 ___
 <a id="hastvpreferredfocus"></a>
@@ -360,15 +363,11 @@ ___
 
 **● isLight**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IDotState](_dot_index_d_.idotstate.md).[isLight](_dot_index_d_.idotstate.md#islight)*
-
-*Defined in Dot/index.d.ts:30*
+*Defined in Dot/index.d.ts:32*
 
 Set true to define if the styles is light or dark
 
 *__type__*: {boolean}
-
-*__memberof__*: IDotState
 
 ___
 <a id="istvselectable"></a>
@@ -384,6 +383,19 @@ ___
 _(Apple TV only)_ When set to true, this view will be focusable and navigable using the Apple TV remote.
 
 *__platform__*: ios
+
+___
+<a id="key"></a>
+
+### `<Optional>` key
+
+**● key**: *`string` \| `number`*
+
+*Defined in Dot/index.d.ts:38*
+
+Unique key for each Dot component
+
+*__type__*: {string}
 
 ___
 <a id="nativeid"></a>
@@ -685,17 +697,6 @@ ___
 *Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:440*
 
 ___
-<a id="options"></a>
-
-### `<Optional>` options
-
-**● options**: *[IDotState](_dot_index_d_.idotstate.md)*
-
-*Defined in Dot/index.d.ts:57*
-
-Prop for group all the props of the Dot component
-
-___
 <a id="pointerevents"></a>
 
 ### `<Optional>` pointerEvents
@@ -751,15 +752,24 @@ ___
 
 **● selected**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IDotState](_dot_index_d_.idotstate.md).[selected](_dot_index_d_.idotstate.md#selected)*
-
-*Defined in Dot/index.d.ts:37*
+*Defined in Dot/index.d.ts:44*
 
 Set true to define the Dot as selected
 
 *__type__*: {boolean}
 
-*__memberof__*: IDotState
+___
+<a id="selectedstyle"></a>
+
+### `<Optional>` selectedStyle
+
+**● selectedStyle**: *`TypeStyle`*
+
+*Defined in Dot/index.d.ts:50*
+
+Apply a custom style to the Dot selected
+
+*__type__*: {TypeStyle}
 
 ___
 <a id="shouldrasterizeios"></a>
@@ -785,15 +795,11 @@ ___
 
 **● size**: *`undefined` \| `number`*
 
-*Inherited from [IDotState](_dot_index_d_.idotstate.md).[size](_dot_index_d_.idotstate.md#size)*
-
-*Defined in Dot/index.d.ts:44*
+*Defined in Dot/index.d.ts:56*
 
 A number to define the size of the Dot
 
 *__type__*: {number}
-
-*__memberof__*: IDotState
 
 ___
 <a id="style"></a>

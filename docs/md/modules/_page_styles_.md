@@ -7,7 +7,7 @@
 ### Variables
 
 * [height](_page_styles_.md#height)
-* [potrait](_page_styles_.md#potrait)
+* [portrait](_page_styles_.md#portrait)
 * [styles](_page_styles_.md#styles)
 * [width](_page_styles_.md#width-2)
 
@@ -21,16 +21,16 @@
 
 **● height**: *`number`*
 
-*Defined in Page/styles.tsx:3*
+*Defined in Page/styles.ts:3*
 
 ___
-<a id="potrait"></a>
+<a id="portrait"></a>
 
-### `<Const>` potrait
+### `<Const>` portrait
 
-**● potrait**: *`boolean`* =  height > width
+**● portrait**: *`boolean`* =  height > width
 
-*Defined in Page/styles.tsx:4*
+*Defined in Page/styles.ts:4*
 
 ___
 <a id="styles"></a>
@@ -39,25 +39,47 @@ ___
 
 **● styles**: *`object`* =  StyleSheet.create({
   container: {
-    alignItems: 'center',
+    // alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
-    justifyContent: potrait ? 'center' : 'flex-start',
-    paddingTop: potrait ? 0 : 10,
+    // justifyContent: portrait ? 'center' : 'flex-start',
+    // paddingTop: portrait ? 0 : 10,
+  },
+
+  backgroundImage: {
+    left: 0,
+    position: 'absolute',
+    top: 0,
+  },
+
+  contentPage: {
+    // alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    // justifyContent: portrait ? 'center' : 'flex-start',
+    paddingTop: 60,
   },
 
   headerContainer: {
     alignItems: 'center',
     flex: 0,
     justifyContent: 'center',
-    marginBottom: 60,
+    marginBottom: 24,
     width: '100%',
+  },
+
+  bodyPage: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginBottom: 60,
   },
 
   imageContainer: {
     alignItems: 'center',
     flex: 0,
-    paddingBottom: potrait ? 60 : 10,
+    paddingBottom: portrait ? 60 : 10,
     width: '100%',
   },
 
@@ -87,11 +109,19 @@ ___
   },
 })
 
-*Defined in Page/styles.tsx:6*
+*Defined in Page/styles.ts:6*
 
 #### Type declaration
 
- container: `object`
+ backgroundImage: `object`
+
+ left: `number`
+
+ position: "absolute"
+
+ top: `number`
+
+ bodyPage: `object`
 
  alignItems: "center"
 
@@ -99,7 +129,21 @@ ___
 
  flexDirection: "column"
 
- justifyContent: "center" \| "flex-start"
+ justifyContent: "center"
+
+ marginBottom: `number`
+
+ container: `object`
+
+ flex: `number`
+
+ flexDirection: "column"
+
+ contentPage: `object`
+
+ flex: `number`
+
+ flexDirection: "column"
 
  paddingTop: `number`
 
@@ -162,7 +206,7 @@ ___
 
 **● width**: *`number`*
 
-*Defined in Page/styles.tsx:3*
+*Defined in Page/styles.ts:3*
 
 ___
 

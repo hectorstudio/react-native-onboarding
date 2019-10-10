@@ -4,15 +4,11 @@
 
 Interface to define the props of the Dot component
 
-*__export__*: 
-
 *__interface__*: IDotsProps
-
-*__extends__*: {IDotsState}
 
 ## Hierarchy
 
-↳  [IDotsState](_dots_index_d_.idotsstate.md)
+ `ViewProps`
 
 **↳ IDotsProps**
 
@@ -36,12 +32,14 @@ Interface to define the props of the Dot component
 * [accessible](_dots_index_d_.idotsprops.md#accessible)
 * [collapsable](_dots_index_d_.idotsprops.md#collapsable)
 * [color](_dots_index_d_.idotsprops.md#color)
+* [colorSelected](_dots_index_d_.idotsprops.md#colorselected)
 * [currentPage](_dots_index_d_.idotsprops.md#currentpage)
 * [hasTVPreferredFocus](_dots_index_d_.idotsprops.md#hastvpreferredfocus)
 * [hitSlop](_dots_index_d_.idotsprops.md#hitslop)
 * [importantForAccessibility](_dots_index_d_.idotsprops.md#importantforaccessibility)
 * [isLight](_dots_index_d_.idotsprops.md#islight)
 * [isTVSelectable](_dots_index_d_.idotsprops.md#istvselectable)
+* [key](_dots_index_d_.idotsprops.md#key)
 * [nativeID](_dots_index_d_.idotsprops.md#nativeid)
 * [needsOffscreenAlphaCompositing](_dots_index_d_.idotsprops.md#needsoffscreenalphacompositing)
 * [numPages](_dots_index_d_.idotsprops.md#numpages)
@@ -66,10 +64,10 @@ Interface to define the props of the Dot component
 * [onTouchEndCapture](_dots_index_d_.idotsprops.md#ontouchendcapture)
 * [onTouchMove](_dots_index_d_.idotsprops.md#ontouchmove)
 * [onTouchStart](_dots_index_d_.idotsprops.md#ontouchstart)
-* [options](_dots_index_d_.idotsprops.md#options)
 * [pointerEvents](_dots_index_d_.idotsprops.md#pointerevents)
 * [removeClippedSubviews](_dots_index_d_.idotsprops.md#removeclippedsubviews)
 * [renderToHardwareTextureAndroid](_dots_index_d_.idotsprops.md#rendertohardwaretextureandroid)
+* [selectedStyle](_dots_index_d_.idotsprops.md#selectedstyle)
 * [shouldRasterizeIOS](_dots_index_d_.idotsprops.md#shouldrasterizeios)
 * [size](_dots_index_d_.idotsprops.md#size)
 * [style](_dots_index_d_.idotsprops.md#style)
@@ -90,15 +88,11 @@ Interface to define the props of the Dot component
 
 **● DotComponent**: *`TypeComponent`*
 
-*Inherited from [IDotsState](_dots_index_d_.idotsstate.md).[DotComponent](_dots_index_d_.idotsstate.md#dotcomponent)*
-
-*Defined in Dots/index.d.ts:17*
+*Defined in Dots/index.d.ts:15*
 
 A React-Native component to replace the Dot
 
 *__type__*: {TypeComponent}
-
-*__memberof__*: IDotsState
 
 ___
 <a id="accessibilityactions"></a>
@@ -303,15 +297,20 @@ ___
 
 **● color**: *`undefined` \| `string`*
 
-*Inherited from [IDotsState](_dots_index_d_.idotsstate.md).[color](_dots_index_d_.idotsstate.md#color)*
+*Defined in Dots/index.d.ts:21*
 
-*Defined in Dots/index.d.ts:24*
-
-Apply a custom color to the background of a Dot selected
+Apply a custom color to the background of a Dot
 
 *__type__*: {string}
 
-*__memberof__*: IDotsState
+___
+<a id="colorselected"></a>
+
+### `<Optional>` colorSelected
+
+**● colorSelected**: *`undefined` \| `string`*
+
+*Defined in Dots/index.d.ts:26*
 
 ___
 <a id="currentpage"></a>
@@ -320,15 +319,11 @@ ___
 
 **● currentPage**: *`undefined` \| `number`*
 
-*Inherited from [IDotsState](_dots_index_d_.idotsstate.md).[currentPage](_dots_index_d_.idotsstate.md#currentpage)*
-
-*Defined in Dots/index.d.ts:31*
+*Defined in Dots/index.d.ts:32*
 
 A number to define the current page
 
 *__type__*: {number}
-
-*__memberof__*: IDotsState
 
 ___
 <a id="hastvpreferredfocus"></a>
@@ -380,15 +375,11 @@ ___
 
 **● isLight**: *`undefined` \| `false` \| `true`*
 
-*Inherited from [IDotsState](_dots_index_d_.idotsstate.md).[isLight](_dots_index_d_.idotsstate.md#islight)*
-
 *Defined in Dots/index.d.ts:38*
 
 Set true to define if the styles is light or dark
 
 *__type__*: {boolean}
-
-*__memberof__*: IDotState
 
 ___
 <a id="istvselectable"></a>
@@ -404,6 +395,19 @@ ___
 _(Apple TV only)_ When set to true, this view will be focusable and navigable using the Apple TV remote.
 
 *__platform__*: ios
+
+___
+<a id="key"></a>
+
+### `<Optional>` key
+
+**● key**: *`string` \| `number`*
+
+*Defined in Dots/index.d.ts:44*
+
+Unique key for each Dots component
+
+*__type__*: {string}
 
 ___
 <a id="nativeid"></a>
@@ -440,15 +444,11 @@ ___
 
 **● numPages**: *`undefined` \| `number`*
 
-*Inherited from [IDotsState](_dots_index_d_.idotsstate.md).[numPages](_dots_index_d_.idotsstate.md#numpages)*
-
-*Defined in Dots/index.d.ts:45*
+*Defined in Dots/index.d.ts:50*
 
 A number of the total of the pages
 
 *__type__*: {number}
-
-*__memberof__*: IDotsState
 
 ___
 <a id="onaccessibilityaction"></a>
@@ -722,17 +722,6 @@ ___
 *Defined in /home/hackettyam/www/@ticmakers/react-native/OnBoarding/node_modules/@types/react-native/index.d.ts:440*
 
 ___
-<a id="options"></a>
-
-### `<Optional>` options
-
-**● options**: *[IDotsState](_dots_index_d_.idotsstate.md)*
-
-*Defined in Dots/index.d.ts:65*
-
-Prop for group all the props of the Dot component
-
-___
 <a id="pointerevents"></a>
 
 ### `<Optional>` pointerEvents
@@ -782,6 +771,19 @@ Whether this view should render itself (and all of its children) into a single h
 On Android, this is useful for animations and interactions that only modify opacity, rotation, translation, and/or scale: in those cases, the view doesn't have to be redrawn and display lists don't need to be re-executed. The texture can just be re-used and re-composited with different parameters. The downside is that this can use up limited video memory, so this prop should be set back to false at the end of the interaction/animation.
 
 ___
+<a id="selectedstyle"></a>
+
+### `<Optional>` selectedStyle
+
+**● selectedStyle**: *`TypeStyle`*
+
+*Defined in Dots/index.d.ts:56*
+
+Apply a custom style to the Dot selected
+
+*__type__*: {TypeStyle}
+
+___
 <a id="shouldrasterizeios"></a>
 
 ### `<Optional>` shouldRasterizeIOS
@@ -805,15 +807,11 @@ ___
 
 **● size**: *`undefined` \| `number`*
 
-*Inherited from [IDotsState](_dots_index_d_.idotsstate.md).[size](_dots_index_d_.idotsstate.md#size)*
-
-*Defined in Dots/index.d.ts:52*
+*Defined in Dots/index.d.ts:62*
 
 A number to define the size of the Dot
 
 *__type__*: {number}
-
-*__memberof__*: IDotState
 
 ___
 <a id="style"></a>

@@ -289,11 +289,9 @@ ___
 
 ▸ **_processProps**(): [IDotsState](../interfaces/_dots_index_d_.idotsstate.md)
 
-*Defined in Dots/index.d.ts:87*
+*Defined in Dots/index.d.ts:89*
 
 Method to process the props
-
-*__memberof__*: Dots
 
 **Returns:** [IDotsState](../interfaces/_dots_index_d_.idotsstate.md)
 
@@ -304,11 +302,9 @@ ___
 
 ▸ **_processStyle**(): `TypeStyle`
 
-*Defined in Dots/index.d.ts:95*
+*Defined in Dots/index.d.ts:96*
 
 Method to process the prop style
-
-*__memberof__*: Dots
 
 **Returns:** `TypeStyle`
 
@@ -529,11 +525,9 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Dots/index.d.ts:79*
+*Defined in Dots/index.d.ts:82*
 
 Method to renders the component
-
-*__memberof__*: Dots
 
 **Returns:** `TypeComponent`
 

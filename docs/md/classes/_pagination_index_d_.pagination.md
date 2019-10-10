@@ -37,6 +37,7 @@ Class to define the Pagination component used in Onboarding
 * [Dots](_pagination_index_d_.pagination.md#dots)
 * [LeftContent](_pagination_index_d_.pagination.md#leftcontent)
 * [Next](_pagination_index_d_.pagination.md#next)
+* [Prev](_pagination_index_d_.pagination.md#prev)
 * [RightContent](_pagination_index_d_.pagination.md#rightcontent)
 * [Skip](_pagination_index_d_.pagination.md#skip)
 * [UNSAFE_componentWillMount](_pagination_index_d_.pagination.md#unsafe_componentwillmount)
@@ -53,6 +54,7 @@ Class to define the Pagination component used in Onboarding
 * [componentWillUpdate](_pagination_index_d_.pagination.md#componentwillupdate)
 * [forceUpdate](_pagination_index_d_.pagination.md#forceupdate)
 * [getSnapshotBeforeUpdate](_pagination_index_d_.pagination.md#getsnapshotbeforeupdate)
+* [isFirstPage](_pagination_index_d_.pagination.md#isfirstpage)
 * [isLastPage](_pagination_index_d_.pagination.md#islastpage)
 * [render](_pagination_index_d_.pagination.md#render)
 * [setState](_pagination_index_d_.pagination.md#setstate)
@@ -203,11 +205,9 @@ ___
 
 ▸ **CenterContent**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:297*
+*Defined in Pagination/index.d.ts:311*
 
 Method that renders the center container component
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
@@ -218,11 +218,9 @@ ___
 
 ▸ **Done**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:312*
+*Defined in Pagination/index.d.ts:323*
 
 Method that renders the Done button
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
@@ -233,11 +231,9 @@ ___
 
 ▸ **Dots**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:319*
+*Defined in Pagination/index.d.ts:329*
 
 Method that renders the pagination Dots
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
@@ -248,11 +244,9 @@ ___
 
 ▸ **LeftContent**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:290*
+*Defined in Pagination/index.d.ts:305*
 
 Method that renders the left container component
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
@@ -263,11 +257,22 @@ ___
 
 ▸ **Next**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:326*
+*Defined in Pagination/index.d.ts:335*
 
 Method that renders the Next button
 
-*__memberof__*: Pagination
+**Returns:** `TypeComponent`
+
+___
+<a id="prev"></a>
+
+###  Prev
+
+▸ **Prev**(): `TypeComponent`
+
+*Defined in Pagination/index.d.ts:341*
+
+Method that renders the Previous button
 
 **Returns:** `TypeComponent`
 
@@ -278,11 +283,9 @@ ___
 
 ▸ **RightContent**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:304*
+*Defined in Pagination/index.d.ts:317*
 
 Method that renders the right container component
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
@@ -293,11 +296,9 @@ ___
 
 ▸ **Skip**(): `TypeComponent`
 
-*Defined in Pagination/index.d.ts:333*
+*Defined in Pagination/index.d.ts:347*
 
 Methods that renders the Skip button
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
@@ -402,11 +403,9 @@ ___
 
 ▸ **_getContent**(position: *[TypePaginationPosition](../modules/_pagination_index_d_.md#typepaginationposition)*): `TypeComponent`[]
 
-*Defined in Pagination/index.d.ts:349*
+*Defined in Pagination/index.d.ts:367*
 
 Method that renders the content of each container (left, center and right)
-
-*__memberof__*: Pagination
 
 **Parameters:**
 
@@ -421,15 +420,13 @@ ___
 
 ### `<Private>` _processProps
 
-▸ **_processProps**(): [IPaginationState](../interfaces/_pagination_index_d_.ipaginationstate.md)
+▸ **_processProps**(): [IPaginationProps](../interfaces/_pagination_index_d_.ipaginationprops.md)
 
-*Defined in Pagination/index.d.ts:357*
+*Defined in Pagination/index.d.ts:374*
 
 Method that process the props of the component
 
-*__memberof__*: Pagination
-
-**Returns:** [IPaginationState](../interfaces/_pagination_index_d_.ipaginationstate.md)
+**Returns:** [IPaginationProps](../interfaces/_pagination_index_d_.ipaginationprops.md)
 
 ___
 <a id="componentdidcatch"></a>
@@ -640,17 +637,28 @@ Note: the presence of getSnapshotBeforeUpdate prevents any of the deprecated lif
 **Returns:** `SS` \| `null`
 
 ___
+<a id="isfirstpage"></a>
+
+###  isFirstPage
+
+▸ **isFirstPage**(): `boolean`
+
+*Defined in Pagination/index.d.ts:353*
+
+Method to check if the current page is the first page
+
+**Returns:** `boolean`
+
+___
 <a id="islastpage"></a>
 
 ###  isLastPage
 
 ▸ **isLastPage**(): `boolean`
 
-*Defined in Pagination/index.d.ts:340*
+*Defined in Pagination/index.d.ts:359*
 
 Method to check if the current page is the last page
-
-*__memberof__*: Pagination
 
 **Returns:** `boolean`
 
@@ -663,11 +671,9 @@ ___
 
 *Overrides Component.render*
 
-*Defined in Pagination/index.d.ts:283*
+*Defined in Pagination/index.d.ts:299*
 
 Method that renders the component
-
-*__memberof__*: Pagination
 
 **Returns:** `TypeComponent`
 
