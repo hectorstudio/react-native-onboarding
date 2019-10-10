@@ -6,10 +6,10 @@ exports.styles = react_native_1.StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'center',
-        paddingHorizontal: 6,
+        padding: 16,
     },
     leftContainer: {
-        alignItems: 'flex-start',
+        alignItems: 'center',
         flexGrow: 1,
         width: 100,
     },
@@ -18,7 +18,7 @@ exports.styles = react_native_1.StyleSheet.create({
         flexGrow: 1,
     },
     rightContainer: {
-        alignItems: 'flex-end',
+        alignItems: 'center',
         flexGrow: 1,
         width: 100,
     },

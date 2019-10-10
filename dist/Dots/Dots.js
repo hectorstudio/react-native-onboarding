@@ -38,15 +38,17 @@ var Dots = (function (_super) {
         return (React.createElement(react_native_1.View, __assign({}, this.props, { style: this._processStyle() }), this.Dot()));
     };
     Dots.prototype.Dot = function () {
-        var _a = this._processProps(), DotComponent = _a.DotComponent, color = _a.color, currentPage = _a.currentPage, isLight = _a.isLight, numPages = _a.numPages, size = _a.size;
+        var _a = this._processProps(), DotComponent = _a.DotComponent, color = _a.color, colorSelected = _a.colorSelected, currentPage = _a.currentPage, isLight = _a.isLight, numPages = _a.numPages, selectedStyle = _a.selectedStyle, size = _a.size;
         var dots = [];
         for (var i = 0; i < numPages; i++) {
             var props = {
                 color: color,
+                colorSelected: colorSelected,
                 isLight: isLight,
+                selectedStyle: selectedStyle,
                 size: size,
-                key: i,
                 selected: i === currentPage,
+                key: i,
             };
             if (core_1.AppHelper.isComponent(DotComponent)) {
                 dots.push(React.cloneElement(DotComponent, props));
@@ -58,22 +60,23 @@ var Dots = (function (_super) {
         return dots;
     };
     Dots.prototype._processProps = function () {
-        var _a = this.props, DotComponent = _a.DotComponent, color = _a.color, currentPage = _a.currentPage, isLight = _a.isLight, numPages = _a.numPages, options = _a.options, size = _a.size, style = _a.style;
+        var _a = this.props, DotComponent = _a.DotComponent, color = _a.color, colorSelected = _a.colorSelected, currentPage = _a.currentPage, isLight = _a.isLight, numPages = _a.numPages, selectedStyle = _a.selectedStyle, size = _a.size, style = _a.style;
         var props = {
-            DotComponent: (options && options.DotComponent) || (DotComponent || undefined),
-            color: (options && options.color) || (color || undefined),
-            currentPage: (options && options.currentPage) || (currentPage || 0),
-            isLight: (options && options.isLight) || (isLight || false),
-            numPages: (options && options.numPages) || (numPages || undefined),
-            size: (options && options.size) || (size || undefined),
-            style: (options && options.style) || (style || undefined),
+            DotComponent: (typeof DotComponent !== 'undefined' ? DotComponent : undefined),
+            color: (typeof color !== 'undefined' ? color : undefined),
+            colorSelected: (typeof colorSelected !== 'undefined' ? colorSelected : undefined),
+            currentPage: (typeof currentPage !== 'undefined' ? currentPage : 0),
+            isLight: (typeof isLight !== 'undefined' ? isLight : false),
+            numPages: (typeof numPages !== 'undefined' ? numPages : undefined),
+            selectedStyle: (typeof selectedStyle !== 'undefined' ? selectedStyle : undefined),
+            size: (typeof size !== 'undefined' ? size : undefined),
+            style: (typeof style !== 'undefined' ? style : undefined),
         };
         return props;
     };
     Dots.prototype._processStyle = function () {
         var style = this._processProps().style;
-        var _style = {};
-        return react_native_1.StyleSheet.flatten([styles_1.default.container, _style, style]);
+        return react_native_1.StyleSheet.flatten([styles_1.default.container, style]);
     };
     return Dots;
 }(React.Component));

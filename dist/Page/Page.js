@@ -26,33 +26,72 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
+var image_1 = require("@ticmakers-react-native/image");
 var core_1 = require("@ticmakers-react-native/core");
 var styles_1 = require("./styles");
 var Page = (function (_super) {
     __extends(Page, _super);
-    function Page() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Page(props) {
+        var _this = _super.call(this, props) || this;
+        var _a = _this._processProps(), height = _a.height, width = _a.width;
+        _this.state = {
+            height: height,
+            width: width,
+        };
+        return _this;
     }
     Page.prototype.render = function () {
         return (React.createElement(react_native_1.View, { style: this._processStyle() },
-            this.Header(),
-            this.Image(),
-            this.Title(),
-            this.Subtitle()));
+            this.ImageBackground(),
+            React.createElement(react_native_1.View, { style: styles_1.default.contentPage },
+                this.Header(),
+                React.createElement(react_native_1.View, { style: styles_1.default.bodyPage },
+                    this.Image(),
+                    this.Title(),
+                    this.Subtitle()))));
+    };
+    Page.prototype.ImageBackground = function () {
+        var backgroundImage = this._processProps().backgroundImage;
+        var _a = this.state, height = _a.height, width = _a.width;
+        if (typeof backgroundImage !== 'undefined') {
+            return (React.createElement(image_1.default, { source: backgroundImage, style: react_native_1.StyleSheet.flatten([styles_1.default.backgroundImage, { height: height, width: width }]) }));
+        }
     };
     Page.prototype.Header = function () {
         var _a = this._processProps(), header = _a.header, headerContainerStyle = _a.headerContainerStyle;
         var props = {
             style: react_native_1.StyleSheet.flatten([styles_1.default.headerContainer, headerContainerStyle]),
         };
-        return (React.createElement(react_native_1.View, __assign({}, props), header));
+        var headerProps = {
+            style: react_native_1.StyleSheet.flatten([{ resizeMode: 'contain', height: 160 }]),
+        };
+        if (core_1.AppHelper.isComponent(header)) {
+            return (React.createElement(react_native_1.View, __assign({}, props), React.cloneElement(header)));
+        }
+        if (typeof header === 'number' || header && header.uri) {
+            return (React.createElement(react_native_1.View, __assign({}, props), React.createElement(image_1.default, __assign({ source: header }, headerProps))));
+        }
+        if (typeof header !== 'undefined') {
+            return (React.createElement(react_native_1.View, __assign({}, props), header));
+        }
     };
     Page.prototype.Image = function () {
         var _a = this._processProps(), image = _a.image, imageContainerStyle = _a.imageContainerStyle;
         var props = {
             style: react_native_1.StyleSheet.flatten([styles_1.default.imageContainer, imageContainerStyle]),
         };
-        return (React.createElement(react_native_1.View, __assign({}, props), image));
+        var imageProps = {
+            style: react_native_1.StyleSheet.flatten([{ resizeMode: 'contain', height: 160 }]),
+        };
+        if (core_1.AppHelper.isComponent(image)) {
+            return (React.createElement(react_native_1.View, __assign({}, props), React.cloneElement(image)));
+        }
+        if (typeof image === 'number' || image && image.uri) {
+            return (React.createElement(react_native_1.View, __assign({}, props), React.createElement(image_1.default, __assign({ source: image }, imageProps))));
+        }
+        if (typeof image !== 'undefined') {
+            return (React.createElement(react_native_1.View, __assign({}, props), React.createElement(image_1.default, __assign({}, image, imageProps))));
+        }
     };
     Page.prototype.Title = function () {
         var _a = this._processProps(), allowFontScaling = _a.allowFontScaling, isLight = _a.isLight, title = _a.title, titleStyle = _a.titleStyle;
@@ -63,8 +102,10 @@ var Page = (function (_super) {
             allowFontScaling: allowFontScaling,
             style: react_native_1.StyleSheet.flatten([styles_1.default.title, isLight && styles_1.default.titleLight, titleStyle]),
         };
-        return (React.createElement(react_native_1.View, { style: [styles_1.default.padding] },
-            React.createElement(react_native_1.Text, __assign({}, props), title)));
+        if (title) {
+            return (React.createElement(react_native_1.View, { style: [styles_1.default.padding] },
+                React.createElement(react_native_1.Text, __assign({}, props), title)));
+        }
     };
     Page.prototype.Subtitle = function () {
         var _a = this._processProps(), allowFontScaling = _a.allowFontScaling, isLight = _a.isLight, subtitle = _a.subtitle, subtitleStyle = _a.subtitleStyle;
@@ -75,31 +116,35 @@ var Page = (function (_super) {
             allowFontScaling: allowFontScaling,
             style: react_native_1.StyleSheet.flatten([styles_1.default.subtitle, isLight && styles_1.default.subtitleLight, subtitleStyle]),
         };
-        return (React.createElement(react_native_1.View, { style: styles_1.default.padding },
-            React.createElement(react_native_1.Text, __assign({}, props), subtitle)));
+        if (subtitle) {
+            return (React.createElement(react_native_1.View, { style: styles_1.default.padding },
+                React.createElement(react_native_1.Text, __assign({}, props), subtitle)));
+        }
     };
     Page.prototype._processProps = function () {
-        var _a = this.props, allowFontScaling = _a.allowFontScaling, containerStyle = _a.containerStyle, header = _a.header, headerContainerStyle = _a.headerContainerStyle, height = _a.height, image = _a.image, imageContainerStyle = _a.imageContainerStyle, isLight = _a.isLight, options = _a.options, style = _a.style, subtitle = _a.subtitle, subtitleStyle = _a.subtitleStyle, title = _a.title, titleStyle = _a.titleStyle, width = _a.width;
+        var _a = this.props, allowFontScaling = _a.allowFontScaling, backgroundImage = _a.backgroundImage, containerStyle = _a.containerStyle, header = _a.header, headerContainerStyle = _a.headerContainerStyle, height = _a.height, image = _a.image, imageContainerStyle = _a.imageContainerStyle, isLight = _a.isLight, style = _a.style, subtitle = _a.subtitle, subtitleStyle = _a.subtitleStyle, title = _a.title, titleStyle = _a.titleStyle, width = _a.width;
         var props = {
-            allowFontScaling: (options && options.allowFontScaling) || (allowFontScaling || true),
-            containerStyle: (options && options.containerStyle) || (containerStyle || undefined),
-            header: (options && options.header) || (header || undefined),
-            headerContainerStyle: (options && options.headerContainerStyle) || (headerContainerStyle || undefined),
-            height: (options && options.height) || (height || undefined),
-            image: (options && options.image) || (image || undefined),
-            imageContainerStyle: (options && options.imageContainerStyle) || (imageContainerStyle || undefined),
-            isLight: (options && options.isLight) || (isLight || false),
-            style: (options && options.style) || (style || undefined),
-            subtitle: (options && options.subtitle) || (subtitle || undefined),
-            subtitleStyle: (options && options.subtitleStyle) || (subtitleStyle || undefined),
-            title: (options && options.title) || (title || undefined),
-            titleStyle: (options && options.titleStyle) || (titleStyle || undefined),
-            width: (options && options.width) || (width || undefined),
+            allowFontScaling: (typeof allowFontScaling !== 'undefined' ? allowFontScaling : true),
+            backgroundImage: (typeof backgroundImage !== 'undefined' ? backgroundImage : undefined),
+            containerStyle: (typeof containerStyle !== 'undefined' ? containerStyle : undefined),
+            header: (typeof header !== 'undefined' ? header : undefined),
+            headerContainerStyle: (typeof headerContainerStyle !== 'undefined' ? headerContainerStyle : undefined),
+            height: (typeof height !== 'undefined' ? height : react_native_1.Dimensions.get('screen').height),
+            image: (typeof image !== 'undefined' ? image : undefined),
+            imageContainerStyle: (typeof imageContainerStyle !== 'undefined' ? imageContainerStyle : undefined),
+            isLight: (typeof isLight !== 'undefined' ? isLight : false),
+            style: (typeof style !== 'undefined' ? style : undefined),
+            subtitle: (typeof subtitle !== 'undefined' ? subtitle : undefined),
+            subtitleStyle: (typeof subtitleStyle !== 'undefined' ? subtitleStyle : undefined),
+            title: (typeof title !== 'undefined' ? title : undefined),
+            titleStyle: (typeof titleStyle !== 'undefined' ? titleStyle : undefined),
+            width: (typeof width !== 'undefined' ? width : react_native_1.Dimensions.get('screen').width),
         };
         return props;
     };
     Page.prototype._processStyle = function () {
-        var _a = this._processProps(), containerStyle = _a.containerStyle, height = _a.height, width = _a.width;
+        var containerStyle = this._processProps().containerStyle;
+        var _a = this.state, height = _a.height, width = _a.width;
         var _style = {};
         return react_native_1.StyleSheet.flatten([styles_1.default.container, _style, containerStyle, { height: height, width: width }]);
     };

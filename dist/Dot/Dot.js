@@ -36,19 +36,21 @@ var Dot = (function (_super) {
         return (React.createElement(react_native_1.View, __assign({}, this.props, { style: this._processStyle() })));
     };
     Dot.prototype._processProps = function () {
-        var _a = this.props, Component = _a.Component, color = _a.color, isLight = _a.isLight, options = _a.options, selected = _a.selected, size = _a.size, style = _a.style;
+        var _a = this.props, Component = _a.Component, color = _a.color, colorSelected = _a.colorSelected, isLight = _a.isLight, selected = _a.selected, selectedStyle = _a.selectedStyle, size = _a.size, style = _a.style;
         var props = {
-            Component: (options && options.Component) || (Component || undefined),
-            color: (options && options.color) || (color || undefined),
-            isLight: (options && options.isLight) || (isLight || false),
-            selected: (options && options.selected) || (selected || false),
-            size: (options && options.size) || (size || undefined),
-            style: (options && options.style) || (style || undefined),
+            Component: (typeof Component !== 'undefined' ? Component : undefined),
+            color: (typeof color !== 'undefined' ? color : undefined),
+            colorSelected: (typeof colorSelected !== 'undefined' ? colorSelected : undefined),
+            isLight: (typeof isLight !== 'undefined' ? isLight : false),
+            selected: (typeof selected !== 'undefined' ? selected : false),
+            selectedStyle: (typeof selectedStyle !== 'undefined' ? selectedStyle : undefined),
+            size: (typeof size !== 'undefined' ? size : undefined),
+            style: (typeof style !== 'undefined' ? style : undefined),
         };
         return props;
     };
     Dot.prototype._processStyle = function () {
-        var _a = this._processProps(), color = _a.color, isLight = _a.isLight, selected = _a.selected, size = _a.size, style = _a.style;
+        var _a = this._processProps(), color = _a.color, colorSelected = _a.colorSelected, isLight = _a.isLight, selected = _a.selected, selectedStyle = _a.selectedStyle, size = _a.size, style = _a.style;
         var _style = {};
         if (isLight) {
             _style.backgroundColor = selected ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)';
@@ -56,14 +58,17 @@ var Dot = (function (_super) {
         else {
             _style.backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)';
         }
-        if (color && selected) {
+        if (color) {
             _style.backgroundColor = color;
+        }
+        if (colorSelected && selected) {
+            _style.backgroundColor = colorSelected;
         }
         if (size) {
             _style.width = _style.height = size;
             _style.borderRadius = size / 2;
         }
-        return react_native_1.StyleSheet.flatten([styles_1.default.dot, _style, style]);
+        return react_native_1.StyleSheet.flatten([styles_1.default.dot, _style, selected && selectedStyle, style]);
     };
     return Dot;
 }(React.Component));

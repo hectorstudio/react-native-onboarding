@@ -1,27 +1,41 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
-var _a = react_native_1.Dimensions.get('window'), width = _a.width, height = _a.height;
-var potrait = height > width;
+var _a = react_native_1.Dimensions.get('screen'), width = _a.width, height = _a.height;
+var portrait = height > width;
 exports.styles = react_native_1.StyleSheet.create({
     container: {
-        alignItems: 'center',
         flex: 1,
         flexDirection: 'column',
-        justifyContent: potrait ? 'center' : 'flex-start',
-        paddingTop: potrait ? 0 : 10,
+    },
+    backgroundImage: {
+        left: 0,
+        position: 'absolute',
+        top: 0,
+    },
+    contentPage: {
+        flex: 1,
+        flexDirection: 'column',
+        paddingTop: 60,
     },
     headerContainer: {
         alignItems: 'center',
         flex: 0,
         justifyContent: 'center',
-        marginBottom: 60,
+        marginBottom: 24,
         width: '100%',
+    },
+    bodyPage: {
+        alignItems: 'center',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        marginBottom: 60,
     },
     imageContainer: {
         alignItems: 'center',
         flex: 0,
-        paddingBottom: potrait ? 60 : 10,
+        paddingBottom: portrait ? 60 : 10,
         width: '100%',
     },
     padding: {
