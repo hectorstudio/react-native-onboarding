@@ -5,11 +5,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingHorizontal: 6,
+    padding: 16,
   },
 
   leftContainer: {
-    alignItems: 'flex-start',
+    alignItems: 'center',
     flexGrow: 1,
     width: 100,
   },
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
 
   rightContainer: {
-    alignItems: 'flex-end',
+    alignItems: 'center',
     flexGrow: 1,
     width: 100,
   },
