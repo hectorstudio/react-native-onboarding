@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The header prop of the a page is fixed to the top
 - The containers of the pagination is align to center
 - Improve styles files
+- Update docs
 
 ## [1.1.4] - 2019-09-24
 
