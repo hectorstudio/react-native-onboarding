@@ -1,10 +1,13 @@
 import * as React from 'react'
-import { Image, Animated, Dimensions, StyleSheet, StatusBar, FlatList, SafeAreaView, FlatListProps } from 'react-native'
+import { Animated, Dimensions, StyleSheet, StatusBar, FlatList, SafeAreaView, FlatListProps } from 'react-native'
 import * as tinycolor from 'tinycolor2'
+
+import { AppHelper, TypeComponent } from '@ticmakers-react-native/core'
+import Image, { IImageProps } from '@ticmakers-react-native/image'
 
 import Page from './../Page/Page'
 import Pagination from './../Pagination/Pagination'
-import { IOnboardingProps, IOnboardingState, IOnboardingPage, TypeComponent, IPageProps, IPaginationProps } from './../../index'
+import { IOnboardingProps, IOnboardingState, IOnboardingPage, IPageProps, IPaginationProps } from './../../index'
 import styles from './styles'
 
 /**
@@ -16,14 +19,12 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * The reference to the FlatList component
    * @type {FlatList}
-   * @memberof Onboarding
    */
   public flatList?: any
 
   /**
    * Hotfix to swipe the pages
    * @type {{ itemVisiblePercentThreshold: number }}
-   * @memberof Onboarding
    */
   public itemVisibleHotfix?: {
     itemVisiblePercentThreshold: number,
@@ -32,11 +33,18 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Creates an instance of Onboarding.
    * @param {IOnboardingProps} props    props of the component
-   * @memberof Onboarding
    */
   constructor(props: IOnboardingProps) {
     super(props)
-    this.state = this._processProps()
+
+    const { backgroundColorAnim, currentPage, height, previousPage, width } = this._processProps() as any
+    this.state = {
+      backgroundColorAnim,
+      currentPage,
+      height,
+      previousPage,
+      width,
+    }
 
     this._onSwipePageChange = this._onSwipePageChange.bind(this)
     this.itemVisibleHotfix = { itemVisiblePercentThreshold: 100 }
@@ -45,7 +53,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method that fire when the component is updated
    * @returns {void}
-   * @memberof Onboarding
    */
   public componentDidUpdate(): void {
     const { transitionAnimationDuration } = this.props
@@ -62,20 +69,19 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method that renders the component
    * @returns {Element}
-   * @memberof Onboarding
    */
   public render(): TypeComponent {
     const { bottomBarHighlight, containerStyle, controlStatusBar, statusBarStyle } = this._processProps()
     const { backgroundColorAnim } = this.state
     const previousPage = this.getPreviousPage()
     const currentPage = this.getCurrentPage()
-    const currentBackgroundColor = currentPage && currentPage.backgroundColor
+    const currentBackgroundColor = (currentPage && currentPage.backgroundColor) || '#FFF'
     const isLight = tinycolor(currentBackgroundColor).getBrightness() > 180
     const barStyle = statusBarStyle || isLight ? 'dark-content' : 'light-content'
     let backgroundColor = currentBackgroundColor
 
     if (previousPage) {
-      const previousBackgroundColor = previousPage.backgroundColor
+      const previousBackgroundColor = previousPage.backgroundColor || '#FFF'
       backgroundColor = (backgroundColorAnim as any).interpolate({
         inputRange: [0, 1],
         outputRange: [previousBackgroundColor, currentBackgroundColor],
@@ -84,11 +90,11 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
 
     const containerProps = {
       onLayout: this._onLayout.bind(this),
-      style: StyleSheet.flatten([{ backgroundColor, flex: 1, justifyContent: 'center' }, containerStyle]),
+      style: StyleSheet.flatten([styles.container, { backgroundColor }, containerStyle]),
     }
 
     const containerPaginationProps = {
-      style: StyleSheet.flatten([bottomBarHighlight && styles.overlay]),
+      style: StyleSheet.flatten([styles.paginationContainer, bottomBarHighlight && styles.overlay]),
     }
 
     const paginationProps = {
@@ -115,7 +121,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method that define 3 pages by default
    * @returns {IOnboardingPage[]}
-   * @memberof Onboarding
    */
   public defaultPages(): IOnboardingPage[] {
     return [{
@@ -139,17 +144,21 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method that renders the page in the component
    * @returns {TypeComponent}
-   * @memberof Onboarding
    */
   public renderPage(data?: any): TypeComponent {
     const { allowFontScalingText, containerStyle, headerContainerStyle, imageContainerStyle, titleStyle, subtitleStyle } = this._processProps()
     const { height, width } = this.state
 
     const { item } = data
-    const { backgroundColor, header, image, title, subtitle } = item as IOnboardingPage
+    const { backgroundColor, backgroundImage, Component, header, image, title, subtitle } = item as IOnboardingPage
     const isLight = tinycolor(backgroundColor).getBrightness() > 180
 
+    if (Component && (AppHelper.isComponent(Component) || AppHelper.isElement(Component))) {
+      return React.cloneElement(Component as any)
+    }
+
     const props: IPageProps = {
+      backgroundImage,
       containerStyle,
       header,
       image,
@@ -159,11 +168,11 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
       // tslint:disable-next-line: object-literal-sort-keys
       allowFontScaling: allowFontScalingText,
       headerContainerStyle: StyleSheet.flatten([headerContainerStyle, item.headerStyle]),
-      height: height || Dimensions.get('window').height,
+      height: height || Dimensions.get('screen').height,
       imageContainerStyle: StyleSheet.flatten([imageContainerStyle, item.imageStyle]),
       subtitleStyle: StyleSheet.flatten([subtitleStyle, item.subtitleStyle]),
       titleStyle: StyleSheet.flatten([titleStyle, item.titleStyle]),
-      width: width || Dimensions.get('window').width,
+      width: width || Dimensions.get('screen').width,
     }
 
     return <Page { ...props } />
@@ -172,7 +181,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method to get the current page
    * @returns {(IOnboardingPage | undefined)}
-   * @memberof Onboarding
    */
   public getCurrentPage(): IOnboardingPage | undefined {
     const { defaultPages, pages } = this._processProps()
@@ -189,7 +197,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method to get the previous page
    * @returns {(IOnboardingPage | undefined)}
-   * @memberof Onboarding
    */
   public getPreviousPage(): IOnboardingPage | undefined {
     const { defaultPages, pages } = this._processProps()
@@ -206,7 +213,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method to advance to the next page
    * @returns {void}
-   * @memberof Onboarding
    */
   public goNext(): void {
     const { currentPage } = this.state
@@ -217,10 +223,21 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   }
 
   /**
+   * Method to back to the previous page
+   * @returns {void}
+   */
+  public goPrev(): void {
+    const { currentPage } = this.state
+    this.flatList.scrollToIndex({
+      animated: true,
+      index: currentPage > 0 ? currentPage - 1 : 0,
+    })
+  }
+
+  /**
    * Method that fire when the button Done is pressed
    * @private
    * @returns {void}
-   * @memberof Onboarding
    */
   private _onDone(): void {
     const { onDone } = this._processProps()
@@ -234,7 +251,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * Method that fire when the button Skip is pressed
    * @private
    * @returns {void}
-   * @memberof Onboarding
    */
   private _onSkip(): void {
     const { onSkip } = this._processProps()
@@ -251,13 +267,12 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @private
    * @param {number} [index]   The current index page
    * @returns {void}
-   * @memberof Onboarding
    */
   private _onChangePage(index: number): void {
     const { onChangePage } = this._processProps()
 
     if (onChangePage) {
-      return onChangePage(index as number)
+      return onChangePage(index)
     }
   }
 
@@ -266,7 +281,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * @private
    * @param {object} data     Event of the flatlist change
    * @returns {void}
-   * @memberof Onboarding
    */
   private _onSwipePageChange(data: any): void {
     const { viewableItems } = data
@@ -290,7 +304,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * Method that fire when the layout is changed
    * @private
    * @returns {void}
-   * @memberof Onboarding
    */
   private _onLayout(): void {
     const { height, width } = this.state
@@ -308,7 +321,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * Method that changes to the last page
    * @private
    * @returns {void}
-   * @memberof Onboarding
    */
   private _skipToLastPage(): void {
     const { defaultPages, pages, skipToPage } = this._processProps()
@@ -326,58 +338,65 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
   /**
    * Method that process the props of the component
    * @private
-   * @returns {IOnboardingState}
-   * @memberof Onboarding
+   * @returns {IOnboardingProps}
    */
-  private _processProps(): IOnboardingState {
-    const { DoneComponent, DotComponent, NextComponent, SkipComponent, allowFontScalingButtons, allowFontScalingText, backgroundColorAnim, bottomBarHeight, bottomBarHighlight, containerStyle, controlStatusBar, currentPage, defaultPages, doneLabel, donePosition, doneStyle, dotsPosition, dotsSize, dotsStyle, flatlistProps, headerContainerStyle, height, hideDone, hideDots, hideNext, hideSkip, imageContainerStyle, nextLabel, nextPosition, nextStyle, onChangePage, onDone, onSkip, options, pages, paginationProps, previousPage, skipLabel, skipPosition, skipStyle, skipToPage, statusBarStyle, subtitleStyle, titleStyle, transitionAnimationDuration, width } = this.props
+  private _processProps(): IOnboardingProps {
+    const { DoneComponent, DotComponent, NextComponent, PrevComponent, SkipComponent, allowFontScalingButtons, allowFontScalingText, backgroundColorAnim, bottomBarHeight, bottomBarHighlight, containerStyle, controlStatusBar, currentPage, defaultPages, doneLabel, donePosition, doneStyle, dotColorSelected, dotSelectedStyle, dotsColor, dotsPosition, dotsSize, dotsStyle, flatlistProps, headerContainerStyle, height, hideDone, hideDots, hideNext, hideSkip, imageContainerStyle, nextLabel, nextPosition, nextStyle, onChangePage, onDone, onSkip, pages, paginationProps, prevLabel, prevPosition, prevStyle, previousPage, skipLabel, skipPosition, skipStyle, skipToPage, statusBarStyle, subtitleStyle, titleStyle, transitionAnimationDuration, usePrevious, width } = this.props
 
-    const params: IOnboardingState = {
-      DoneComponent: (options && options.DoneComponent) || (DoneComponent || undefined),
-      DotComponent: (options && options.DotComponent) || (DotComponent || undefined),
-      NextComponent: (options && options.NextComponent) || (NextComponent || undefined),
-      SkipComponent: (options && options.SkipComponent) || (SkipComponent || undefined),
-      allowFontScalingButtons: (options && options.allowFontScalingButtons) || (allowFontScalingButtons || true),
-      allowFontScalingText: (options && options.allowFontScalingText) || (allowFontScalingText || true),
-      backgroundColorAnim: (options && options.backgroundColorAnim) || (backgroundColorAnim || new Animated.Value(0)),
-      bottomBarHeight: (options && options.bottomBarHeight) || (bottomBarHeight || 60),
-      bottomBarHighlight: (options && options.bottomBarHighlight) || (bottomBarHighlight || true),
-      containerStyle: (options && options.containerStyle) || (containerStyle || undefined),
-      controlStatusBar: (options && options.controlStatusBar) || (controlStatusBar || true),
-      currentPage: (options && options.currentPage) || (currentPage || 0),
-      defaultPages: (options && options.defaultPages) || (defaultPages || false),
-      doneLabel: (options && options.doneLabel) || (doneLabel || undefined),
-      donePosition: (options && options.donePosition) || (donePosition || 'right'),
-      doneStyle: (options && options.doneStyle) || (doneStyle || undefined),
-      dotsPosition: (options && options.dotsPosition) || (dotsPosition || 'center'),
-      dotsSize: (options && options.dotsSize) || (dotsSize || 6),
-      dotsStyle: (options && options.dotsStyle) || (dotsStyle || undefined),
-      flatlistProps: (options && options.flatlistProps) || (flatlistProps || undefined),
-      headerContainerStyle: (options && options.headerContainerStyle) || (headerContainerStyle || undefined),
-      height: (options && options.height) || (height || undefined),
-      hideDone: (options && options.hideDone) || (hideDone || false),
-      hideDots: (options && options.hideDots) || (hideDots || false),
-      hideNext: (options && options.hideNext) || (hideNext || false),
-      hideSkip: (options && options.hideSkip) || (hideSkip || false),
-      imageContainerStyle: (options && options.imageContainerStyle) || (imageContainerStyle || undefined),
-      nextLabel: (options && options.nextLabel) || (nextLabel || 'Next'),
-      nextPosition: (options && options.nextPosition) || (nextPosition || 'right'),
-      nextStyle: (options && options.nextStyle) || (nextStyle || undefined),
-      onChangePage: (options && options.onChangePage) || (onChangePage || undefined),
-      onDone: (options && options.onDone) || (onDone || undefined),
-      onSkip: (options && options.onSkip) || (onSkip || undefined),
-      pages: (options && options.pages) || (pages || []),
-      paginationProps: (options && options.paginationProps) || (paginationProps || undefined),
-      previousPage: (options && options.previousPage) || (previousPage || 0),
-      skipLabel: (options && options.skipLabel) || (skipLabel || 'Skip'),
-      skipPosition: (options && options.skipPosition) || (skipPosition || 'left'),
-      skipStyle: (options && options.skipStyle) || (skipStyle || undefined),
-      skipToPage: (options && options.skipToPage) || (skipToPage || undefined),
-      statusBarStyle: (options && options.statusBarStyle) || (statusBarStyle || undefined),
-      subtitleStyle: (options && options.subtitleStyle) || (subtitleStyle || undefined),
-      titleStyle: (options && options.titleStyle) || (titleStyle || undefined),
-      transitionAnimationDuration: (options && options.transitionAnimationDuration) || (transitionAnimationDuration || 500),
-      width: (options && options.width) || (width || undefined),
+    const params: IOnboardingProps = {
+      DoneComponent: (typeof DoneComponent !== 'undefined' ? DoneComponent : undefined),
+      DotComponent: (typeof DotComponent !== 'undefined' ? DotComponent : undefined),
+      NextComponent: (typeof NextComponent !== 'undefined' ? NextComponent : undefined),
+      PrevComponent: (typeof PrevComponent !== 'undefined' ? PrevComponent : undefined),
+      SkipComponent: (typeof SkipComponent !== 'undefined' ? SkipComponent : undefined),
+      allowFontScalingButtons: (typeof allowFontScalingButtons !== 'undefined' ? allowFontScalingButtons : true),
+      allowFontScalingText: (typeof allowFontScalingText !== 'undefined' ? allowFontScalingText : true),
+      backgroundColorAnim: (typeof backgroundColorAnim !== 'undefined' ? backgroundColorAnim : new Animated.Value(0)),
+      bottomBarHeight: (typeof bottomBarHeight !== 'undefined' ? bottomBarHeight : 60),
+      bottomBarHighlight: (typeof bottomBarHighlight !== 'undefined' ? bottomBarHighlight : true),
+      containerStyle: (typeof containerStyle !== 'undefined' ? containerStyle : undefined),
+      controlStatusBar: (typeof controlStatusBar !== 'undefined' ? controlStatusBar : true),
+      currentPage: (typeof currentPage !== 'undefined' ? currentPage : 0),
+      defaultPages: (typeof defaultPages !== 'undefined' ? defaultPages : false),
+      doneLabel: (typeof doneLabel !== 'undefined' ? doneLabel : undefined),
+      donePosition: (typeof donePosition !== 'undefined' ? donePosition : 'right'),
+      doneStyle: (typeof doneStyle !== 'undefined' ? doneStyle : undefined),
+      dotColorSelected: (typeof dotColorSelected !== 'undefined' ? dotColorSelected : undefined),
+      dotSelectedStyle: (typeof dotSelectedStyle !== 'undefined' ? dotSelectedStyle : undefined),
+      dotsColor: (typeof dotsColor !== 'undefined' ? dotsColor : undefined),
+      dotsPosition: (typeof dotsPosition !== 'undefined' ? dotsPosition : 'center'),
+      dotsSize: (typeof dotsSize !== 'undefined' ? dotsSize : 6),
+      dotsStyle: (typeof dotsStyle !== 'undefined' ? dotsStyle : undefined),
+      flatlistProps: (typeof flatlistProps !== 'undefined' ? flatlistProps : undefined),
+      headerContainerStyle: (typeof headerContainerStyle !== 'undefined' ? headerContainerStyle : undefined),
+      height: (typeof height !== 'undefined' ? height : undefined),
+      hideDone: (typeof hideDone !== 'undefined' ? hideDone : false),
+      hideDots: (typeof hideDots !== 'undefined' ? hideDots : false),
+      hideNext: (typeof hideNext !== 'undefined' ? hideNext : false),
+      hideSkip: (typeof hideSkip !== 'undefined' ? hideSkip : false),
+      imageContainerStyle: (typeof imageContainerStyle !== 'undefined' ? imageContainerStyle : undefined),
+      nextLabel: (typeof nextLabel !== 'undefined' ? nextLabel : 'Next'),
+      nextPosition: (typeof nextPosition !== 'undefined' ? nextPosition : 'right'),
+      nextStyle: (typeof nextStyle !== 'undefined' ? nextStyle : undefined),
+      onChangePage: (typeof onChangePage !== 'undefined' ? onChangePage : undefined),
+      onDone: (typeof onDone !== 'undefined' ? onDone : undefined),
+      onSkip: (typeof onSkip !== 'undefined' ? onSkip : undefined),
+      pages: (typeof pages !== 'undefined' ? pages : []),
+      paginationProps: (typeof paginationProps !== 'undefined' ? paginationProps : undefined),
+      prevLabel: (typeof prevLabel !== 'undefined' ? prevLabel : 'Previous'),
+      prevPosition: (typeof prevPosition !== 'undefined' ? prevPosition : 'left'),
+      prevStyle: (typeof prevStyle !== 'undefined' ? prevStyle : undefined),
+      previousPage: (typeof previousPage !== 'undefined' ? previousPage : 0),
+      skipLabel: (typeof skipLabel !== 'undefined' ? skipLabel : 'Skip'),
+      skipPosition: (typeof skipPosition !== 'undefined' ? skipPosition : 'left'),
+      skipStyle: (typeof skipStyle !== 'undefined' ? skipStyle : undefined),
+      skipToPage: (typeof skipToPage !== 'undefined' ? skipToPage : undefined),
+      statusBarStyle: (typeof statusBarStyle !== 'undefined' ? statusBarStyle : undefined),
+      subtitleStyle: (typeof subtitleStyle !== 'undefined' ? subtitleStyle : undefined),
+      titleStyle: (typeof titleStyle !== 'undefined' ? titleStyle : undefined),
+      transitionAnimationDuration: (typeof transitionAnimationDuration !== 'undefined' ? transitionAnimationDuration : 500),
+      usePrevious: (typeof usePrevious !== 'undefined' ? usePrevious : false),
+      width: (typeof width !== 'undefined' ? width : undefined),
     }
 
     return params
@@ -387,7 +406,6 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * Method that process the props for the FlatList
    * @private
    * @returns {FlatListProps<{}>}
-   * @memberof Onboarding
    */
   private _flatlistProps(): FlatListProps<{}> {
     const { defaultPages, flatlistProps, pages } = this._processProps()
@@ -412,21 +430,24 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
    * Method that process the props for the pagination
    * @private
    * @returns {IPaginationProps}
-   * @memberof Onboarding
    */
   private _paginationProps(): IPaginationProps {
-    const { DoneComponent, DotComponent, NextComponent, SkipComponent, allowFontScalingButtons, bottomBarHeight, defaultPages, doneLabel, donePosition, doneStyle, dotsPosition, dotsSize, dotsStyle, hideDone, hideDots, hideNext, hideSkip, nextLabel, nextPosition, nextStyle, pages, paginationProps, skipLabel, skipPosition, skipStyle } = this._processProps()
+    const { DoneComponent, DotComponent, NextComponent, PrevComponent, SkipComponent, allowFontScalingButtons, bottomBarHeight, defaultPages, doneLabel, donePosition, doneStyle, dotColorSelected, dotSelectedStyle, dotsColor, dotsPosition, dotsSize, dotsStyle, hideDone, hideDots, hideNext, hideSkip, nextLabel, nextPosition, nextStyle, pages, paginationProps, prevLabel, prevPosition, prevStyle, skipLabel, skipPosition, skipStyle, usePrevious } = this._processProps()
     const { currentPage } = this.state
 
     return {
       DoneComponent,
       DotComponent,
       NextComponent,
+      PrevComponent,
       SkipComponent,
       bottomBarHeight,
       doneLabel,
       donePosition,
       doneStyle,
+      dotColorSelected,
+      dotSelectedStyle,
+      dotsColor,
       dotsPosition,
       dotsSize,
       dotsStyle,
@@ -437,9 +458,13 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
       nextLabel,
       nextPosition,
       nextStyle,
+      prevLabel,
+      prevPosition,
+      prevStyle,
       skipLabel,
       skipPosition,
       skipStyle,
+      usePrevious,
       // tslint:disable-next-line: object-literal-sort-keys
       allowFontScaling: allowFontScalingButtons,
       currentPage: currentPage || 0,
@@ -447,6 +472,7 @@ export default class Onboarding extends React.Component<IOnboardingProps, IOnboa
       onDone: this._onDone.bind(this),
       onSkip: this._onSkip.bind(this),
       onNext: this.goNext.bind(this),
+      onPrev: this.goPrev.bind(this),
       ...paginationProps,
     }
   }
