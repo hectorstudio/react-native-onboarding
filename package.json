@@ -1,6 +1,6 @@
 {
   "name": "@ticmakers-react-native/onboarding",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "TIC Makers - React Native Onboarding",
   "main": "dist/index.js",
   "scripts": {

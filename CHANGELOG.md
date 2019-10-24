@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Released
 
+## [1.2.1] - 2019-10-09
+
+### Fixed
+
+- Fixed validation to check the components and elements
+
 ## [1.2.0] - 2019-10-09
 
 ### Fixed
@@ -114,6 +120,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Release
 
 
+[1.2.1]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.2.1/
 [1.2.0]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.2.0/
 [1.1.4]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.4/
 [1.1.3]: https://bitbucket.org/ticmakers/rn-onboarding/src/v1.1.3/
