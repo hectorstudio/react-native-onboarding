@@ -65,7 +65,7 @@ var Page = (function (_super) {
         var headerProps = {
             style: react_native_1.StyleSheet.flatten([{ resizeMode: 'contain', height: 160 }]),
         };
-        if (core_1.AppHelper.isComponent(header)) {
+        if (core_1.AppHelper.isComponent(header) || core_1.AppHelper.isElement(header)) {
             return (React.createElement(react_native_1.View, __assign({}, props), React.cloneElement(header)));
         }
         if (typeof header === 'number' || header && header.uri) {
@@ -83,7 +83,7 @@ var Page = (function (_super) {
         var imageProps = {
             style: react_native_1.StyleSheet.flatten([{ resizeMode: 'contain', height: 160 }]),
         };
-        if (core_1.AppHelper.isComponent(image)) {
+        if (core_1.AppHelper.isComponent(image) || core_1.AppHelper.isElement(image)) {
             return (React.createElement(react_native_1.View, __assign({}, props), React.cloneElement(image)));
         }
         if (typeof image === 'number' || image && image.uri) {
@@ -95,7 +95,7 @@ var Page = (function (_super) {
     };
     Page.prototype.Title = function () {
         var _a = this._processProps(), allowFontScaling = _a.allowFontScaling, isLight = _a.isLight, title = _a.title, titleStyle = _a.titleStyle;
-        if (core_1.AppHelper.isComponent(title)) {
+        if (core_1.AppHelper.isComponent(title) || core_1.AppHelper.isElement(title)) {
             return React.cloneElement(title, { style: titleStyle });
         }
         var props = {
@@ -109,7 +109,7 @@ var Page = (function (_super) {
     };
     Page.prototype.Subtitle = function () {
         var _a = this._processProps(), allowFontScaling = _a.allowFontScaling, isLight = _a.isLight, subtitle = _a.subtitle, subtitleStyle = _a.subtitleStyle;
-        if (core_1.AppHelper.isComponent(subtitle)) {
+        if (core_1.AppHelper.isComponent(subtitle) || core_1.AppHelper.isElement(subtitle)) {
             return React.cloneElement(subtitle, { style: subtitleStyle });
         }
         var props = {

@@ -50,7 +50,7 @@ var Dots = (function (_super) {
                 selected: i === currentPage,
                 key: i,
             };
-            if (core_1.AppHelper.isComponent(DotComponent)) {
+            if (core_1.AppHelper.isComponent(DotComponent) || core_1.AppHelper.isElement(DotComponent)) {
                 dots.push(React.cloneElement(DotComponent, props));
             }
             else {

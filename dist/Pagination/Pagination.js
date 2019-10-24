@@ -69,7 +69,7 @@ var Pagination = (function (_super) {
             title: doneLabel,
         };
         if (!hideDone && this.isLastPage()) {
-            if (core_1.AppHelper.isComponent(DoneComponent)) {
+            if (core_1.AppHelper.isComponent(DoneComponent) || core_1.AppHelper.isElement(DoneComponent)) {
                 var _s = react_native_1.StyleSheet.flatten([props.style, DoneComponent.props.style]);
                 var _p = __assign(__assign(__assign({}, props), DoneComponent.props), { style: _s });
                 return React.cloneElement(DoneComponent, _p);
@@ -108,7 +108,7 @@ var Pagination = (function (_super) {
             title: nextLabel,
         };
         if (!hideNext && !this.isLastPage()) {
-            if (core_1.AppHelper.isComponent(NextComponent)) {
+            if (core_1.AppHelper.isComponent(NextComponent) || core_1.AppHelper.isElement(NextComponent)) {
                 return React.cloneElement(NextComponent, props);
             }
             return React.createElement(button_1.default, __assign({ clear: true }, props));
@@ -124,7 +124,7 @@ var Pagination = (function (_super) {
             title: prevLabel,
         };
         if (usePrevious && !this.isFirstPage()) {
-            if (core_1.AppHelper.isComponent(PrevComponent)) {
+            if (core_1.AppHelper.isComponent(PrevComponent) || core_1.AppHelper.isElement(PrevComponent)) {
                 return React.cloneElement(PrevComponent, props);
             }
             return React.createElement(button_1.default, __assign({ clear: true }, props));
@@ -140,7 +140,7 @@ var Pagination = (function (_super) {
             title: skipLabel,
         };
         if ((!hideSkip && usePrevious && this.isFirstPage()) || (!hideSkip && !usePrevious && !this.isLastPage())) {
-            if (core_1.AppHelper.isComponent(SkipComponent)) {
+            if (core_1.AppHelper.isComponent(SkipComponent) || core_1.AppHelper.isElement(SkipComponent)) {
                 return React.cloneElement(SkipComponent, props);
             }
             return React.createElement(button_1.default, __assign({ clear: true }, props));
