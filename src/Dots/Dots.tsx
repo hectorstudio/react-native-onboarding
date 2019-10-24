@@ -46,7 +46,7 @@ export default class Dots extends React.Component<IDotsProps, IDotsState> {
         key: i,
       }
 
-      if (AppHelper.isComponent(DotComponent)) {
+      if (AppHelper.isComponent(DotComponent) || AppHelper.isElement(DotComponent)) {
         dots.push(React.cloneElement(DotComponent as any, props))
       } else {
         dots.push(<Dot { ...props } />)

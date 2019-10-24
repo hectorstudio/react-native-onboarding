@@ -74,7 +74,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
       style: StyleSheet.flatten([{ resizeMode: 'contain', height: 160 }]),
     }
 
-    if (AppHelper.isComponent(header)) {
+    if (AppHelper.isComponent(header) || AppHelper.isElement(header)) {
       return (
         <View { ...props }>
           { React.cloneElement(header as any) }
@@ -112,7 +112,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
       style: StyleSheet.flatten([{ resizeMode: 'contain', height: 160 }]),
     }
 
-    if (AppHelper.isComponent(image)) {
+    if (AppHelper.isComponent(image) || AppHelper.isElement(image)) {
       return (
         <View { ...props }>
           { React.cloneElement(image as any) }
@@ -144,7 +144,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
   public Title(): TypeComponent {
     const { allowFontScaling, isLight, title, titleStyle } = this._processProps()
 
-    if (AppHelper.isComponent(title)) {
+    if (AppHelper.isComponent(title) || AppHelper.isElement(title)) {
       return React.cloneElement(title as any, { style: titleStyle })
     }
 
@@ -169,7 +169,7 @@ export default class Page extends React.Component<IPageProps, IPageState> {
   public Subtitle(): TypeComponent {
     const { allowFontScaling, isLight, subtitle, subtitleStyle } = this._processProps()
 
-    if (AppHelper.isComponent(subtitle)) {
+    if (AppHelper.isComponent(subtitle) || AppHelper.isElement(subtitle)) {
       return React.cloneElement(subtitle as any, { style: subtitleStyle })
     }
 

@@ -80,7 +80,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if (!hideDone && this.isLastPage()) {
-      if (AppHelper.isComponent(DoneComponent)) {
+      if (AppHelper.isComponent(DoneComponent) || AppHelper.isElement(DoneComponent)) {
         const _s = StyleSheet.flatten([props.style, (DoneComponent as any).props.style])
         const _p = { ...props, ...(DoneComponent as any).props, style: _s }
 
@@ -135,7 +135,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if (!hideNext && !this.isLastPage()) {
-      if (AppHelper.isComponent(NextComponent)) {
+      if (AppHelper.isComponent(NextComponent) || AppHelper.isElement(NextComponent)) {
         return React.cloneElement(NextComponent as any, props)
       }
 
@@ -159,7 +159,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if (usePrevious && !this.isFirstPage()) {
-      if (AppHelper.isComponent(PrevComponent)) {
+      if (AppHelper.isComponent(PrevComponent) || AppHelper.isElement(PrevComponent)) {
         return React.cloneElement(PrevComponent as any, props)
       }
 
@@ -183,7 +183,7 @@ export default class Pagination extends React.Component<IPaginationProps, IPagin
     }
 
     if ((!hideSkip && usePrevious && this.isFirstPage()) || (!hideSkip && !usePrevious && !this.isLastPage())) {
-      if (AppHelper.isComponent(SkipComponent)) {
+      if (AppHelper.isComponent(SkipComponent) || AppHelper.isElement(SkipComponent)) {
         return React.cloneElement(SkipComponent as any, props)
       }
 
