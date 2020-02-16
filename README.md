@@ -1,24 +1,12 @@
-# TIC Makers - React Native Onboarding
+# Hectorstudio - React Native Onboarding
 React native component for onboarding.
 
-Powered by [TIC Makers](https://ticmakers.com)
+Powered by [hectorstudio]
 
 ## Demo
 
 [Onboarding Expo's snack]()
 
-## Install
-
-Install `@ticmakers-react-native/onboarding` package and save into `package.json`:
-
-NPM
-```shell
-$ npm install @ticmakers-react-native/onboarding --save
-```
-
-Yarn
-```shell
-$ yarn add @ticmakers-react-native/onboarding
 ```
 
 ## How to use?
